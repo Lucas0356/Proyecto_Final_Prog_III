@@ -39,21 +39,19 @@ public abstract class Personaje {
 
     @Override
     public String toString() {
-        return "Personaje{" +
-                "raza=" + raza +
-                ", nombre='" + nombre + '\'' +
-                ", apodo='" + apodo + '\'' +
-                ", fechaNacimiento=" + fechaNacimiento +
-                ", edad=" + edad +
-                ", salud=" + salud +
-                ", imagenLink='" + imagenLink + '\'' +
-                ", velocidad=" + velocidad +
-                ", destreza=" + destreza +
-                ", nivel=" + nivel +
-                ", armadura=" + armadura +
-                ", resistenciaMagica=" + resistenciaMagica +
-                ", evasion=" + evasion +
-                '}';
+        return "Raza: " + raza + "\n" +
+                "Nombre: " + nombre + "\n" +
+                "Apodo: " + apodo + "\n" +
+                "Fecha de nacimiento: " + fechaNacimiento + "\n" +
+                "Edad: " + edad + "\n" +
+                "Salud: " + salud + "\n" +
+                "Link de imagen: " + imagenLink + "\n" +
+                "Velocidad: " + velocidad + "\n" +
+                "Destreza: " + destreza + "\n" +
+                "Nivel: " + nivel + "\n" +
+                "Armadura: " + armadura + "\n" +
+                "Resistencia mágica: " + resistenciaMagica + "\n" +
+                "Evasión: " + evasion;
     }
 }
 

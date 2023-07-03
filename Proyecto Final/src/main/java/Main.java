@@ -64,6 +64,7 @@ public class Main {
 
     static Partida PartidaRapida(Partida partida) {
         System.out.println("\nUsted eligió partida rápida.");
+        System.out.println("Por favor espere mientras se crean los personajes...");
         int contador = 0;
         while (contador < 6) {
             Personaje personaje = CrearPersonajeAleatorio();

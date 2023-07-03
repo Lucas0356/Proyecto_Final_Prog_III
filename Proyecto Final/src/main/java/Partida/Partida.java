@@ -1,6 +1,9 @@
 package Partida;
 
 import Personajes.*;
+
+import java.util.Scanner;
+
 public class Partida {
     private Personaje[] jugador1 = new Personaje[3];
     private Personaje[] jugador2 = new Personaje[3];
@@ -23,20 +26,29 @@ public class Partida {
     }
 
     public void imprimirPersonajes() {
-        System.out.println("Personajes del Jugador 1:");
-        for (Personaje personaje : jugador1) {
-            if (personaje != null) {
-                System.out.println(personaje.toString());
+        for (int i = 0; i < 3; i++) {
+            if (jugador2[i] != null) {
+                System.out.println("\n========================================");
+                System.out.println("         Personaje " + (i+1) + " [jugador 1]");
+                System.out.println("========================================");
+                System.out.println(jugador1[i]);
+                System.out.println("========================================\n");
+                continuar();
             }
-        }
-
-        System.out.println("Personajes del Jugador 2:");
-        for (Personaje personaje : jugador2) {
-            if (personaje != null) {
-                System.out.println(personaje.toString());
+            if (jugador2[i] != null) {
+                System.out.println("========================================");
+                System.out.println("         Personaje " + (i+1) + " [jugador 2]");
+                System.out.println("========================================");
+                System.out.println(jugador2[i]);
+                System.out.println("========================================");
+                continuar();
             }
         }
     }
 
-
+    private void continuar(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Pulse enter para continuar: ");
+        scanner.nextLine();
+    }
 }
