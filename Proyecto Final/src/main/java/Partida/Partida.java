@@ -1,7 +1,6 @@
 package Partida;
 
 import Personajes.*;
-
 import java.util.Scanner;
 
 public class Partida {
@@ -33,7 +32,7 @@ public class Partida {
                 System.out.println("========================================");
                 System.out.println(jugador1[i]);
                 System.out.println("========================================\n");
-                continuar();
+                continuar("Pulse enter para continuar: ");
             }
             if (jugador2[i] != null) {
                 System.out.println("========================================");
@@ -41,14 +40,25 @@ public class Partida {
                 System.out.println("========================================");
                 System.out.println(jugador2[i]);
                 System.out.println("========================================");
-                continuar();
+                continuar("Pulse enter para continuar: ");
             }
         }
     }
+    public void iniciarPartida(){
+        continuar("\nPulse enter para comenzar la partida: ");
+        byte num = NumeroAleatorio.generarNumeroAleatorio(2);
+        // Se le proporciona 1 o 2, que será el jugador que comienza.
+        if (num == 1) {
+            System.out.println("Comienza el jugador 1");
+        } else{
+            System.out.println("Comienza el jugador 2");
+        }
+        continuar("Pulse enter para continuar: ");
+    }
 
-    private void continuar(){
+    private void continuar(String texto){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Pulse enter para continuar: ");
+        System.out.println(texto);
         scanner.nextLine();
     }
 }

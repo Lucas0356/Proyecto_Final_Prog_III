@@ -1,8 +1,10 @@
+package Partida;
+
 import java.util.Random;
 
 public class NumeroAleatorio {
 
-    static byte generarNumeroAleatorio(int rango) {
+    public static byte generarNumeroAleatorio(int rango) {
         // Crear una instancia de la clase Random
         Random random = new Random();
 

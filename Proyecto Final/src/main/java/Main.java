@@ -34,6 +34,7 @@ public class Main {
                     case 2:
                         Partida partida = PartidaRapida(partidaJuego);
                         partida.imprimirPersonajes();
+                        partida.iniciarPartida();
                         break;
                     case 3:
                         LeerLogs();
