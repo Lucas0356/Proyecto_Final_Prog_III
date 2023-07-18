@@ -49,6 +49,13 @@ public class Partida {
     }
     public void iniciarPartida(){
         continuar("\nPulse enter para comenzar la partida: ");
+        while(!todosMuertos(jugador1) || !todosMuertos(jugador2)){
+            ronda();
+        }
+        System.out.println("JUEGO TERMINADO");
+    }
+
+    public void ronda(){
         Personaje personajeJ1 = sortearPersonaje(jugador1);
         Personaje personajeJ2 = sortearPersonaje(jugador2);
 
@@ -64,19 +71,29 @@ public class Partida {
         int ataquesRealizadosJugador1 = 0;
         int ataquesRealizadosJugador2 = 0;
 
-        while (ataquesRealizadosJugador1 < NUM_RONDAS && ataquesRealizadosJugador2 < NUM_RONDAS
+        while ((ataquesRealizadosJugador1 < NUM_RONDAS && ataquesRealizadosJugador2 < NUM_RONDAS)
                 && personajeJ1.estaVivo() && personajeJ2.estaVivo()) {
             if (num == 1) {
                 // Comienza jugador 1
                 realizarAtaque(personajeJ1, personajeJ2);
                 ataquesRealizadosJugador1++;
+
+                if (personajeJ2.estaVivo()){
+                    realizarAtaque(personajeJ2, personajeJ1);
+                    ataquesRealizadosJugador2++;
+                }
+
             } else {
                 // Comienza jugador 2
                 realizarAtaque(personajeJ2, personajeJ1);
                 ataquesRealizadosJugador2++;
+
+                if (personajeJ1.estaVivo()) {
+                    realizarAtaque(personajeJ1, personajeJ2);
+                    ataquesRealizadosJugador1++;
+                }
             }
         }
-
     }
 
     private void continuar(String texto){
@@ -84,7 +101,6 @@ public class Partida {
         System.out.println(texto);
         scanner.nextLine();
     }
-
     public byte sortearJugador(){
         byte num = NumeroAleatorio.generarNumeroAleatorio(2);
         // Se le proporciona 1 o 2, que será el jugador que comienza
@@ -96,24 +112,21 @@ public class Partida {
         continuar("\nPulse enter para continuar: ");
         return num;
     }
-
-    public Personaje sortearPersonaje(Personaje[]personajes) {
-        byte num = NumeroAleatorio.generarNumeroAleatorio(3);
-        if (personajes[num-1].estaVivo()) {
-            return personajes[num-1];
-        }
-        return null;
+    public Personaje sortearPersonaje(Personaje[] personajes) {
+        int num;
+        do {
+            num = NumeroAleatorio.generarNumeroAleatorio(3);
+        } while (!personajes[num - 1].estaVivo());
+        return personajes[num - 1];
     }
-
     public boolean todosMuertos(Personaje[] jugador) {
         for (Personaje personaje : jugador) {
             if (personaje.estaVivo()) {
-                return false;
+                return false; // Si encuentra un personaje vivo, retorna false
             }
         }
-        return true;
+        return true; // Si no encontró personajes vivos, retorna true
     }
-
     private void realizarAtaque(Personaje atacante, Personaje defensor) {
         System.out.println(atacante.getRaza() + " '" + atacante.getApodo() + "' ataca a " +
                 defensor.getRaza() + " '" + defensor.getApodo() + "'");
