@@ -28,7 +28,7 @@ public class Partida {
     }
 
     public void imprimirPersonajes() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < NUM_PERSONAJES; i++) {
             if (jugador2[i] != null) {
                 System.out.println("\n========================================");
                 System.out.println("         Personaje " + (i+1) + " [jugador 1]");
@@ -49,7 +49,7 @@ public class Partida {
     }
     public void iniciarPartida(){
         continuar("\nPulse enter para comenzar la partida: ");
-        while(!todosMuertos(jugador1) || !todosMuertos(jugador2)){
+        while(!todosMuertos(jugador1) && !todosMuertos(jugador2)){
             ronda();
         }
         System.out.println("JUEGO TERMINADO");
