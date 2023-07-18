@@ -16,4 +16,9 @@ public class Orco extends Personaje{
               (byte) 3); // Evasión
         this.ferocidad = false;
     }
+    public byte calcularAtaque() {
+        byte ataque = (byte) (getDestreza() * fuerza * getNivel());
+        return ataque;
+    }
+
 }

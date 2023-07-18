@@ -14,4 +14,9 @@ public class Humano extends Personaje{
                 (byte) 3, // Resistencia mágica
                 (byte) 5); // Evasión
     }
+    public byte calcularAtaque() {
+        byte ataque = (byte) (getDestreza() * fuerza * getNivel());
+        return ataque;
+    }
+
 }

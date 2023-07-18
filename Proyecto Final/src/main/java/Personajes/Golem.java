@@ -16,4 +16,9 @@ public class Golem extends Personaje{
                 (byte) 6, // Resistencia mágica
                 (byte) 5); // Evasión
     }
+
+    public byte calcularAtaque() {
+        byte ataque = (byte) (getDestreza() * fuerza * getNivel());
+        return ataque;
+    }
 }

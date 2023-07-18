@@ -14,4 +14,8 @@ public class Centauro extends Personaje{
                 (byte) 4, // Resistencia mágica
                 (byte) 4); // Evasión
     }
+    public byte calcularAtaque() {
+        byte ataque = (byte) (getDestreza() * fuerza * getNivel());
+        return ataque;
+    }
 }

@@ -14,4 +14,9 @@ public class Elfo extends Personaje{
                 (byte) 7, // Resistencia mágica
                 (byte) 6); // Evasión
     }
+
+    public byte calcularAtaque() {
+        byte ataque = (byte) (getDestreza() * poderMagico * getNivel());
+        return ataque;
+    }
 }

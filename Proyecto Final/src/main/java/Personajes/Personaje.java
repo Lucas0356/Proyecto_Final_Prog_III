@@ -37,6 +37,63 @@ public abstract class Personaje {
         this.evasion = evasion;
     }
 
+    public Raza getRaza() {
+        return raza;
+    }
+
+    public byte getSalud() {
+        return salud;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApodo() {
+        return apodo;
+    }
+
+    public byte getVelocidad() {
+        return velocidad;
+    }
+
+    public byte getDestreza() {
+        return destreza;
+    }
+
+    public byte getNivel() {
+        return nivel;
+    }
+
+    public byte getArmadura() {
+        return armadura;
+    }
+
+    public byte getResistenciaMagica() {
+        return resistenciaMagica;
+    }
+
+    public byte getEvasion() {
+        return evasion;
+    }
+
+    public byte calcularAtaque() {
+        return 0;
+    }
+
+    public void recibirDaño(byte cantidad) {
+        salud -= cantidad;
+        if (salud < 0) {
+            salud = 0;
+        }
+    }
+    public boolean estaVivo() {
+        if (salud > 0){
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         return "Raza: " + raza + "\n" +
