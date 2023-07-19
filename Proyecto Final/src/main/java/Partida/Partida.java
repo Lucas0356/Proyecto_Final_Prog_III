@@ -1,6 +1,8 @@
 package Partida;
 
 import Personajes.*;
+import Utilidades.NumeroAleatorio;
+
 import java.util.Scanner;
 
 public class Partida {

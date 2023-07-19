@@ -1,5 +1,7 @@
 import Partida.*;
 import Personajes.*;
+import Utilidades.API;
+import Utilidades.NumeroAleatorio;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -109,7 +111,9 @@ public class Main {
         }
     }
 
-    // Creación de personaje ------------------------------------------------
+    // ------------------------------------------------------------------------
+
+    // Creación de personaje --------------------------------------------------
     static Personaje CrearPersonaje() {
         Raza raza = SeleccionarRaza();
         String nombre = IngresarNombre();
@@ -257,5 +261,6 @@ public class Main {
         }
         return raza;
     }
-}
 
+    // ------------------------------------------------------------------------
+}

@@ -1,4 +1,4 @@
-package Partida;
+package Utilidades;
 
 import java.util.Random;
 
