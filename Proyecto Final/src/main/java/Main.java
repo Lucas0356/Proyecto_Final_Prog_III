@@ -11,9 +11,9 @@ public class Main {
 
         boolean reiniciar = true;
         Scanner scanner = new Scanner(System.in);
-        Partida partidaJuego = new Partida();
 
         while (reiniciar) {
+            Partida partidaJuego = new Partida();
             System.out.println("==========================================");
             System.out.println("---------------- RPG GAME ----------------");
             System.out.println("     [1] Iniciar partida manual");
@@ -29,11 +29,10 @@ public class Main {
                 int opcion = scanner.nextInt();
                 switch (opcion) {
                     case 1:
-                        PartidaManual();
+                        PartidaManual(partidaJuego);
                         break;
                     case 2:
-                        Partida partida = PartidaRapida(partidaJuego);
-                        partida.iniciarPartida();
+                        PartidaRapida(partidaJuego);
                         break;
                     case 3:
                         LeerLogs();
@@ -57,12 +56,27 @@ public class Main {
         }
     }
 
-    static void PartidaManual() {
+    static void PartidaManual(Partida partida) {
         System.out.println("\nUsted eligió partida manual.");
-        CrearPersonaje();
+        byte contador = 0;
+        byte personajeJ1Num = 1;
+        byte personajeJ2Num = 1;
+        while (contador < 6) {
+            if (contador == 0 || contador == 2 || contador == 4) {
+                System.out.println("\nDefina el personaje número " + (personajeJ1Num) + " del Jugador 1");
+                partida.agregarPersonajeJugador1(CrearPersonaje());
+                personajeJ1Num++;
+            } else{
+                System.out.println("\nDefina el personaje número " + (personajeJ2Num) + " del Jugador 2");
+                partida.agregarPersonajeJugador1(CrearPersonaje());
+                personajeJ2Num++;
+            }
+            contador++;
+        }
+        partida.iniciarPartida();
     }
 
-    static Partida PartidaRapida(Partida partida) {
+    static void PartidaRapida(Partida partida) {
         System.out.println("\nUsted eligió partida rápida.");
         System.out.println("Por favor espere mientras se crean los personajes...");
         int contador = 0;
@@ -75,7 +89,7 @@ public class Main {
             }
             contador++;
         }
-        return partida;
+        partida.iniciarPartida();
     }
 
     static void LeerLogs() {
@@ -94,7 +108,7 @@ public class Main {
     }
 
     // Creación de personaje ------------------------------------------------
-    static void CrearPersonaje() {
+    static Personaje CrearPersonaje() {
         Raza raza = SeleccionarRaza();
         String nombre = IngresarNombre();
         String apodo = IngresarApodo();
@@ -102,21 +116,17 @@ public class Main {
         short edad = CalcularEdad(fechaDeNacimiento);
         switch (raza) {
             case Humano:
-                System.out.println("Humano");
-                break;
+                return new Humano(raza,nombre,apodo,fechaDeNacimiento,edad);
             case Orco:
-                System.out.println("orco");
-                break;
+                return new Orco(raza,nombre,apodo,fechaDeNacimiento,edad);
             case Elfo:
-                System.out.println("elfo");
-                break;
+                return new Elfo(raza,nombre,apodo,fechaDeNacimiento,edad);
             case Centauro:
-                System.out.println("centauro");
-                break;
+                return new Centauro(raza,nombre,apodo,fechaDeNacimiento,edad);
             case Golem:
-                System.out.println("Golem");
-                break;
+                return new Golem(raza,nombre,apodo,fechaDeNacimiento,edad);
         }
+        return null;
     }
     static Raza SeleccionarRaza() {
         Scanner scanner = new Scanner(System.in);

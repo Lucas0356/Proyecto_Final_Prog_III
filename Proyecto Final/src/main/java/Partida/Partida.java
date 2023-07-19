@@ -26,7 +26,6 @@ public class Partida {
             }
         }
     }
-
     public void imprimirPersonajes() {
         for (int i = 0; i < NUM_PERSONAJES; i++) {
             if (jugador1[i] != null) {
@@ -57,7 +56,6 @@ public class Partida {
         System.out.println("El ganador es: " + ganador);
         continuar("Pulse enter para volver al menú principal: ");
     }
-
     public String ronda(String ganador){
         while(!todosMuertos(jugador1) && !todosMuertos(jugador2)) {
             Personaje personajeJ1 = sortearPersonaje(jugador1);
@@ -89,7 +87,6 @@ public class Partida {
             }
 
             continuar("\nPulse enter para comenzar la ronda: ");
-
 
             int ataquesRealizadosJugador1 = 0;
             int ataquesRealizadosJugador2 = 0;
@@ -146,7 +143,6 @@ public class Partida {
             System.out.println("El sistema sorteó al Jugador 2 para iniciar la ronda");
         }
         System.out.println("----------------------------------------------------------------");
-        continuar("\nPulse enter para continuar: ");
         return num;
     }
     public Personaje sortearPersonaje(Personaje[] personajes) {
