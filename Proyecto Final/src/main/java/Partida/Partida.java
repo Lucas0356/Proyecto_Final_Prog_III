@@ -29,7 +29,7 @@ public class Partida {
 
     public void imprimirPersonajes() {
         for (int i = 0; i < NUM_PERSONAJES; i++) {
-            if (jugador2[i] != null) {
+            if (jugador1[i] != null) {
                 System.out.println("\n========================================");
                 System.out.println("         Personaje " + (i+1) + " [jugador 1]");
                 System.out.println("========================================");
@@ -43,59 +43,94 @@ public class Partida {
                 System.out.println("========================================");
                 System.out.println(jugador2[i]);
                 System.out.println("========================================");
-                continuar("Pulse enter para continuar: ");
+                if (i+1 != 3){ //Para que no aparezca con el último personaje, puesto que ahí ponemos otro texto.
+                    continuar("Pulse enter para continuar: ");
+                }
             }
         }
     }
     public void iniciarPartida(){
+        imprimirPersonajes();
         continuar("\nPulse enter para comenzar la partida: ");
-        while(!todosMuertos(jugador1) && !todosMuertos(jugador2)){
-            ronda();
-        }
+        String ganador = ronda("empezar");
         System.out.println("JUEGO TERMINADO");
+        System.out.println("El ganador es: " + ganador);
+        continuar("Pulse enter para volver al menú principal: ");
     }
 
-    public void ronda(){
-        Personaje personajeJ1 = sortearPersonaje(jugador1);
-        Personaje personajeJ2 = sortearPersonaje(jugador2);
+    public String ronda(String ganador){
+        while(!todosMuertos(jugador1) && !todosMuertos(jugador2)) {
+            Personaje personajeJ1 = sortearPersonaje(jugador1);
+            Personaje personajeJ2 = sortearPersonaje(jugador2);
+            byte num;
 
-        rondaActual++;
-        System.out.println("Ronda " + rondaActual);
+            rondaActual++;
+            System.out.println("\n=====================================================");
+            System.out.println("                    RONDA " + rondaActual);
+            System.out.println("=====================================================");
 
-        System.out.println("El sistema eligió al personaje " + personajeJ1.getRaza() + " para el jugador 1");
-        System.out.println("El sistema eligió al personaje " + personajeJ2.getRaza() + " para el jugador 2");
+            System.out.println("\n----------------------------------------------------------------");
+            System.out.println("El sistema eligió al personaje " + personajeJ1.getRaza() + " para el jugador 1");
+            System.out.println("El sistema eligió al personaje " + personajeJ2.getRaza() + " para el jugador 2");
+            System.out.println("----------------------------------------------------------------");
 
-        continuar("\nPulse enter para comenzar la ronda: ");
-        byte num = sortearJugador(); // Sorteo quien comienza
-
-        int ataquesRealizadosJugador1 = 0;
-        int ataquesRealizadosJugador2 = 0;
-
-        while ((ataquesRealizadosJugador1 < NUM_RONDAS && ataquesRealizadosJugador2 < NUM_RONDAS)
-                && personajeJ1.estaVivo() && personajeJ2.estaVivo()) {
-            if (num == 1) {
-                // Comienza jugador 1
-                realizarAtaque(personajeJ1, personajeJ2);
-                ataquesRealizadosJugador1++;
-
-                if (personajeJ2.estaVivo()){
-                    realizarAtaque(personajeJ2, personajeJ1);
-                    ataquesRealizadosJugador2++;
-                }
-
+            if (ganador.equals("Jugador 2 ganó")) {
+                num = 1;
+                System.out.println("----------------------------------------------------------------");
+                System.out.println("El Jugador 1 iniciará la ronda debido a haber perdido la anterior");
+                System.out.println("----------------------------------------------------------------");
+            } else if (ganador.equals("Jugador 1 ganó")) {
+                num = 2;
+                System.out.println("----------------------------------------------------------------");
+                System.out.println("El Jugador 2 iniciará la ronda debido a haber perdido la anterior");
+                System.out.println("----------------------------------------------------------------");
             } else {
-                // Comienza jugador 2
-                realizarAtaque(personajeJ2, personajeJ1);
-                ataquesRealizadosJugador2++;
+                num = sortearJugador(); // Sorteo quien comienza
+            }
 
-                if (personajeJ1.estaVivo()) {
+            continuar("\nPulse enter para comenzar la ronda: ");
+
+
+            int ataquesRealizadosJugador1 = 0;
+            int ataquesRealizadosJugador2 = 0;
+
+            while ((ataquesRealizadosJugador1 < NUM_RONDAS && ataquesRealizadosJugador2 < NUM_RONDAS)
+                    && personajeJ1.estaVivo() && personajeJ2.estaVivo()) {
+                if (num == 1) {
+                    // Comienza jugador 1
                     realizarAtaque(personajeJ1, personajeJ2);
                     ataquesRealizadosJugador1++;
+
+                    if (personajeJ2.estaVivo()) {
+                        realizarAtaque(personajeJ2, personajeJ1);
+                        ataquesRealizadosJugador2++;
+                    }
+
+                } else {
+                    // Comienza jugador 2
+                    realizarAtaque(personajeJ2, personajeJ1);
+                    ataquesRealizadosJugador2++;
+
+                    if (personajeJ1.estaVivo()) {
+                        realizarAtaque(personajeJ1, personajeJ2);
+                        ataquesRealizadosJugador1++;
+                    }
                 }
             }
+            if (!personajeJ1.estaVivo()) { // Llamado recursivo hasta que no se cumplan condiciones del bucle.
+                ronda("Jugador 2 ganó");
+            } else if (!personajeJ2.estaVivo()) {
+                ronda("Jugador 1 ganó");
+            } else {
+                ronda("empate");
+            }
+        }
+        if (todosMuertos(jugador1)) { // Retornamos el ganador de la partida
+            return ("Jugador 2");
+        } else {
+            return ("Jugador 1");
         }
     }
-
     private void continuar(String texto){
         Scanner scanner = new Scanner(System.in);
         System.out.println(texto);
@@ -104,11 +139,13 @@ public class Partida {
     public byte sortearJugador(){
         byte num = NumeroAleatorio.generarNumeroAleatorio(2);
         // Se le proporciona 1 o 2, que será el jugador que comienza
+        System.out.println("----------------------------------------------------------------");
         if (num == 1) {
             System.out.println("El sistema sorteó al Jugador 1 para iniciar la ronda");
         } else{
             System.out.println("El sistema sorteó al Jugador 2 para iniciar la ronda");
         }
+        System.out.println("----------------------------------------------------------------");
         continuar("\nPulse enter para continuar: ");
         return num;
     }
@@ -128,12 +165,14 @@ public class Partida {
         return true; // Si no encontró personajes vivos, retorna true
     }
     private void realizarAtaque(Personaje atacante, Personaje defensor) {
+        System.out.println("----------------------------------------------------------------");
         System.out.println(atacante.getRaza() + " '" + atacante.getApodo() + "' ataca a " +
                 defensor.getRaza() + " '" + defensor.getApodo() + "'");
         byte ataque = atacante.calcularAtaque();
         defensor.recibirDaño(ataque);
         System.out.println("Le ha provocado " + ataque + " de daño. " + defensor.getApodo() +
                 " queda con " + defensor.getSalud() + " de salud.");
+        System.out.println("-----------------------------------------------------------------");
         continuar("\nPulse enter para continuar: ");
     }
 }

@@ -33,7 +33,6 @@ public class Main {
                         break;
                     case 2:
                         Partida partida = PartidaRapida(partidaJuego);
-                        partida.imprimirPersonajes();
                         partida.iniciarPartida();
                         break;
                     case 3:
