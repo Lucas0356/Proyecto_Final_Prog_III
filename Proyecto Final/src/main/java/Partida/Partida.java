@@ -10,8 +10,9 @@ public class Partida {
     private Personaje[] jugador2 = new Personaje[3];
     private byte rondaActual = 0;
 
+    // Métodos públicos para interactuar con la partida -----------------------
     public void agregarPersonajeJugador1(Personaje personaje) {
-        for (int i = 0; i < jugador1.length; i++) {
+        for (byte i = 0; i < jugador1.length; i++) {
             if (jugador1[i] == null) {
                 jugador1[i] = personaje;
                 break;
@@ -19,7 +20,7 @@ public class Partida {
         }
     }
     public void agregarPersonajeJugador2(Personaje personaje) {
-        for (int i = 0; i < jugador2.length; i++) {
+        for (byte i = 0; i < jugador2.length; i++) {
             if (jugador2[i] == null) {
                 jugador2[i] = personaje;
                 break;
@@ -56,15 +57,20 @@ public class Partida {
         System.out.println("El ganador es: " + ganador);
         continuar("Pulse enter para volver al menú principal: ");
     }
-    public String ronda(String ganador){
+
+    // ------------------------------------------------------------------------
+
+    // Sección de lógica de la partida ----------------------------------------
+    private String ronda(String ganador){ // Método que representa una ronda de la partida
         while(!todosMuertos(jugador1) && !todosMuertos(jugador2)) {
+
+            // Seleccionar los personajes para la ronda
             Personaje personajeJ1 = sortearPersonaje(jugador1);
             Personaje personajeJ2 = sortearPersonaje(jugador2);
-            byte num;
 
             rondaActual++;
             System.out.println("\n=====================================================");
-            System.out.println("                    RONDA " + rondaActual);
+            System.out.println("                      RONDA " + rondaActual);
             System.out.println("=====================================================");
 
             System.out.println("\n----------------------------------------------------------------");
@@ -72,6 +78,9 @@ public class Partida {
             System.out.println("El sistema eligió al personaje " + personajeJ2.getRaza() + " para el jugador 2");
             System.out.println("----------------------------------------------------------------");
 
+
+            // Definir el jugador que comienza la ronda
+            byte num;
             if (ganador.equals("Jugador 2 ganó")) {
                 num = 1;
                 System.out.println("----------------------------------------------------------------");
@@ -114,7 +123,8 @@ public class Partida {
                     }
                 }
             }
-            if (!personajeJ1.estaVivo()) { // Llamado recursivo hasta que no se cumplan condiciones del bucle.
+            // Determinar si hay un ganador de la ronda y actualizar el ganador si es necesario
+            if (!personajeJ1.estaVivo()) {
                 ronda("Jugador 2 ganó");
             } else if (!personajeJ2.estaVivo()) {
                 ronda("Jugador 1 ganó");
@@ -128,31 +138,7 @@ public class Partida {
             return ("Jugador 1");
         }
     }
-    private void continuar(String texto){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(texto);
-        scanner.nextLine();
-    }
-    public byte sortearJugador(){
-        byte num = NumeroAleatorio.generarNumeroAleatorio(2);
-        // Se le proporciona 1 o 2, que será el jugador que comienza
-        System.out.println("----------------------------------------------------------------");
-        if (num == 1) {
-            System.out.println("El sistema sorteó al Jugador 1 para iniciar la ronda");
-        } else{
-            System.out.println("El sistema sorteó al Jugador 2 para iniciar la ronda");
-        }
-        System.out.println("----------------------------------------------------------------");
-        return num;
-    }
-    public Personaje sortearPersonaje(Personaje[] personajes) {
-        int num;
-        do {
-            num = NumeroAleatorio.generarNumeroAleatorio(3);
-        } while (!personajes[num - 1].estaVivo());
-        return personajes[num - 1];
-    }
-    public boolean todosMuertos(Personaje[] jugador) {
+    private boolean todosMuertos(Personaje[] jugador) {
         for (Personaje personaje : jugador) {
             if (personaje.estaVivo()) {
                 return false; // Si encuentra un personaje vivo, retorna false
@@ -169,6 +155,42 @@ public class Partida {
         System.out.println("Le ha provocado " + ataque + " de daño. " + defensor.getApodo() +
                 " queda con " + defensor.getSalud() + " de salud.");
         System.out.println("-----------------------------------------------------------------");
+
         continuar("\nPulse enter para continuar: ");
     }
+
+    // ------------------------------------------------------------------------
+
+    // Sección de lógica de sorteos y aleatoriedad ----------------------------
+    private byte sortearJugador(){
+        byte num = NumeroAleatorio.generarNumeroAleatorio(2);
+        // Se le proporciona 1 o 2, que será el jugador que comienza
+        System.out.println("----------------------------------------------------------------");
+        if (num == 1) {
+            System.out.println("El sistema sorteó al Jugador 1 para iniciar la ronda");
+        } else{
+            System.out.println("El sistema sorteó al Jugador 2 para iniciar la ronda");
+        }
+        System.out.println("----------------------------------------------------------------");
+        return num;
+    }
+    private Personaje sortearPersonaje(Personaje[] personajes) {
+        int num;
+        do {
+            num = NumeroAleatorio.generarNumeroAleatorio(3);
+        } while (!personajes[num - 1].estaVivo()); // Se repite el proceso mientras el personaje seleccionado esté muerto
+        return personajes[num - 1];
+    }
+
+    // ------------------------------------------------------------------------
+
+    // Otros métodos auxiliares, utilidades, etc. -----------------------------
+    private void continuar(String texto){
+        // Imprime un mensaje en la consola y espera a que el usuario presione la tecla Enter para continuar
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(texto);
+        scanner.nextLine();
+    }
+
+    // ------------------------------------------------------------------------
 }

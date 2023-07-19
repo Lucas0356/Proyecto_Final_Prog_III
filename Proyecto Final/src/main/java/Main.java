@@ -56,6 +56,8 @@ public class Main {
         }
     }
 
+    // ------------------------------------------------------------------------
+
     static void PartidaManual(Partida partida) {
         System.out.println("\nUsted eligió partida manual.");
         byte contador = 0;
