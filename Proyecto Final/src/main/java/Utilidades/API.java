@@ -3,7 +3,7 @@ package Utilidades;
 import org.json.JSONObject;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Scanner;  // Importar la clase Scanner para leer datos de la Utilidades.API
+import java.util.Scanner;  // Importar la clase Scanner para leer datos de la API
 
 public class API {
     public static String[] obtenerDatosPersonajeAleatorio() {
@@ -13,7 +13,7 @@ public class API {
             String apodo;
             String fechaNacimiento;
             do {
-                JSONObject jsonObject = obtenerDatosAPI();  // Obtener los datos del personaje desde la Utilidades.API
+                JSONObject jsonObject = obtenerDatosAPI();  // Obtener los datos del personaje desde la API
                 String nombreCompleto = jsonObject.getString("name");  // Obtener el nombre completo del objeto JSON
                 // Extraer el primer nombre del nombre completo
                 String[] partesNombre = nombreCompleto.split("\\s+");  // Dividir el nombre completo en partes separadas por espacios
@@ -34,11 +34,11 @@ public class API {
         return datos;  // Devolver los datos del personaje
     }
 
-    // Método privado para obtener los datos de la Utilidades.API
+    // Método privado para obtener los datos de la API
     private static JSONObject obtenerDatosAPI() throws IOException {
-        URL url = new URL("https://api.namefake.com/");  // Crear una instancia de la clase URL con la dirección de la Utilidades.API
+        URL url = new URL("https://api.namefake.com/");  // Crear una instancia de la clase URL con la dirección de la API
         try (Scanner scanner = new Scanner(url.openStream())) {  // Abrir un flujo de entrada desde la URL
-            StringBuilder response = new StringBuilder();  // Crear un StringBuilder para almacenar la respuesta de la Utilidades.API
+            StringBuilder response = new StringBuilder();  // Crear un StringBuilder para almacenar la respuesta de la API
             while (scanner.hasNext()) {
                 response.append(scanner.nextLine());  // Leer cada línea de la respuesta y agregarla al StringBuilder
             }
