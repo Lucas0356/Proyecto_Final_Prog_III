@@ -1,5 +1,7 @@
 package Personajes;
 
+import Utilidades.NumeroAleatorio;
+
 import java.time.LocalDate;
 public abstract class Personaje {
     // DATOS:
@@ -79,6 +81,12 @@ public abstract class Personaje {
 
     public byte calcularAtaque() {
         return 0;
+    }
+
+    public byte efectividadDeDisparo(){
+        // Genera un valor aleatorio de 1 a 100.
+        byte ED = NumeroAleatorio.generarNumeroAleatorio(100);
+        return (ED);
     }
 
     public void recibirDaño(byte cantidad) {
