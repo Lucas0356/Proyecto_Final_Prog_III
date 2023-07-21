@@ -106,23 +106,18 @@ public class Partida {
                     && personajeJ1.estaVivo() && personajeJ2.estaVivo()) {
                 if (num == 1) {
                     // Comienza jugador 1
-                    realizarAtaque(personajeJ1, personajeJ2);
+                    comprobarAtaque(personajeJ1, personajeJ2);
                     ataquesRealizadosJugador1++;
 
-                    if (personajeJ2.estaVivo()) {
-                        realizarAtaque(personajeJ2, personajeJ1);
-                        ataquesRealizadosJugador2++;
-                    }
-
+                    comprobarAtaque(personajeJ2, personajeJ1);
+                    ataquesRealizadosJugador2++;
                 } else {
                     // Comienza jugador 2
-                    realizarAtaque(personajeJ2, personajeJ1);
+                    comprobarAtaque(personajeJ2, personajeJ1);
                     ataquesRealizadosJugador2++;
 
-                    if (personajeJ1.estaVivo()) {
-                        realizarAtaque(personajeJ1, personajeJ2);
-                        ataquesRealizadosJugador1++;
-                    }
+                    comprobarAtaque(personajeJ1, personajeJ2);
+                    ataquesRealizadosJugador1++;
                 }
             }
             // Determinar si hay un ganador de la ronda y actualizar el ganador si es necesario
@@ -148,11 +143,28 @@ public class Partida {
         }
         return true; // Si no encontró personajes vivos, retorna true
     }
+    private void comprobarAtaque(Personaje atacante, Personaje defensor){
+        if (atacante.estaVivo()) {
+            if (atacante.getRaza() == Raza.Golem) {
+                Golem golem = (Golem) atacante; // Convertir atacante a tipo Golem para acceder a su método
+                if (golem.golemEstaCargandoAtaque()) {
+                    System.out.println("----------------------------------------------------------------");
+                    System.out.println("El Golem '" + atacante.getApodo() + "' esta cargando su ataque...");
+                    System.out.println("----------------------------------------------------------------");
+                    continuar("\nPulse enter para continuar: ");
+                } else {
+                    realizarAtaque(atacante, defensor);
+                }
+            } else {
+                realizarAtaque(atacante, defensor);
+            }
+        }
+    }
     private void realizarAtaque(Personaje atacante, Personaje defensor) {
         System.out.println("----------------------------------------------------------------");
         System.out.println(atacante.getRaza() + " '" + atacante.getApodo() + "' ataca a " +
                 defensor.getRaza() + " '" + defensor.getApodo() + "'");
-        byte ataque = atacante.calcularAtaque();
+        byte ataque = atacante.realizarAtaque(defensor);
         defensor.recibirDaño(ataque);
         System.out.println("Le ha provocado " + ataque + " de daño. " + defensor.getApodo() +
                 " queda con " + defensor.getSalud() + " de salud.");

@@ -2,7 +2,7 @@ package Personajes;
 
 import java.time.LocalDate;
 public class Centauro extends Personaje{
-    private final byte fuerza = 7; // Constante con valor de fuerza igual a 7
+    private final byte fuerza = 8; // Constante con valor de fuerza igual a 8
     public Centauro(Raza raza, String nombre, String apodo, LocalDate fechaNacimiento, short edad) {
         super(raza, nombre, apodo, fechaNacimiento, edad,
                 (byte) 100, // salud
@@ -11,11 +11,11 @@ public class Centauro extends Personaje{
                 (byte) 3, // Destreza
                 (byte) 1, // Nivel
                 (byte) 5, // Armadura
-                (byte) 4, // Resistencia mágica
-                (byte) 4); // Evasión
+                (byte) 4); // Resistencia mágica
     }
-    public byte calcularAtaque() {
-        byte ataque = (byte) (getDestreza() * fuerza * getNivel());
-        return ataque;
+    @Override
+    public byte calcularPoderDeDisparo() {
+        byte PD = (byte) (getDestreza() * fuerza * getNivel());
+        return PD;
     }
 }

@@ -2,21 +2,21 @@ package Personajes;
 
 import java.time.LocalDate;
 public class Humano extends Personaje{
-    private final byte fuerza = 6; // Constante con valor de fuerza igual a 6
+    private final byte fuerza = 7; // Constante con valor de fuerza igual a 7
     public Humano(Raza raza, String nombre, String apodo, LocalDate fechaNacimiento, short edad) {
         super(raza, nombre, apodo, fechaNacimiento, edad,
                 (byte) 100, // salud
                 ".img",    // Imagen
                 (byte) 6, // Velocidad
-                (byte) 3, // Destreza
+                (byte) 5, // Destreza
                 (byte) 1, // Nivel
                 (byte) 4, // Armadura
-                (byte) 3, // Resistencia mágica
-                (byte) 5); // Evasión
-    }
-    public byte calcularAtaque() {
-        byte ataque = (byte) (getDestreza() * fuerza * getNivel());
-        return ataque;
+                (byte) 4); // Resistencia mágica
     }
 
+    @Override
+    public byte calcularPoderDeDisparo() {
+        byte PD = (byte) (getDestreza() * fuerza * getNivel());
+        return PD;
+    }
 }
