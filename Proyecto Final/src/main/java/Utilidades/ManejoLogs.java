@@ -1,6 +1,9 @@
 package Utilidades;
 
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class ManejoLogs {
 
     // Atributos --------------------------------------------------------------
@@ -29,6 +32,33 @@ public class ManejoLogs {
             }
         }
     }
+    public static void recibirLogPartida(String log) {
+        System.out.println(log); // Mostramos por consola el log de la partida antes de guardarlo
+        escribirLog(log);
+    }
+    private static void escribirLog(String log){
+        try {
+            FileWriter fileWriter = new FileWriter(logs, true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
+            // Escribir el log formateado en el archivo
+            bufferedWriter.write(log);
+            bufferedWriter.newLine(); // Agregamos una línea en blanco para separar cada registro
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void nuevaPartidaFecha(){
+        // Obtener la fecha y hora actual
+        LocalDateTime fechaHoraActual = LocalDateTime.now();
+        DateTimeFormatter formatoFechaHora = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+
+        // log con la fecha y hora para mostrar de cuando es la partida
+        String logFecha = "\n[Partida iniciada el " + fechaHoraActual.format(formatoFechaHora) + "]\n";
+
+        // Escribir el log formateado en el archivo
+        escribirLog(logFecha);
+    }
     // ------------------------------------------------------------------------
 }

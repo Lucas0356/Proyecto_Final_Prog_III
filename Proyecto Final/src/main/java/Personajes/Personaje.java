@@ -9,7 +9,7 @@ public abstract class Personaje {
     private final Raza raza;
     private final String nombre;
     private final String apodo;
-    private final LocalDate fechaNacimiento; // fechaNacimiento = LocalDate.of(1990, 1, 1);
+    private final String fechaNacimiento;
     private final short edad; // entre 0 a 300
     private byte salud;
     private final String imagenLink;
@@ -24,7 +24,7 @@ public abstract class Personaje {
     // ------------------------------------------------------------------------
 
     // Constructor ------------------------------------------------------------
-    public Personaje(Raza raza, String nombre, String apodo, LocalDate fechaNacimiento, short edad, byte salud,
+    public Personaje(Raza raza, String nombre, String apodo, String fechaNacimiento, short edad, byte salud,
                      String imagenLink, byte velocidad, byte destreza, byte nivel, byte armadura,
                      byte resistenciaMagica) {
         this.raza = raza;

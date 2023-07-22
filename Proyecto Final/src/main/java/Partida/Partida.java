@@ -2,6 +2,7 @@ package Partida;
 
 import Personajes.*;
 import Utilidades.NumeroAleatorio;
+import Utilidades.ManejoLogs;
 
 import java.util.Scanner;
 
@@ -30,6 +31,7 @@ public class Partida {
         }
     }
     public void iniciarPartida() {
+        ManejoLogs.nuevaPartidaFecha();
         imprimirPersonajes();
         continuar("\nPulse enter para comenzar la partida: ");
         String ganador = ronda("Comenzar");
@@ -193,19 +195,19 @@ public class Partida {
     private void imprimirPersonajes() {
         for (int i = 0; i < NUM_PERSONAJES; i++) {
             if (jugador1[i] != null) {
-                System.out.println("\n========================================");
-                System.out.println("         Personaje " + (i + 1) + " [jugador 1]");
-                System.out.println("========================================");
-                System.out.println(jugador1[i]);
-                System.out.println("========================================\n");
+                ManejoLogs.recibirLogPartida("\n========================================");
+                ManejoLogs.recibirLogPartida("         Personaje " + (i + 1) + " [jugador 1]");
+                ManejoLogs.recibirLogPartida("========================================");
+                ManejoLogs.recibirLogPartida(String.valueOf(jugador1[i]));
+                ManejoLogs.recibirLogPartida("========================================\n");
                 continuar("Pulse enter para continuar: ");
             }
             if (jugador2[i] != null) {
-                System.out.println("========================================");
-                System.out.println("         Personaje " + (i + 1) + " [jugador 2]");
-                System.out.println("========================================");
-                System.out.println(jugador2[i]);
-                System.out.println("========================================");
+                ManejoLogs.recibirLogPartida("========================================");
+                ManejoLogs.recibirLogPartida("         Personaje " + (i + 1) + " [jugador 2]");
+                ManejoLogs.recibirLogPartida("========================================");
+                ManejoLogs.recibirLogPartida(String.valueOf(jugador2[i]));
+                ManejoLogs.recibirLogPartida("========================================");
                 if (i + 1 != 3) { //Para que no aparezca con el último personaje, puesto que ahí ponemos otro texto.
                     continuar("Pulse enter para continuar: ");
                 }

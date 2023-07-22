@@ -3,6 +3,8 @@ package Utilidades;
 import org.json.JSONObject;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;  // Importar la clase Scanner para leer datos de la API
 
 public class API {
@@ -29,7 +31,7 @@ public class API {
             // En caso de excepción, establecer datos genéricos
             datos[0] = "Sin nombre";
             datos[1] = "Sin apodo";
-            datos[2] = "1990-01-01";
+            datos[2] = "05-05-2000";
         }
         return datos;  // Devolver los datos del personaje
     }

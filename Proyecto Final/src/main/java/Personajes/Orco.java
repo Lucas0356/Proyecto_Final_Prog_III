@@ -10,7 +10,7 @@ public class Orco extends Personaje{
     // ------------------------------------------------------------------------
 
     // Constructor ------------------------------------------------------------
-    public Orco(Raza raza, String nombre, String apodo, LocalDate fechaNacimiento, short edad) {
+    public Orco(Raza raza, String nombre, String apodo, String fechaNacimiento, short edad) {
         super(raza, nombre, apodo, fechaNacimiento, edad,
                 (byte) 100, // salud
                 ".img",    // Imagen

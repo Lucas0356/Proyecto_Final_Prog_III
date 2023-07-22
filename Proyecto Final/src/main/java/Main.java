@@ -5,7 +5,7 @@ import Utilidades.NumeroAleatorio;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.format.DateTimeParseException;
+import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -114,7 +114,7 @@ public class Main {
         Raza raza = SeleccionarRaza();
         String nombre = IngresarNombre();
         String apodo = IngresarApodo();
-        LocalDate fechaDeNacimiento = IngresarFechaNacimiento();
+        String fechaDeNacimiento = IngresarFechaNacimiento();
         short edad = CalcularEdad(fechaDeNacimiento);
         switch (raza) {
             case Humano:
@@ -186,23 +186,20 @@ public class Main {
         }
         return apodo;
     }
-    public static LocalDate IngresarFechaNacimiento() {
+    public static String IngresarFechaNacimiento() {
         Scanner scanner = new Scanner(System.in);
         String fechaString;
         do {
-            System.out.println("Ingrese su fecha de nacimiento (formato: YYYY-MM-DD): ");
+            System.out.println("Ingrese su fecha de nacimiento (formato: DD-MM-YYYY): ");
             fechaString = scanner.nextLine();
-            try {
-                LocalDate fechaNacimiento = LocalDate.parse(fechaString);
-                int edad = CalcularEdad(fechaNacimiento);
-
+            LocalDate fechaDeNacimiento = LocalDate.parse(fechaString, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+            if (fechaDeNacimiento != null) {
+                int edad = CalcularEdad(fechaString);
                 if (edad > 300) {
                     System.out.println("La edad ingresada supera el límite máximo de 300 años. Por favor, ingrésela nuevamente.");
                 } else {
-                    return fechaNacimiento;
+                    return fechaString;
                 }
-            } catch (DateTimeParseException e) {
-                System.out.println("Fecha de nacimiento inválida. Por favor, ingrésela nuevamente.");
             }
         } while (true);
     }
@@ -211,9 +208,11 @@ public class Main {
     // Creación de personaje aleatoria  ---------------------------------------
     static Personaje CrearPersonajeAleatorio() {
         Raza raza = razaAleatoria();
-        String nombre = API.obtenerDatosPersonajeAleatorio()[0];
-        String apodo = API.obtenerDatosPersonajeAleatorio()[1];
-        LocalDate fechaDeNacimiento = LocalDate.parse(API.obtenerDatosPersonajeAleatorio()[2]);
+        String[] datosPersonajeAleatorio = API.obtenerDatosPersonajeAleatorio();
+        String nombre = datosPersonajeAleatorio[0];
+        String apodo = datosPersonajeAleatorio[1];
+        String fechaDeNacimiento = datosPersonajeAleatorio[2];
+
         short edad = CalcularEdad(fechaDeNacimiento);
         switch (raza) {
             case Humano:
@@ -254,9 +253,10 @@ public class Main {
     // ------------------------------------------------------------------------
 
     // Otros métodos auxiliares, utilidades, impresiones, etc. ----------------
-    static short CalcularEdad(LocalDate fechaDeNacimiento){
+    static short CalcularEdad(String fechaDeNacimiento) {
         LocalDate fechaActual = LocalDate.now();
-        Period edad = Period.between(fechaDeNacimiento, fechaActual);
+        LocalDate fechaNacimiento = LocalDate.parse(fechaDeNacimiento);
+        Period edad = Period.between(fechaNacimiento, fechaActual);
         return (short) edad.getYears();
     }
     // ------------------------------------------------------------------------

@@ -8,7 +8,7 @@ public class Centauro extends Personaje{
     // ------------------------------------------------------------------------
 
     // Constructor ------------------------------------------------------------
-    public Centauro(Raza raza, String nombre, String apodo, LocalDate fechaNacimiento, short edad) {
+    public Centauro(Raza raza, String nombre, String apodo, String fechaNacimiento, short edad) {
         super(raza, nombre, apodo, fechaNacimiento, edad,
                 (byte) 100, // salud
                 ".img",    // Imagen

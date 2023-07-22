@@ -13,9 +13,9 @@ class HumanoTest {
     void realizarAtaque() {
         // Creamos personajes ficticios para la prueba
         Personaje personajeAtacante = new Humano(Raza.Humano, "Lucas", "Lukitas",
-                LocalDate.parse("2000-05-06"), (short) 20);
+                "06-05-2003", (short) 20);
         Personaje personajeDefensor = new Elfo(Raza.Elfo, "Juan", "Juancito",
-                LocalDate.parse("1997-10-25"), (short) 26);
+                "25-10-1998", (short) 26);
 
         // Ejecutar el método a probar
         personajeAtacante.realizarAtaque(personajeDefensor);
