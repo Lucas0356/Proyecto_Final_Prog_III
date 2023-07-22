@@ -4,7 +4,8 @@ import Utilidades.NumeroAleatorio;
 
 import java.time.LocalDate;
 public abstract class Personaje {
-    // DATOS:
+
+    // Datos ------------------------------------------------------------------
     private final Raza raza;
     private final String nombre;
     private final String apodo;
@@ -12,14 +13,17 @@ public abstract class Personaje {
     private final short edad; // entre 0 a 300
     private byte salud;
     private final String imagenLink;
+    // ------------------------------------------------------------------------
 
-    // CARACTERÍSTICAS:
+    // Características --------------------------------------------------------
     private final byte velocidad; // 1 a 10
-    private final byte destreza; // 1 a 5
-    private byte nivel; // 1 a 10
+    private final byte destreza; // 1 a 10
+    private byte nivel; // 1 a 4
     private final byte armadura; // 1 a 10 - Reduce el daño recibido de los ataques físicos.
     private final byte resistenciaMagica; // 1 a 10 - Reduce el daño recibido de los ataques mágicos.
+    // ------------------------------------------------------------------------
 
+    // Constructor ------------------------------------------------------------
     public Personaje(Raza raza, String nombre, String apodo, LocalDate fechaNacimiento, short edad, byte salud,
                      String imagenLink, byte velocidad, byte destreza, byte nivel, byte armadura,
                      byte resistenciaMagica) {
@@ -36,7 +40,6 @@ public abstract class Personaje {
         this.armadura = armadura;
         this.resistenciaMagica = resistenciaMagica;
     }
-
     // ------------------------------------------------------------------------
 
     // Sección de Getters -----------------------------------------------------
@@ -154,5 +157,6 @@ public abstract class Personaje {
                 "\n[" + (num + 1) + "] " + getRazaYapodo() + mensajeDedicado +
                 "\n================================================================";
     }
+    // ------------------------------------------------------------------------
 }
 

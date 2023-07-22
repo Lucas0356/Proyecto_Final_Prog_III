@@ -8,33 +8,31 @@ import java.util.Scanner;
 public class Partida {
     private static final int NUM_PERSONAJES = 3;
     private static final int NUM_RONDAS = 7;
-    private Personaje[] jugador1 = new Personaje[3];
-    private Personaje[] jugador2 = new Personaje[3];
+    private final Personaje[] jugador1 = new Personaje[3];
+    private final Personaje[] jugador2 = new Personaje[3];
     private byte rondaActual = 0;
 
     // Métodos públicos para interactuar con la partida -----------------------
     public void agregarPersonajeJugador1(Personaje personaje) {
-        for (byte i = 0; i < jugador1.length; i++) {
-            if (jugador1[i] == null) {
-                jugador1[i] = personaje;
+        for (byte contador = 0; contador < jugador1.length; contador++) {
+            if (jugador1[contador] == null) {
+                jugador1[contador] = personaje;
                 break;
             }
         }
     }
-
     public void agregarPersonajeJugador2(Personaje personaje) {
-        for (byte i = 0; i < jugador2.length; i++) {
-            if (jugador2[i] == null) {
-                jugador2[i] = personaje;
+        for (byte contador = 0; contador < jugador2.length; contador++) {
+            if (jugador2[contador] == null) {
+                jugador2[contador] = personaje;
                 break;
             }
         }
     }
-
     public void iniciarPartida() {
         imprimirPersonajes();
         continuar("\nPulse enter para comenzar la partida: ");
-        String ganador = ronda("empezar");
+        String ganador = ronda("Comenzar");
         if (ganador.equals("JUGADOR 1")){
             imprimirGanador(ganador, jugador1);
         } else {
@@ -48,6 +46,7 @@ public class Partida {
     // Sección de lógica de la partida ----------------------------------------
     private String ronda(String ganador) { // Método que representa una ronda de la partida
         while (!todosMuertos(jugador1) && !todosMuertos(jugador2)) {
+            // Bucle hasta que algún jugador haya perdido todos sus personajes
 
             // Seleccionar los personajes para la ronda
             Personaje personajeJ1 = sortearPersonaje(jugador1);
@@ -106,7 +105,6 @@ public class Partida {
             return ("JUGADOR 1");
         }
     }
-
     private boolean todosMuertos(Personaje[] jugador) {
         for (Personaje personaje : jugador) {
             if (personaje.estaVivo()) {
@@ -115,7 +113,6 @@ public class Partida {
         }
         return true; // Si no encontró personajes vivos, retorna true
     }
-
     private void comprobarAtaque(Personaje atacante, Personaje defensor) {
         if (atacante.estaVivo()) {
             if (atacante.getRaza() == Raza.Golem) {
@@ -133,7 +130,6 @@ public class Partida {
             }
         }
     }
-
     private void realizarAtaque(Personaje atacante, Personaje defensor) {
         System.out.println("----------------------------------------------------------------");
         System.out.println(atacante.getRaza() + " '" + atacante.getApodo() + "' ataca a " +
@@ -148,7 +144,6 @@ public class Partida {
 
         continuar("\nPulse enter para continuar: ");
     }
-
     private void verificarEnfurecimientoOrco(Personaje defensor) {
         if (defensor.getRaza() == Raza.Orco) {
             Orco orco = (Orco) defensor; // Convertir defensor a tipo Orco para acceder a su método
@@ -178,7 +173,6 @@ public class Partida {
         System.out.println("----------------------------------------------------------------");
         return num;
     }
-
     private Personaje sortearPersonaje(Personaje[] personajes) {
         int num;
         do {
