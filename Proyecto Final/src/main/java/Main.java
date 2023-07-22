@@ -1,6 +1,6 @@
 import Partida.*;
 import Personajes.*;
-import Utilidades.API;
+import Utilidades.*;
 import Utilidades.NumeroAleatorio;
 
 import java.time.LocalDate;
@@ -8,11 +8,14 @@ import java.time.Period;
 import java.time.format.DateTimeParseException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
         boolean reiniciar = true;
         Scanner scanner = new Scanner(System.in);
+        // Verificar si el archivo de la partida existe, y si no, crearlo
+        ManejoLogs.verificarArchivo();
 
         while (reiniciar) {
             Partida partidaJuego = new Partida();
@@ -64,12 +67,12 @@ public class Main {
         final int NUM_PERSONAJES_POR_JUGADOR = 3;
 
         for (int i = 0; i < NUM_PERSONAJES_POR_JUGADOR * 2; i++) {
-            System.out.println("----------------------------------------------------------------");
+            System.out.println("\n----------------------------------------------------------------");
             if (i % 2 == 0) {
-                System.out.println("\nDefina el personaje número " + (i / 2 + 1) + " del Jugador 1");
+                System.out.println("Defina el personaje número " + (i / 2 + 1) + " del Jugador 1");
                 partida.agregarPersonajeJugador1(CrearPersonaje());
             } else {
-                System.out.println("\nDefina el personaje número " + (i / 2 + 1) + " del Jugador 2");
+                System.out.println("Defina el personaje número " + (i / 2 + 1) + " del Jugador 2");
                 partida.agregarPersonajeJugador2(CrearPersonaje());
             }
         }
