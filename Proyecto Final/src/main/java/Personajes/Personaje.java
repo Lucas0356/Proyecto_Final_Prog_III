@@ -43,37 +43,20 @@ public abstract class Personaje {
     public Raza getRaza() {
         return raza;
     }
-
     public byte getSalud() {
         return salud;
     }
-
-    public String getNombre() {
-        return nombre;
+    public String getRazaYapodo() {
+        return raza + " '" + apodo + "'";
     }
-
     public String getApodo() {
         return apodo;
     }
-
-    public byte getVelocidad() {
-        return velocidad;
-    }
-
     public byte getDestreza() {
         return destreza;
     }
-
     public byte getNivel() {
         return nivel;
-    }
-
-    public byte getArmadura() {
-        return armadura;
-    }
-
-    public byte getResistenciaMagica() {
-        return resistenciaMagica;
     }
 
     // ------------------------------------------------------------------------
@@ -105,9 +88,9 @@ public abstract class Personaje {
         // Retorna el poder de resistencia mágica
         return PDEF;
     }
-    public byte calcularValorFinalAtaque(double VA, double PDEF){
-        double valorAtaqueFinal = (VA - (VA * (PDEF / 100))); // Convertir en double para evitar divisiones enteras
-        return (byte) Math.round(valorAtaqueFinal); // Redondear el valor y convertirlo a byte
+    public byte calcularDaño(double VA, double PDEF){
+        double daño = (VA - (VA * (PDEF / 100))); // Convertir en double para evitar divisiones enteras
+        return (byte) Math.round(daño); // Redondear el valor y convertirlo a byte
     }
     public byte realizarAtaque(Personaje defensor) {
         // Calcular el valor de ataque del atacante
@@ -124,9 +107,9 @@ public abstract class Personaje {
         }
 
         // Calcular el valor final del ataque
-        byte valorFinalAtaque = calcularValorFinalAtaque(valorDeAtaque, PDEF);
+        byte daño = calcularDaño(valorDeAtaque, PDEF);
 
-        return valorFinalAtaque;
+        return daño;
     }
     public void recibirDaño(byte cantidad) {
         salud -= cantidad;

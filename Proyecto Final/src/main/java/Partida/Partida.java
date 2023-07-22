@@ -71,28 +71,16 @@ public class Partida {
             Personaje personajeJ2 = sortearPersonaje(jugador2);
 
             rondaActual++;
-            System.out.println("\n=====================================================");
-            System.out.println("                      RONDA " + rondaActual);
-            System.out.println("=====================================================");
-
-            System.out.println("\n----------------------------------------------------------------");
-            System.out.println("El sistema eligió al personaje " + personajeJ1.getRaza() + " para el jugador 1");
-            System.out.println("El sistema eligió al personaje " + personajeJ2.getRaza() + " para el jugador 2");
-            System.out.println("----------------------------------------------------------------");
-
+            imprimirRonda(personajeJ1.getRazaYapodo(), personajeJ2.getRazaYapodo());
 
             // Definir el jugador que comienza la ronda
             byte num;
             if (ganador.equals("Jugador 2 ganó")) {
                 num = 1;
-                System.out.println("----------------------------------------------------------------");
-                System.out.println("El Jugador 1 iniciará la ronda debido a haber perdido la anterior");
-                System.out.println("----------------------------------------------------------------");
+                imprimirJugadorQueInicia("Jugador 1");
             } else if (ganador.equals("Jugador 1 ganó")) {
                 num = 2;
-                System.out.println("----------------------------------------------------------------");
-                System.out.println("El Jugador 2 iniciará la ronda debido a haber perdido la anterior");
-                System.out.println("----------------------------------------------------------------");
+                imprimirJugadorQueInicia("Jugador 2");
             } else {
                 num = sortearJugador(); // Sorteo quien comienza
             }
@@ -170,7 +158,22 @@ public class Partida {
                 " queda con " + defensor.getSalud() + " de salud.");
         System.out.println("-----------------------------------------------------------------");
 
+        verificarEnfurecimientoOrco(defensor); // Habilidad del orco
+
         continuar("\nPulse enter para continuar: ");
+    }
+    private void verificarEnfurecimientoOrco(Personaje defensor){
+        if (defensor.getRaza() == Raza.Orco) {
+            Orco orco = (Orco) defensor; // Convertir defensor a tipo Orco para acceder a su método
+            orco.incrementarAtaquesRecibidos();
+            if (orco.getAtaquesRecibidos() >= 2) {
+                orco.activarFerocidad();
+                orco.resetearAtaquesRecibidos();
+                System.out.println("----------------------------------------------------------------");
+                System.out.println("¡El Orco '" + orco.getApodo() + "' se ha enfurecido y hará más daño\nen el próximo ataque!");
+                System.out.println("----------------------------------------------------------------");
+            }
+        }
     }
 
     // ------------------------------------------------------------------------
@@ -204,6 +207,21 @@ public class Partida {
         Scanner scanner = new Scanner(System.in);
         System.out.println(texto);
         scanner.nextLine();
+    }
+    private void imprimirRonda(String nombrePJ1, String nombrePJ2){
+        System.out.println("\n=====================================================");
+        System.out.println("                      RONDA " + rondaActual);
+        System.out.println("=====================================================");
+
+        System.out.println("\n----------------------------------------------------------------");
+        System.out.println("El sistema eligió al personaje " + nombrePJ1 + " para el jugador 1");
+        System.out.println("El sistema eligió al personaje " + nombrePJ2 + " para el jugador 2");
+        System.out.println("----------------------------------------------------------------");
+    }
+    private void imprimirJugadorQueInicia(String jugador){
+        System.out.println("----------------------------------------------------------------");
+        System.out.println("El " + jugador + " iniciará la ronda debido a haber perdido la anterior");
+        System.out.println("----------------------------------------------------------------");
     }
 
     // ------------------------------------------------------------------------
