@@ -5,20 +5,20 @@ import Utilidades.NumeroAleatorio;
 import java.time.LocalDate;
 public abstract class Personaje {
     // DATOS:
-    private Raza raza;
-    private String nombre;
-    private String apodo;
-    private LocalDate fechaNacimiento; // fechaNacimiento = LocalDate.of(1990, 1, 1);
-    private short edad; // entre 0 a 300
+    private final Raza raza;
+    private final String nombre;
+    private final String apodo;
+    private final LocalDate fechaNacimiento; // fechaNacimiento = LocalDate.of(1990, 1, 1);
+    private final short edad; // entre 0 a 300
     private byte salud;
-    private String imagenLink;
+    private final String imagenLink;
 
     // CARACTERÍSTICAS:
-    private byte velocidad; // 1 a 10
-    private byte destreza; // 1 a 5
+    private final byte velocidad; // 1 a 10
+    private final byte destreza; // 1 a 5
     private byte nivel; // 1 a 10
-    private byte armadura; // 1 a 10 - Reduce el daño recibido de los ataques físicos.
-    private byte resistenciaMagica; // 1 a 10 - Reduce el daño recibido de los ataques mágicos.
+    private final byte armadura; // 1 a 10 - Reduce el daño recibido de los ataques físicos.
+    private final byte resistenciaMagica; // 1 a 10 - Reduce el daño recibido de los ataques mágicos.
 
     public Personaje(Raza raza, String nombre, String apodo, LocalDate fechaNacimiento, short edad, byte salud,
                      String imagenLink, byte velocidad, byte destreza, byte nivel, byte armadura,
@@ -39,7 +39,7 @@ public abstract class Personaje {
 
     // ------------------------------------------------------------------------
 
-    // Sección de Getters y Setters -------------------------------------------
+    // Sección de Getters -----------------------------------------------------
     public Raza getRaza() {
         return raza;
     }
@@ -62,6 +62,25 @@ public abstract class Personaje {
     // ------------------------------------------------------------------------
 
     // Sección de lógica de los ataques ---------------------------------------
+    public byte realizarAtaque(Personaje defensor) {
+        // Calcular el valor de ataque del atacante
+        byte poderDeDisparo = calcularPoderDeDisparo();
+        byte efectividadDeDisparo = generarEfectividadDeDisparo();
+        byte valorDeAtaque = calcularValorDeAtaque(poderDeDisparo, efectividadDeDisparo);
+
+        // Calcular el poder de defensa del defensor
+        byte PDEF; // poder de defensa o de resistencia mágica.
+        if (this.getRaza() == Raza.Elfo){
+            PDEF = defensor.calcularPoderDeResistenciaMagica();
+        } else{
+            PDEF = defensor.calcularPoderDeDefensa();
+        }
+
+        // Calcular el valor final del ataque
+        byte daño = calcularDaño(valorDeAtaque, PDEF);
+
+        return daño;
+    }
     public abstract byte calcularPoderDeDisparo();
     public byte generarEfectividadDeDisparo() {
         // Genera un valor aleatorio de 1 a 100.
@@ -92,25 +111,6 @@ public abstract class Personaje {
         double daño = (VA - (VA * (PDEF / 100))); // Convertir en double para evitar divisiones enteras
         return (byte) Math.round(daño); // Redondear el valor y convertirlo a byte
     }
-    public byte realizarAtaque(Personaje defensor) {
-        // Calcular el valor de ataque del atacante
-        byte poderDeDisparo = calcularPoderDeDisparo();
-        byte efectividadDeDisparo = generarEfectividadDeDisparo();
-        byte valorDeAtaque = calcularValorDeAtaque(poderDeDisparo, efectividadDeDisparo);
-
-        // Calcular el poder de defensa del defensor
-        byte PDEF; // poder de defensa o de resistencia mágica.
-        if (this.getRaza() == Raza.Elfo){
-            PDEF = defensor.calcularPoderDeResistenciaMagica();
-        } else{
-            PDEF = defensor.calcularPoderDeDefensa();
-        }
-
-        // Calcular el valor final del ataque
-        byte daño = calcularDaño(valorDeAtaque, PDEF);
-
-        return daño;
-    }
     public void recibirDaño(byte cantidad) {
         salud -= cantidad;
         if (salud < 0) {
@@ -120,7 +120,7 @@ public abstract class Personaje {
 
     // ------------------------------------------------------------------------
 
-    // Otros métodos auxiliares, utilidades, etc. -----------------------------
+    // Otros métodos auxiliares, utilidades, impresiones, etc. ----------------
     public boolean estaVivo() {
         if (salud > 0){
             return true;

@@ -59,51 +59,44 @@ public class Main {
     }
 
     // ------------------------------------------------------------------------
-
     static void PartidaManual(Partida partida) {
         System.out.println("\nUsted eligió partida manual.");
-        byte contador = 0;
-        byte personajeJ1Num = 1;
-        byte personajeJ2Num = 1;
-        while (contador < 6) {
-            if (contador == 0 || contador == 2 || contador == 4) {
-                System.out.println("\nDefina el personaje número " + (personajeJ1Num) + " del Jugador 1");
+        final int NUM_PERSONAJES_POR_JUGADOR = 3;
+
+        for (int i = 0; i < NUM_PERSONAJES_POR_JUGADOR * 2; i++) {
+            System.out.println("----------------------------------------------------------------");
+            if (i % 2 == 0) {
+                System.out.println("\nDefina el personaje número " + (i / 2 + 1) + " del Jugador 1");
                 partida.agregarPersonajeJugador1(CrearPersonaje());
-                personajeJ1Num++;
-            } else{
-                System.out.println("\nDefina el personaje número " + (personajeJ2Num) + " del Jugador 2");
-                partida.agregarPersonajeJugador1(CrearPersonaje());
-                personajeJ2Num++;
+            } else {
+                System.out.println("\nDefina el personaje número " + (i / 2 + 1) + " del Jugador 2");
+                partida.agregarPersonajeJugador2(CrearPersonaje());
             }
-            contador++;
         }
+
         partida.iniciarPartida();
     }
-
     static void PartidaRapida(Partida partida) {
         System.out.println("\nUsted eligió partida rápida.");
         System.out.println("Por favor espere mientras se crean los personajes...");
-        int contador = 0;
-        while (contador < 6) {
+        final int NUM_PERSONAJES_POR_JUGADOR = 3;
+
+        for (int contador = 0; contador < NUM_PERSONAJES_POR_JUGADOR * 2; contador++) {
             Personaje personaje = CrearPersonajeAleatorio();
-            if (contador == 0 || contador == 2 || contador == 4) {
+            if (contador % 2 == 0) {
                 partida.agregarPersonajeJugador1(personaje);
-            } else{
+            } else {
                 partida.agregarPersonajeJugador2(personaje);
             }
-            contador++;
         }
         partida.iniciarPartida();
     }
-
     static void LeerLogs() {
         System.out.println("\nUsted eligió leer partidas anteriores.");
     }
-
     static void BorrarLogs() {
         System.out.println("\nUsted eligió borrar partidas anteriores.");
     }
-
     static void BorrarConsola() {
         // Simula el borrado de la consola imprimiendo una serie de líneas en blanco
         for (int i = 0; i < 50; i++) {
@@ -200,7 +193,7 @@ public class Main {
                 LocalDate fechaNacimiento = LocalDate.parse(fechaString);
                 int edad = CalcularEdad(fechaNacimiento);
 
-                if (edad> 300) {
+                if (edad > 300) {
                     System.out.println("La edad ingresada supera el límite máximo de 300 años. Por favor, ingrésela nuevamente.");
                 } else {
                     return fechaNacimiento;
@@ -210,12 +203,6 @@ public class Main {
             }
         } while (true);
     }
-    static short CalcularEdad(LocalDate fechaDeNacimiento){
-        LocalDate fechaActual = LocalDate.now();
-        Period edad = Period.between(fechaDeNacimiento, fechaActual);
-        return (short) edad.getYears();
-    }
-
     // ------------------------------------------------------------------------
 
     // Creación de personaje aleatoria  ---------------------------------------
@@ -261,6 +248,13 @@ public class Main {
         }
         return raza;
     }
+    // ------------------------------------------------------------------------
 
+    // Otros métodos auxiliares, utilidades, impresiones, etc. ----------------
+    static short CalcularEdad(LocalDate fechaDeNacimiento){
+        LocalDate fechaActual = LocalDate.now();
+        Period edad = Period.between(fechaDeNacimiento, fechaActual);
+        return (short) edad.getYears();
+    }
     // ------------------------------------------------------------------------
 }
