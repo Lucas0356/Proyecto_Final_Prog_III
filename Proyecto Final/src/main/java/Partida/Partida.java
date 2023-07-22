@@ -21,6 +21,7 @@ public class Partida {
             }
         }
     }
+
     public void agregarPersonajeJugador2(Personaje personaje) {
         for (byte i = 0; i < jugador2.length; i++) {
             if (jugador2[i] == null) {
@@ -29,42 +30,24 @@ public class Partida {
             }
         }
     }
-    public void imprimirPersonajes() {
-        for (int i = 0; i < NUM_PERSONAJES; i++) {
-            if (jugador1[i] != null) {
-                System.out.println("\n========================================");
-                System.out.println("         Personaje " + (i+1) + " [jugador 1]");
-                System.out.println("========================================");
-                System.out.println(jugador1[i]);
-                System.out.println("========================================\n");
-                continuar("Pulse enter para continuar: ");
-            }
-            if (jugador2[i] != null) {
-                System.out.println("========================================");
-                System.out.println("         Personaje " + (i+1) + " [jugador 2]");
-                System.out.println("========================================");
-                System.out.println(jugador2[i]);
-                System.out.println("========================================");
-                if (i+1 != 3){ //Para que no aparezca con el último personaje, puesto que ahí ponemos otro texto.
-                    continuar("Pulse enter para continuar: ");
-                }
-            }
-        }
-    }
-    public void iniciarPartida(){
+
+    public void iniciarPartida() {
         imprimirPersonajes();
         continuar("\nPulse enter para comenzar la partida: ");
         String ganador = ronda("empezar");
-        System.out.println("JUEGO TERMINADO");
-        System.out.println("El ganador es: " + ganador);
+        if (ganador.equals("JUGADOR 1")){
+            imprimirGanador(ganador, jugador1);
+        } else {
+            imprimirGanador(ganador, jugador2);
+        }
         continuar("Pulse enter para volver al menú principal: ");
     }
 
     // ------------------------------------------------------------------------
 
     // Sección de lógica de la partida ----------------------------------------
-    private String ronda(String ganador){ // Método que representa una ronda de la partida
-        while(!todosMuertos(jugador1) && !todosMuertos(jugador2)) {
+    private String ronda(String ganador) { // Método que representa una ronda de la partida
+        while (!todosMuertos(jugador1) && !todosMuertos(jugador2)) {
 
             // Seleccionar los personajes para la ronda
             Personaje personajeJ1 = sortearPersonaje(jugador1);
@@ -118,11 +101,12 @@ public class Partida {
             }
         }
         if (todosMuertos(jugador1)) { // Retornamos el ganador de la partida
-            return ("Jugador 2");
+            return ("JUGADOR 2");
         } else {
-            return ("Jugador 1");
+            return ("JUGADOR 1");
         }
     }
+
     private boolean todosMuertos(Personaje[] jugador) {
         for (Personaje personaje : jugador) {
             if (personaje.estaVivo()) {
@@ -131,7 +115,8 @@ public class Partida {
         }
         return true; // Si no encontró personajes vivos, retorna true
     }
-    private void comprobarAtaque(Personaje atacante, Personaje defensor){
+
+    private void comprobarAtaque(Personaje atacante, Personaje defensor) {
         if (atacante.estaVivo()) {
             if (atacante.getRaza() == Raza.Golem) {
                 Golem golem = (Golem) atacante; // Convertir atacante a tipo Golem para acceder a su método
@@ -148,6 +133,7 @@ public class Partida {
             }
         }
     }
+
     private void realizarAtaque(Personaje atacante, Personaje defensor) {
         System.out.println("----------------------------------------------------------------");
         System.out.println(atacante.getRaza() + " '" + atacante.getApodo() + "' ataca a " +
@@ -162,7 +148,8 @@ public class Partida {
 
         continuar("\nPulse enter para continuar: ");
     }
-    private void verificarEnfurecimientoOrco(Personaje defensor){
+
+    private void verificarEnfurecimientoOrco(Personaje defensor) {
         if (defensor.getRaza() == Raza.Orco) {
             Orco orco = (Orco) defensor; // Convertir defensor a tipo Orco para acceder a su método
             orco.incrementarAtaquesRecibidos();
@@ -179,18 +166,19 @@ public class Partida {
     // ------------------------------------------------------------------------
 
     // Sección de lógica de sorteos y aleatoriedad ----------------------------
-    private byte sortearJugador(){
+    private byte sortearJugador() {
         byte num = NumeroAleatorio.generarNumeroAleatorio(2);
         // Se le proporciona 1 o 2, que será el jugador que comienza
         System.out.println("----------------------------------------------------------------");
         if (num == 1) {
             System.out.println("El sistema sorteó al Jugador 1 para iniciar la ronda");
-        } else{
+        } else {
             System.out.println("El sistema sorteó al Jugador 2 para iniciar la ronda");
         }
         System.out.println("----------------------------------------------------------------");
         return num;
     }
+
     private Personaje sortearPersonaje(Personaje[] personajes) {
         int num;
         do {
@@ -201,14 +189,36 @@ public class Partida {
 
     // ------------------------------------------------------------------------
 
-    // Otros métodos auxiliares, utilidades, etc. -----------------------------
-    private void continuar(String texto){
+    // Otros métodos auxiliares, utilidades, impresiones, etc. ----------------
+    private void continuar(String texto) {
         // Imprime un mensaje en la consola y espera a que el usuario presione la tecla Enter para continuar
         Scanner scanner = new Scanner(System.in);
         System.out.println(texto);
         scanner.nextLine();
     }
-    private void imprimirRonda(String nombrePJ1, String nombrePJ2){
+    private void imprimirPersonajes() {
+        for (int i = 0; i < NUM_PERSONAJES; i++) {
+            if (jugador1[i] != null) {
+                System.out.println("\n========================================");
+                System.out.println("         Personaje " + (i + 1) + " [jugador 1]");
+                System.out.println("========================================");
+                System.out.println(jugador1[i]);
+                System.out.println("========================================\n");
+                continuar("Pulse enter para continuar: ");
+            }
+            if (jugador2[i] != null) {
+                System.out.println("========================================");
+                System.out.println("         Personaje " + (i + 1) + " [jugador 2]");
+                System.out.println("========================================");
+                System.out.println(jugador2[i]);
+                System.out.println("========================================");
+                if (i + 1 != 3) { //Para que no aparezca con el último personaje, puesto que ahí ponemos otro texto.
+                    continuar("Pulse enter para continuar: ");
+                }
+            }
+        }
+    }
+    private void imprimirRonda(String nombrePJ1, String nombrePJ2) {
         System.out.println("\n=====================================================");
         System.out.println("                      RONDA " + rondaActual);
         System.out.println("=====================================================");
@@ -218,11 +228,28 @@ public class Partida {
         System.out.println("El sistema eligió al personaje " + nombrePJ2 + " para el jugador 2");
         System.out.println("----------------------------------------------------------------");
     }
-    private void imprimirJugadorQueInicia(String jugador){
+    private void imprimirJugadorQueInicia(String jugador) {
         System.out.println("----------------------------------------------------------------");
         System.out.println("El " + jugador + " iniciará la ronda debido a haber perdido la anterior");
         System.out.println("----------------------------------------------------------------");
     }
+    private void imprimirGanador(String ganador, Personaje[] jugador) {
+        System.out.println("----------------------------------------------------------------");
+        System.out.println("================================================================");
+        System.out.println("           ¡FELICIDADES " + ganador + " POR TU VICTORIA!");
+        System.out.println("================================================================");
+        System.out.println("   HAS DEMOSTRADO TU ENORME VALOR Y TE CORONASTE COMO CAMPEÓN.");
+        System.out.println("    TU IMPRESIONANTE VICTORIA MARAVILLÓ A LOS PUEBLERINOS");
+        System.out.println("            AHORA ELLOS TE VEN COMO EL NUEVO REY.");
+        System.out.println(" DESPUÉS DE MUCHO TIEMPO, EL TRONO DE HIERRO TIENE NUEVO DUEÑO");
+        System.out.println("             QUE TU GLORIA RESUENE EN LOS CIELOS,");
+        System.out.println("              Y TU LEYENDA PERDURE EN EL TIEMPO!");
+        System.out.println("================================================================");
+        continuar("\nPulse enter para ver el cuadro de honor de los guerreros: ");
 
+        for (int i = 0; i < NUM_PERSONAJES; i++) {
+            System.out.println(jugador[i].imprimirEnVictoria(i));
+        }
+    }
     // ------------------------------------------------------------------------
 }

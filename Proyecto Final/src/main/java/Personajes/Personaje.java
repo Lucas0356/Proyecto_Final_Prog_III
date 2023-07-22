@@ -142,5 +142,17 @@ public abstract class Personaje {
                 "Armadura: " + armadura + "\n" +
                 "Resistencia mágica: " + resistenciaMagica;
     }
+    public String imprimirEnVictoria (int num) {
+        String mensajeDedicado;
+        if (estaVivo()) {
+            mensajeDedicado = "\nHa sobrevivido con " + getSalud() + " de salud restante";
+        } else {
+            mensajeDedicado = "\nHa muerto en el campo de batalla, pero siempre será" +
+            "\nrecordado por todos aquellos que vieron su valentía.";
+        }
+        return "================================================================" +
+                "\n[" + (num + 1) + "] " + getRazaYapodo() + mensajeDedicado +
+                "\n================================================================";
+    }
 }
 
