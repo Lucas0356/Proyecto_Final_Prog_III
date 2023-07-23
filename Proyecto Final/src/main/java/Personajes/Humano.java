@@ -3,8 +3,8 @@ package Personajes;
 public class Humano extends Personaje{
 
     // Constructor ------------------------------------------------------------
-    public Humano(Raza raza, String nombre, String apodo, String fechaNacimiento, short edad) {
-        super(raza, nombre, apodo, fechaNacimiento, edad,
+    public Humano(String nombre, String apodo, String fechaNacimiento) {
+        super(Raza.Humano, nombre, apodo, fechaNacimiento,
                 (byte) 100, // salud
                 ".img",    // Imagen
                 (byte) 6, // Velocidad

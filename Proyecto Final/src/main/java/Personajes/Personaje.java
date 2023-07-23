@@ -2,6 +2,9 @@ package Personajes;
 
 import Utilidades.NumeroAleatorio;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 public abstract class Personaje {
 
     // Datos ------------------------------------------------------------------
@@ -23,14 +26,14 @@ public abstract class Personaje {
     // ------------------------------------------------------------------------
 
     // Constructor ------------------------------------------------------------
-    public Personaje(Raza raza, String nombre, String apodo, String fechaNacimiento, short edad, byte salud,
+    public Personaje(Raza raza, String nombre, String apodo, String fechaNacimiento, byte salud,
                      String imagenLink, byte velocidad, byte destreza, byte nivel, byte armadura,
                      byte resistenciaMagica) {
         this.raza = raza;
         this.nombre = nombre;
         this.apodo = apodo;
         this.fechaNacimiento = fechaNacimiento;
-        this.edad = edad;
+        this.edad = calcularEdad(fechaNacimiento);
         this.salud = salud;
         this.imagenLink = imagenLink;
         this.velocidad = velocidad;
@@ -123,6 +126,12 @@ public abstract class Personaje {
     }
     public boolean estaVivo() {
         return salud > 0;
+    }
+    public static short calcularEdad(String fechaDeNacimiento) {
+        LocalDate fechaActual = LocalDate.now();
+        LocalDate fechaNacimiento = LocalDate.parse(fechaDeNacimiento);
+        Period edad = Period.between(fechaNacimiento, fechaActual);
+        return (short) edad.getYears();
     }
     @Override
     public String toString() {

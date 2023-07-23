@@ -3,8 +3,8 @@ package Personajes;
 public class Centauro extends Personaje{
 
     // Constructor ------------------------------------------------------------
-    public Centauro(Raza raza, String nombre, String apodo, String fechaNacimiento, short edad) {
-        super(raza, nombre, apodo, fechaNacimiento, edad,
+    public Centauro(String nombre, String apodo, String fechaNacimiento) {
+        super(Raza.Centauro, nombre, apodo, fechaNacimiento,
                 (byte) 100, // salud
                 ".img",    // Imagen
                 (byte) 8, // Velocidad

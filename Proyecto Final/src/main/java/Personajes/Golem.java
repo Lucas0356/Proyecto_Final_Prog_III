@@ -7,8 +7,8 @@ public class Golem extends Personaje{
     // ------------------------------------------------------------------------
 
     // Constructor ------------------------------------------------------------
-    public Golem(Raza raza, String nombre, String apodo, String fechaNacimiento, short edad) {
-        super(raza, nombre, apodo, fechaNacimiento, edad,
+    public Golem(String nombre, String apodo, String fechaNacimiento) {
+        super(Raza.Golem, nombre, apodo, fechaNacimiento,
                 (byte) 100, // salud
                 ".img",    // Imagen
                 (byte) 2, // Velocidad

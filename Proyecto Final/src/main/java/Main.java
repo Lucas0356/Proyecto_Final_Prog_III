@@ -4,7 +4,6 @@ import Utilidades.*;
 import Utilidades.NumeroAleatorio;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -112,18 +111,17 @@ public class Main {
         String nombre = ingresarNombre();
         String apodo = ingresarApodo();
         String fechaDeNacimiento = ingresarFechaNacimiento();
-        short edad = calcularEdad(fechaDeNacimiento);
         switch (raza) {
             case Humano:
-                return new Humano(raza,nombre,apodo,fechaDeNacimiento,edad);
+                return new Humano(nombre,apodo,fechaDeNacimiento);
             case Orco:
-                return new Orco(raza,nombre,apodo,fechaDeNacimiento,edad);
+                return new Orco(nombre,apodo,fechaDeNacimiento);
             case Elfo:
-                return new Elfo(raza,nombre,apodo,fechaDeNacimiento,edad);
+                return new Elfo(nombre,apodo,fechaDeNacimiento);
             case Centauro:
-                return new Centauro(raza,nombre,apodo,fechaDeNacimiento,edad);
+                return new Centauro(nombre,apodo,fechaDeNacimiento);
             case Golem:
-                return new Golem(raza,nombre,apodo,fechaDeNacimiento,edad);
+                return new Golem(nombre,apodo,fechaDeNacimiento);
         }
         return null;
     }
@@ -191,7 +189,7 @@ public class Main {
             fechaString = scanner.nextLine();
             LocalDate fechaDeNacimiento = LocalDate.parse(fechaString, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
             if (fechaDeNacimiento != null) {
-                int edad = calcularEdad(fechaString);
+                int edad = Personaje.calcularEdad(fechaString);
                 if (edad > 300) {
                     System.out.println("La edad ingresada supera el límite máximo de 300 años. Por favor, ingrésela nuevamente.");
                 } else {
@@ -210,18 +208,17 @@ public class Main {
         String apodo = datosPersonajeAleatorio[1];
         String fechaDeNacimiento = datosPersonajeAleatorio[2];
 
-        short edad = calcularEdad(fechaDeNacimiento);
         switch (raza) {
             case Humano:
-                return new Humano(raza,nombre,apodo,fechaDeNacimiento,edad);
+                return new Humano(nombre,apodo,fechaDeNacimiento);
             case Orco:
-                return new Orco(raza,nombre,apodo,fechaDeNacimiento,edad);
+                return new Orco(nombre,apodo,fechaDeNacimiento);
             case Elfo:
-                return new Elfo(raza,nombre,apodo,fechaDeNacimiento,edad);
+                return new Elfo(nombre,apodo,fechaDeNacimiento);
             case Centauro:
-                return new Centauro(raza,nombre,apodo,fechaDeNacimiento,edad);
+                return new Centauro(nombre,apodo,fechaDeNacimiento);
             case Golem:
-                return new Golem(raza,nombre,apodo,fechaDeNacimiento,edad);
+                return new Golem(nombre,apodo,fechaDeNacimiento);
         }
         return null;
     }
@@ -255,12 +252,6 @@ public class Main {
         for (int i = 0; i < 50; i++) {
             System.out.println();
         }
-    }
-    static short calcularEdad(String fechaDeNacimiento) {
-        LocalDate fechaActual = LocalDate.now();
-        LocalDate fechaNacimiento = LocalDate.parse(fechaDeNacimiento);
-        Period edad = Period.between(fechaNacimiento, fechaActual);
-        return (short) edad.getYears();
     }
     static boolean preguntarSiBorrar() {
         Scanner scanner = new Scanner(System.in);

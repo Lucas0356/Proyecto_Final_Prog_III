@@ -8,8 +8,8 @@ public class Orco extends Personaje{
     // ------------------------------------------------------------------------
 
     // Constructor ------------------------------------------------------------
-    public Orco(Raza raza, String nombre, String apodo, String fechaNacimiento, short edad) {
-        super(raza, nombre, apodo, fechaNacimiento, edad,
+    public Orco(String nombre, String apodo, String fechaNacimiento) {
+        super(Raza.Orco, nombre, apodo, fechaNacimiento,
                 (byte) 100, // salud
                 ".img",    // Imagen
                 (byte) 4, // Velocidad

@@ -3,7 +3,6 @@ package Utilidades;
 import java.util.Random;
 
 public class NumeroAleatorio {
-
     public static byte generarNumeroAleatorio(int rango) {
         // Crear una instancia de la clase Random
         Random random = new Random();
