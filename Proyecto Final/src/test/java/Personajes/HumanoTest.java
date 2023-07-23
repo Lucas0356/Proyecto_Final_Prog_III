@@ -3,8 +3,6 @@ package Personajes;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
-
 import static org.junit.jupiter.api.Assertions.*;
 class HumanoTest {
 
@@ -18,9 +16,6 @@ class HumanoTest {
                 "25-10-1998", (short) 26);
 
         // Ejecutar el método a probar
-        personajeAtacante.realizarAtaque(personajeDefensor);
-
-        System.out.println(personajeDefensor);
 
         // Verificar
     }

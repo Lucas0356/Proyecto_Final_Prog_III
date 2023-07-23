@@ -83,14 +83,14 @@ public abstract class Personaje {
 
         return daño;
     }
-    public abstract byte calcularPoderDeDisparo();
-    public byte generarEfectividadDeDisparo() {
+    protected abstract byte calcularPoderDeDisparo();
+    protected byte generarEfectividadDeDisparo() {
         // Genera un valor aleatorio de 1 a 100.
         byte ED = NumeroAleatorio.generarNumeroAleatorio(100);
         // Retorna la efectividad de disparo
         return ED;
     }
-    public byte calcularValorDeAtaque(byte PD, byte ED) {
+    protected byte calcularValorDeAtaque(byte PD, byte ED) {
         double VA = PD * (ED / 100.0); // Convertir ED a double para evitar divisiones enteras
 
         // Limitar el valor de VA (0 a 100).
@@ -99,17 +99,17 @@ public abstract class Personaje {
 
         return (byte) Math.round(VA); // Redondear el valor y convertirlo a byte
     }
-    public byte calcularPoderDeDefensa(){
+    protected byte calcularPoderDeDefensa(){
         byte PDEF = (byte) (armadura * velocidad); // Poder de Defensa
         // Retorna el poder de defensa
         return PDEF;
     }
-    public byte calcularPoderDeResistenciaMagica(){
+    protected byte calcularPoderDeResistenciaMagica(){
         byte PDEF = (byte) (resistenciaMagica * velocidad); // Poder de Resistencia mágica
         // Retorna el poder de resistencia mágica
         return PDEF;
     }
-    public byte calcularDaño(double VA, double PDEF){
+    protected byte calcularDaño(double VA, double PDEF){
         double daño = (VA - (VA * (PDEF / 100))); // Convertir en double para evitar divisiones enteras
         return (byte) Math.round(daño); // Redondear el valor y convertirlo a byte
     }

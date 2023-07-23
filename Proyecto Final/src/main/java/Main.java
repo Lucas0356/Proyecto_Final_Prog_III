@@ -34,19 +34,19 @@ public class Main {
                 int opcion = scanner.nextInt();
                 switch (opcion) {
                     case 1:
-                        PartidaManual(partidaJuego);
+                        partidaManual(partidaJuego);
                         break;
                     case 2:
-                        PartidaRapida(partidaJuego);
+                        partidaRapida(partidaJuego);
                         break;
                     case 3:
-                        LeerLogs();
+                        leerLogs();
                         break;
                     case 4:
-                        BorrarLogs();
+                        borrarLogs();
                         break;
                     case 0:
-                        BorrarConsola();
+                        borrarConsola();
                         System.out.println("\n¡Gracias por jugar!");
                         reiniciar = false;
                         break;
@@ -62,7 +62,7 @@ public class Main {
     }
 
     // ------------------------------------------------------------------------
-    static void PartidaManual(Partida partida) {
+    static void partidaManual(Partida partida) {
         System.out.println("\nUsted eligió partida manual.");
         final int NUM_PERSONAJES_POR_JUGADOR = 3;
 
@@ -70,22 +70,22 @@ public class Main {
             System.out.println("\n----------------------------------------------------------------");
             if (i % 2 == 0) {
                 System.out.println("Defina el personaje número " + (i / 2 + 1) + " del Jugador 1");
-                partida.agregarPersonajeJugador1(CrearPersonaje());
+                partida.agregarPersonajeJugador1(crearPersonaje());
             } else {
                 System.out.println("Defina el personaje número " + (i / 2 + 1) + " del Jugador 2");
-                partida.agregarPersonajeJugador2(CrearPersonaje());
+                partida.agregarPersonajeJugador2(crearPersonaje());
             }
         }
 
         partida.iniciarPartida();
     }
-    static void PartidaRapida(Partida partida) {
+    static void partidaRapida(Partida partida) {
         System.out.println("\nUsted eligió partida rápida.");
         System.out.println("Por favor espere mientras se crean los personajes...");
         final int NUM_PERSONAJES_POR_JUGADOR = 3;
 
         for (int contador = 0; contador < NUM_PERSONAJES_POR_JUGADOR * 2; contador++) {
-            Personaje personaje = CrearPersonajeAleatorio();
+            Personaje personaje = crearPersonajeAleatorio();
             if (contador % 2 == 0) {
                 partida.agregarPersonajeJugador1(personaje);
             } else {
@@ -94,11 +94,11 @@ public class Main {
         }
         partida.iniciarPartida();
     }
-    static void LeerLogs() {
+    static void leerLogs() {
         System.out.println("\nUsted eligió leer partidas anteriores.");
         seleccionarPartidaParaLectura();
     }
-    static void BorrarLogs() {
+    static void borrarLogs() {
         System.out.println("\nUsted eligió borrar partidas anteriores.");
         if (preguntarSiBorrar()){
             ManejoLogs.borrarLogs();
@@ -107,12 +107,12 @@ public class Main {
     // ------------------------------------------------------------------------
 
     // Creación de personaje --------------------------------------------------
-    static Personaje CrearPersonaje() {
-        Raza raza = SeleccionarRaza();
-        String nombre = IngresarNombre();
-        String apodo = IngresarApodo();
-        String fechaDeNacimiento = IngresarFechaNacimiento();
-        short edad = CalcularEdad(fechaDeNacimiento);
+    static Personaje crearPersonaje() {
+        Raza raza = seleccionarRaza();
+        String nombre = ingresarNombre();
+        String apodo = ingresarApodo();
+        String fechaDeNacimiento = ingresarFechaNacimiento();
+        short edad = calcularEdad(fechaDeNacimiento);
         switch (raza) {
             case Humano:
                 return new Humano(raza,nombre,apodo,fechaDeNacimiento,edad);
@@ -127,7 +127,7 @@ public class Main {
         }
         return null;
     }
-    static Raza SeleccionarRaza() {
+    static Raza seleccionarRaza() {
         Scanner scanner = new Scanner(System.in);
         String opcion = "";
         Raza raza = null;
@@ -161,29 +161,29 @@ public class Main {
         }
         return raza;
     }
-    static String IngresarNombre() {
+    static String ingresarNombre() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el nombre del personaje: ");
         String nombre = scanner.nextLine();
 
         if (nombre.trim().isEmpty()) {
             System.out.println("El nombre no puede estar vacío. Por favor, ingréselo nuevamente.");
-            return IngresarNombre(); // Llamada recursiva para solicitar el nombre nuevamente
+            return ingresarNombre(); // Llamada recursiva para solicitar el nombre nuevamente
         }
         return nombre;
     }
-    static String IngresarApodo() {
+    static String ingresarApodo() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el apodo del personaje: ");
         String apodo = scanner.nextLine();
 
         if (apodo.trim().isEmpty()) {
             System.out.println("El apodo no puede estar vacío. Por favor, ingréselo nuevamente.");
-            return IngresarNombre(); // Llamada recursiva para solicitar el apodo nuevamente
+            return ingresarNombre(); // Llamada recursiva para solicitar el apodo nuevamente
         }
         return apodo;
     }
-    public static String IngresarFechaNacimiento() {
+    public static String ingresarFechaNacimiento() {
         Scanner scanner = new Scanner(System.in);
         String fechaString;
         do {
@@ -191,7 +191,7 @@ public class Main {
             fechaString = scanner.nextLine();
             LocalDate fechaDeNacimiento = LocalDate.parse(fechaString, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
             if (fechaDeNacimiento != null) {
-                int edad = CalcularEdad(fechaString);
+                int edad = calcularEdad(fechaString);
                 if (edad > 300) {
                     System.out.println("La edad ingresada supera el límite máximo de 300 años. Por favor, ingrésela nuevamente.");
                 } else {
@@ -203,14 +203,14 @@ public class Main {
     // ------------------------------------------------------------------------
 
     // Creación de personaje aleatoria  ---------------------------------------
-    static Personaje CrearPersonajeAleatorio() {
+    static Personaje crearPersonajeAleatorio() {
         Raza raza = razaAleatoria();
         String[] datosPersonajeAleatorio = API.obtenerDatosPersonajeAleatorio();
         String nombre = datosPersonajeAleatorio[0];
         String apodo = datosPersonajeAleatorio[1];
         String fechaDeNacimiento = datosPersonajeAleatorio[2];
 
-        short edad = CalcularEdad(fechaDeNacimiento);
+        short edad = calcularEdad(fechaDeNacimiento);
         switch (raza) {
             case Humano:
                 return new Humano(raza,nombre,apodo,fechaDeNacimiento,edad);
@@ -250,13 +250,13 @@ public class Main {
     // ------------------------------------------------------------------------
 
     // Otros métodos auxiliares, utilidades, impresiones, etc. ----------------
-    static void BorrarConsola() {
+    static void borrarConsola() {
         // Simula el borrado de la consola imprimiendo una serie de líneas en blanco
         for (int i = 0; i < 50; i++) {
             System.out.println();
         }
     }
-    static short CalcularEdad(String fechaDeNacimiento) {
+    static short calcularEdad(String fechaDeNacimiento) {
         LocalDate fechaActual = LocalDate.now();
         LocalDate fechaNacimiento = LocalDate.parse(fechaDeNacimiento);
         Period edad = Period.between(fechaNacimiento, fechaActual);
