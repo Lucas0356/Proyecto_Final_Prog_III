@@ -1,8 +1,10 @@
 package Personajes;
 
+import Utilidades.ManejoLogs;
 import Utilidades.NumeroAleatorio;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.Period;
 
 public abstract class Personaje {
@@ -111,10 +113,12 @@ public abstract class Personaje {
         double danio = (VA - (VA * (PDEF / 100))); // Convertir en double para evitar divisiones enteras
         return (byte) Math.round(danio); // Redondear el valor y convertirlo a byte
     }
-    public void recibirDanio(byte cantidad) {
+    public void recibirDanio(byte cantidad,boolean guardar) {
         salud -= cantidad;
         if (salud < 0) {
             salud = 0;
+        } else if (raza.equals(Raza.Orco)){
+            manejarFerocidadOrco(guardar);
         }
     }
 
@@ -128,8 +132,8 @@ public abstract class Personaje {
         return salud > 0;
     }
     public static short calcularEdad(String fechaDeNacimiento) {
+        LocalDate fechaNacimiento = LocalDate.parse(fechaDeNacimiento, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         LocalDate fechaActual = LocalDate.now();
-        LocalDate fechaNacimiento = LocalDate.parse(fechaDeNacimiento);
         Period edad = Period.between(fechaNacimiento, fechaActual);
         return (short) edad.getYears();
     }
@@ -162,6 +166,19 @@ public abstract class Personaje {
                 "\n[" + (num + 1) + "] " + getRazaYapodo() + mensajeDedicado +
                 "\nNivel máximo alcanzado = " + getNivel() +
                 "\n================================================================";
+    }
+    private void manejarFerocidadOrco(boolean guardar) {
+        Orco orco = (Orco) this; // Convertir defensor a tipo Orco para acceder a su método
+        orco.incrementarAtaquesRecibidos();
+        if (orco.getAtaquesRecibidos() >= 2) {
+            orco.activarFerocidad();
+            orco.resetearAtaquesRecibidos();
+            if (guardar){ // Para que al hacer tests no se escriban en el archivo logs.txt
+                ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+                ManejoLogs.recibirLogPartida("¡El Orco '" + orco.getApodo() + "' se ha enfurecido y hará más daño\nen el próximo ataque!");
+                ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+            }
+        }
     }
     // ------------------------------------------------------------------------
 }

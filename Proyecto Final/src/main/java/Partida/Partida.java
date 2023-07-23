@@ -139,32 +139,13 @@ public class Partida {
         ManejoLogs.recibirLogPartida(atacante.getRaza() + " '" + atacante.getApodo() + "' ataca a " +
                 defensor.getRaza() + " '" + defensor.getApodo() + "'");
         byte ataque = atacante.realizarAtaque(defensor);
-        defensor.recibirDanio(ataque);
+        defensor.recibirDanio(ataque, true);
         ManejoLogs.recibirLogPartida("Le ha provocado " + ataque + " de daño. " + defensor.getApodo() +
                 " queda con " + defensor.getSalud() + " de salud.");
         ManejoLogs.recibirLogPartida("-----------------------------------------------------------------");
-
-        verificarEnfurecimientoOrco(defensor); // Habilidad del orco
-
+        
         continuar("\nPulse enter para continuar: ");
     }
-    private void verificarEnfurecimientoOrco(Personaje defensor) {
-        if (defensor.getRaza() == Raza.Orco) {
-            if (defensor.estaVivo()){
-                Orco orco = (Orco) defensor; // Convertir defensor a tipo Orco para acceder a su método
-                orco.incrementarAtaquesRecibidos();
-                if (orco.getAtaquesRecibidos() >= 2) {
-                    orco.activarFerocidad();
-                    orco.resetearAtaquesRecibidos();
-                    ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
-                    ManejoLogs.recibirLogPartida("¡El Orco '" + orco.getApodo() + "' se ha enfurecido y hará más daño\nen el próximo ataque!");
-                    ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
-                }
-            }
-
-        }
-    }
-
     // ------------------------------------------------------------------------
 
     // Sección de lógica de sorteos y aleatoriedad ----------------------------

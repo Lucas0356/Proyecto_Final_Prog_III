@@ -3,6 +3,8 @@ package Utilidades;
 import org.json.JSONObject;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;  // Importar la clase Scanner para leer datos de la API
 
 public class API {
@@ -11,7 +13,7 @@ public class API {
         try {
             String nombre;
             String apodo;
-            String fechaNacimiento;
+            String fechaConFormato;
             do {
                 JSONObject jsonObject = obtenerDatosAPI();  // Obtener los datos del personaje desde la API
                 String nombreCompleto = jsonObject.getString("name");  // Obtener el nombre completo del objeto JSON
@@ -19,17 +21,19 @@ public class API {
                 String[] partesNombre = nombreCompleto.split("\\s+");  // Dividir el nombre completo en partes separadas por espacios
                 nombre = partesNombre[0];  // Obtener el primer nombre
                 apodo = jsonObject.getString("username");  // Obtener el apodo del personaje desde el objeto JSON
-                fechaNacimiento = jsonObject.getString("birth_data");  // Obtener la fecha de nacimiento desde el objeto JSON
+                String fechaNacimiento = jsonObject.getString("birth_data");  // Obtener la fecha de nacimiento desde el objeto JSON
+                LocalDate fechaDeNacimiento = LocalDate.parse(fechaNacimiento);
+                fechaConFormato = fechaDeNacimiento.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
             } while (esNombreNoDeseado(nombre));  // Repetir hasta obtener un nombre deseado
             // Establecer los datos obtenidos en el arreglo
             datos[0] = nombre;
             datos[1] = apodo;
-            datos[2] = fechaNacimiento;
+            datos[2] = fechaConFormato;
         } catch (Exception e) {
             // En caso de excepción, establecer datos genéricos
             datos[0] = "Sin nombre";
             datos[1] = "Sin apodo";
-            datos[2] = "05-05-2000";
+            datos[2] = "01-01-2000";
         }
         return datos;  // Devolver los datos del personaje
     }

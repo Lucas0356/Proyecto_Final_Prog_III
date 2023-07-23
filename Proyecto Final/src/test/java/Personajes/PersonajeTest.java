@@ -12,7 +12,7 @@ public class PersonajeTest {
         Personaje personaje = new Elfo("Legolas", "Link", "01/01/2000");
         System.out.println("Daño a recibir: " + 120);
         System.out.println("Salud del elfo: " + personaje.getSalud());
-        personaje.recibirDanio((byte) 120);
+        personaje.recibirDanio((byte) 120, false);
         System.out.println("Salud despues de recibir el daño: " + personaje.getSalud());
         assertEquals(0, personaje.getSalud());
     }
@@ -86,7 +86,7 @@ public class PersonajeTest {
         assertTrue(personaje.estaVivo());
 
         // Recibir daño suficiente para que la salud sea 0
-        personaje.recibirDanio((byte) 100);
+        personaje.recibirDanio((byte) 100, false);
         assertFalse(personaje.estaVivo());
     }
     @Test
@@ -96,7 +96,7 @@ public class PersonajeTest {
         Personaje defensor = new Elfo("Legolas", "Elfo de los Bosques", "01/01/2000");
 
         byte danio = atacante.realizarAtaque(defensor);
-        defensor.recibirDanio(danio);
+        defensor.recibirDanio(danio, false);
 
         assertEquals(100 - danio, defensor.getSalud());
     }

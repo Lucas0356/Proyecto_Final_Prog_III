@@ -20,6 +20,12 @@ public class Orco extends Personaje{
     }
     // ------------------------------------------------------------------------
 
+    // Get estado de ferocidad ------------------------------------------------
+    public boolean getEstadoFerocidad() {
+        return ferocidad;
+    }
+    // ------------------------------------------------------------------------
+
     // Métodos de cálculos y ataques ------------------------------------------
     @Override
     public byte calcularPoderDeDisparo() {

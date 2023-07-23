@@ -17,7 +17,7 @@ class APITest {
         assertEquals(3, datosPersonaje.length, "Debe haber 3 datos en el arreglo");
         assertNotNull(datosPersonaje[0], "El nombre no debe ser nulo");
         assertNotNull(datosPersonaje[1], "El apodo no debe ser nulo");
-        assertTrue(datosPersonaje[2].matches("\\d{4}-\\d{2}-\\d{2}"), "La fecha de nacimiento debe tener un formato válido");
+        assertTrue(datosPersonaje[2].matches("\\d{2}-\\d{2}-\\d{4}"), "La fecha de nacimiento debe tener un formato válido");
 
         // Verificar que el nombre no esté en la lista de nombres no deseados
         String[] nombresNoDeseados = {"Mr.", "Dr.", "Mrs.", "Ms.", "Miss", "Prof."};
