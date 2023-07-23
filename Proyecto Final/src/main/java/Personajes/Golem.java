@@ -1,7 +1,5 @@
 package Personajes;
 
-import java.time.LocalDate;
-
 public class Golem extends Personaje{
 
     // Atributos --------------------------------------------------------------

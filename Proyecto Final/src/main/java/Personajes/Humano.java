@@ -1,6 +1,5 @@
 package Personajes;
 
-import java.time.LocalDate;
 public class Humano extends Personaje{
 
     // Atributos --------------------------------------------------------------

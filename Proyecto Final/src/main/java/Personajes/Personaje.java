@@ -2,7 +2,6 @@ package Personajes;
 
 import Utilidades.NumeroAleatorio;
 
-import java.time.LocalDate;
 public abstract class Personaje {
 
     // Datos ------------------------------------------------------------------

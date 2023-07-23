@@ -3,8 +3,6 @@ package Utilidades;
 import org.json.JSONObject;
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;  // Importar la clase Scanner para leer datos de la API
 
 public class API {

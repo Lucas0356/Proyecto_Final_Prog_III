@@ -1,6 +1,5 @@
 package Personajes;
 
-import java.time.LocalDate;
 public class Elfo extends Personaje{
 
     // Atributos --------------------------------------------------------------

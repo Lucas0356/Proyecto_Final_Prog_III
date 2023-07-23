@@ -1,8 +1,5 @@
 package Personajes;
 
-import Utilidades.ManejoLogs;
-
-import java.time.LocalDate;
 public class Orco extends Personaje{
 
     // Atributos --------------------------------------------------------------
