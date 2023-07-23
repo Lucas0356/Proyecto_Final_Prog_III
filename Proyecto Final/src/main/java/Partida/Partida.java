@@ -94,8 +94,10 @@ public class Partida {
             }
             // Determinar si hay un ganador de la ronda y actualizar el ganador si es necesario
             if (!personajeJ1.estaVivo()) {
+                bonificacionNivel(personajeJ2);
                 ronda("Jugador 2 ganó");
             } else if (!personajeJ2.estaVivo()) {
+                bonificacionNivel(personajeJ1);
                 ronda("Jugador 1 ganó");
             } else {
                 ronda("empate");
@@ -148,15 +150,18 @@ public class Partida {
     }
     private void verificarEnfurecimientoOrco(Personaje defensor) {
         if (defensor.getRaza() == Raza.Orco) {
-            Orco orco = (Orco) defensor; // Convertir defensor a tipo Orco para acceder a su método
-            orco.incrementarAtaquesRecibidos();
-            if (orco.getAtaquesRecibidos() >= 2) {
-                orco.activarFerocidad();
-                orco.resetearAtaquesRecibidos();
-                ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
-                ManejoLogs.recibirLogPartida("¡El Orco '" + orco.getApodo() + "' se ha enfurecido y hará más daño\nen el próximo ataque!");
-                ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+            if (defensor.estaVivo()){
+                Orco orco = (Orco) defensor; // Convertir defensor a tipo Orco para acceder a su método
+                orco.incrementarAtaquesRecibidos();
+                if (orco.getAtaquesRecibidos() >= 2) {
+                    orco.activarFerocidad();
+                    orco.resetearAtaquesRecibidos();
+                    ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+                    ManejoLogs.recibirLogPartida("¡El Orco '" + orco.getApodo() + "' se ha enfurecido y hará más daño\nen el próximo ataque!");
+                    ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+                }
             }
+
         }
     }
 
@@ -186,6 +191,11 @@ public class Partida {
     // ------------------------------------------------------------------------
 
     // Otros métodos auxiliares, utilidades, impresiones, etc. ----------------
+    private void bonificacionNivel(Personaje personaje){
+        ManejoLogs.recibirLogPartida("El " + personaje.getRazaYapodo() + " ha recibido una bonificación");
+        personaje.aumentarNivel();
+        ManejoLogs.recibirLogPartida("por derrotar a su oponente, ahora es nivel " + personaje.getNivel());
+    }
     private void continuar(String texto) {
         // Imprime un mensaje en la consola y espera a que el usuario presione la tecla Enter para continuar
         Scanner scanner = new Scanner(System.in);

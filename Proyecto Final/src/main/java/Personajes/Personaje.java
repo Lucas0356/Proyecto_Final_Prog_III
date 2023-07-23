@@ -123,6 +123,9 @@ public abstract class Personaje {
     // ------------------------------------------------------------------------
 
     // Otros métodos auxiliares, utilidades, impresiones, etc. ----------------
+    public void aumentarNivel() {
+        nivel++;
+    }
     public boolean estaVivo() {
         if (salud > 0){
             return true;
@@ -154,6 +157,7 @@ public abstract class Personaje {
         }
         return "================================================================" +
                 "\n[" + (num + 1) + "] " + getRazaYapodo() + mensajeDedicado +
+                "\nNivel máximo alcanzado = " + getNivel() +
                 "\n================================================================";
     }
     // ------------------------------------------------------------------------
