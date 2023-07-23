@@ -139,7 +139,7 @@ public class Partida {
         ManejoLogs.recibirLogPartida(atacante.getRaza() + " '" + atacante.getApodo() + "' ataca a " +
                 defensor.getRaza() + " '" + defensor.getApodo() + "'");
         byte ataque = atacante.realizarAtaque(defensor);
-        defensor.recibirDaño(ataque);
+        defensor.recibirDanio(ataque);
         ManejoLogs.recibirLogPartida("Le ha provocado " + ataque + " de daño. " + defensor.getApodo() +
                 " queda con " + defensor.getSalud() + " de salud.");
         ManejoLogs.recibirLogPartida("-----------------------------------------------------------------");

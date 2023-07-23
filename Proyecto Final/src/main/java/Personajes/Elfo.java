@@ -2,10 +2,6 @@ package Personajes;
 
 public class Elfo extends Personaje{
 
-    // Atributos --------------------------------------------------------------
-    private final byte poderMagico = 9; // Constante con valor de poder mágico igual a 9
-    // ------------------------------------------------------------------------
-
     // Constructor ------------------------------------------------------------
     public Elfo(Raza raza, String nombre, String apodo, String fechaNacimiento, short edad) {
         super(raza, nombre, apodo, fechaNacimiento, edad,
@@ -22,8 +18,8 @@ public class Elfo extends Personaje{
     // Método de cálculo de poder de disparo ----------------------------------
     @Override
     public byte calcularPoderDeDisparo() {
-        byte PD = (byte) (getDestreza() * poderMagico * getNivel());
-        return PD;
+        byte poderMagico = 9; // Constante con valor de poder mágico igual a 9
+        return (byte) (getDestreza() * poderMagico * getNivel());
     }
     // ------------------------------------------------------------------------
 }

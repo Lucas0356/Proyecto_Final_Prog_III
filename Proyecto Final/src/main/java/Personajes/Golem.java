@@ -4,7 +4,6 @@ public class Golem extends Personaje{
 
     // Atributos --------------------------------------------------------------
     private byte cargaAtaque = 0; // 0 a 3 - Tarda 3 turnos en cargar su ataque
-    private final byte fuerza = 20; // Constante con valor de fuerza igual a 20
     // ------------------------------------------------------------------------
 
     // Constructor ------------------------------------------------------------
@@ -23,8 +22,8 @@ public class Golem extends Personaje{
     // Método de cálculo de poder de disparo ----------------------------------
     @Override
     public byte calcularPoderDeDisparo() {
-        byte PD = (byte) (getDestreza() * fuerza * getNivel());
-        return PD;
+        byte fuerza = 20; // Constante con valor de fuerza igual a 20
+        return (byte) (getDestreza() * fuerza * getNivel());
     }
     // ------------------------------------------------------------------------
 

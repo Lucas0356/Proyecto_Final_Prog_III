@@ -5,7 +5,6 @@ public class Orco extends Personaje{
     // Atributos --------------------------------------------------------------
     private boolean ferocidad = false; // falso o verdadero - Aumenta el daño infligido por el orco en estado de ira.
     private byte ataquesRecibidos = 0; // Se activa el enfurecimiento cuando recibe 2 ataques
-    private final byte fuerza = 10; // Constante con valor de fuerza igual a 10
     // ------------------------------------------------------------------------
 
     // Constructor ------------------------------------------------------------
@@ -24,9 +23,8 @@ public class Orco extends Personaje{
     // Métodos de cálculos y ataques ------------------------------------------
     @Override
     public byte calcularPoderDeDisparo() {
-        // Método para calcular el poder de disparo del Orco
-        byte PD = (byte) (getDestreza() * fuerza * getNivel());
-        return PD;
+        byte fuerza = 10; // Constante con valor de fuerza igual a 10
+        return (byte) (getDestreza() * fuerza * getNivel());
     }
     @Override
     public byte realizarAtaque(Personaje defensor) {
@@ -46,14 +44,13 @@ public class Orco extends Personaje{
         }
 
         // Calcular el valor final del ataque
-        byte daño = calcularDaño(valorDeAtaque, PDEF);
+        byte danio = calcularDanio(valorDeAtaque, PDEF);
 
         if (ferocidad) {
-            daño *= 1.5; // Aumentar el daño en un 50%
+            danio *= 1.5; // Aumentar el daño en un 50%
             desactivarFerocidad();
         }
-
-        return daño;
+        return danio;
     }
     // ------------------------------------------------------------------------
 

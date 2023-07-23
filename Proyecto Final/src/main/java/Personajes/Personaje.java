@@ -79,16 +79,13 @@ public abstract class Personaje {
         }
 
         // Calcular el valor final del ataque
-        byte daño = calcularDaño(valorDeAtaque, PDEF);
-
-        return daño;
+        return calcularDanio(valorDeAtaque, PDEF);
     }
     protected abstract byte calcularPoderDeDisparo();
     protected byte generarEfectividadDeDisparo() {
         // Genera un valor aleatorio de 1 a 100.
-        byte ED = NumeroAleatorio.generarNumeroAleatorio(100);
         // Retorna la efectividad de disparo
-        return ED;
+        return NumeroAleatorio.generarNumeroAleatorio(100);
     }
     protected byte calcularValorDeAtaque(byte PD, byte ED) {
         double VA = PD * (ED / 100.0); // Convertir ED a double para evitar divisiones enteras
@@ -100,20 +97,18 @@ public abstract class Personaje {
         return (byte) Math.round(VA); // Redondear el valor y convertirlo a byte
     }
     protected byte calcularPoderDeDefensa(){
-        byte PDEF = (byte) (armadura * velocidad); // Poder de Defensa
         // Retorna el poder de defensa
-        return PDEF;
+        return (byte) (armadura * velocidad);
     }
     protected byte calcularPoderDeResistenciaMagica(){
-        byte PDEF = (byte) (resistenciaMagica * velocidad); // Poder de Resistencia mágica
         // Retorna el poder de resistencia mágica
-        return PDEF;
+        return (byte) (resistenciaMagica * velocidad);
     }
-    protected byte calcularDaño(double VA, double PDEF){
-        double daño = (VA - (VA * (PDEF / 100))); // Convertir en double para evitar divisiones enteras
-        return (byte) Math.round(daño); // Redondear el valor y convertirlo a byte
+    protected byte calcularDanio(double VA, double PDEF){
+        double danio = (VA - (VA * (PDEF / 100))); // Convertir en double para evitar divisiones enteras
+        return (byte) Math.round(danio); // Redondear el valor y convertirlo a byte
     }
-    public void recibirDaño(byte cantidad) {
+    public void recibirDanio(byte cantidad) {
         salud -= cantidad;
         if (salud < 0) {
             salud = 0;
@@ -127,10 +122,7 @@ public abstract class Personaje {
         nivel++;
     }
     public boolean estaVivo() {
-        if (salud > 0){
-            return true;
-        }
-        return false;
+        return salud > 0;
     }
     @Override
     public String toString() {
@@ -152,8 +144,10 @@ public abstract class Personaje {
         if (estaVivo()) {
             mensajeDedicado = "\nHa sobrevivido con " + getSalud() + " de salud restante";
         } else {
-            mensajeDedicado = "\nHa muerto en el campo de batalla, pero siempre será" +
-            "\nrecordado por todos aquellos que vieron su valentía.";
+            mensajeDedicado = """
+
+                    Ha muerto en el campo de batalla, pero siempre será
+                    recordado por todos aquellos que vieron su valentía.""";
         }
         return "================================================================" +
                 "\n[" + (num + 1) + "] " + getRazaYapodo() + mensajeDedicado +
