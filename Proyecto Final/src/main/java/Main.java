@@ -96,17 +96,14 @@ public class Main {
     }
     static void LeerLogs() {
         System.out.println("\nUsted eligió leer partidas anteriores.");
+        seleccionarPartidaParaLectura();
     }
     static void BorrarLogs() {
         System.out.println("\nUsted eligió borrar partidas anteriores.");
-    }
-    static void BorrarConsola() {
-        // Simula el borrado de la consola imprimiendo una serie de líneas en blanco
-        for (int i = 0; i < 50; i++) {
-            System.out.println();
+        if (preguntarSiBorrar()){
+            ManejoLogs.borrarLogs();
         }
     }
-
     // ------------------------------------------------------------------------
 
     // Creación de personaje --------------------------------------------------
@@ -253,11 +250,42 @@ public class Main {
     // ------------------------------------------------------------------------
 
     // Otros métodos auxiliares, utilidades, impresiones, etc. ----------------
+    static void BorrarConsola() {
+        // Simula el borrado de la consola imprimiendo una serie de líneas en blanco
+        for (int i = 0; i < 50; i++) {
+            System.out.println();
+        }
+    }
     static short CalcularEdad(String fechaDeNacimiento) {
         LocalDate fechaActual = LocalDate.now();
         LocalDate fechaNacimiento = LocalDate.parse(fechaDeNacimiento);
         Period edad = Period.between(fechaNacimiento, fechaActual);
         return (short) edad.getYears();
+    }
+    static boolean preguntarSiBorrar() {
+        Scanner scanner = new Scanner(System.in);
+        String opcion = "";
+
+        while (!opcion.equals("1") && !opcion.equals("0")) {
+            System.out.println("\n¿Está seguro de que desea borrar todas las partidas anteriores?");
+            System.out.println("[1] Sí");
+            System.out.println("[0] Volver al menú");
+            System.out.println("Ingrese una opción: ");
+            opcion = scanner.nextLine();
+        }
+        return opcion.equals("1"); // Si es 1 devolverá true
+    }
+    static void seleccionarPartidaParaLectura(){
+        // Mostrar lista de partidas disponibles
+        if (ManejoLogs.mostrarListaPartidas()){
+            // Preguntar al usuario qué partida desea leer
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("\nIngrese el número de partida que desea leer: ");
+            int numeroPartida = scanner.nextInt();
+
+            // Leer la partida seleccionada
+            ManejoLogs.leerPartida(numeroPartida);
+        }
     }
     // ------------------------------------------------------------------------
 }

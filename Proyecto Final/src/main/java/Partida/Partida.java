@@ -120,9 +120,9 @@ public class Partida {
             if (atacante.getRaza() == Raza.Golem) {
                 Golem golem = (Golem) atacante; // Convertir atacante a tipo Golem para acceder a su método
                 if (golem.golemEstaCargandoAtaque()) {
-                    System.out.println("----------------------------------------------------------------");
-                    System.out.println("El Golem '" + atacante.getApodo() + "' esta cargando su ataque...");
-                    System.out.println("----------------------------------------------------------------");
+                    ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+                    ManejoLogs.recibirLogPartida("El Golem '" + atacante.getApodo() + "' esta cargando su ataque...");
+                    ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
                     continuar("\nPulse enter para continuar: ");
                 } else {
                     realizarAtaque(atacante, defensor);
@@ -133,14 +133,14 @@ public class Partida {
         }
     }
     private void realizarAtaque(Personaje atacante, Personaje defensor) {
-        System.out.println("----------------------------------------------------------------");
-        System.out.println(atacante.getRaza() + " '" + atacante.getApodo() + "' ataca a " +
+        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida(atacante.getRaza() + " '" + atacante.getApodo() + "' ataca a " +
                 defensor.getRaza() + " '" + defensor.getApodo() + "'");
         byte ataque = atacante.realizarAtaque(defensor);
         defensor.recibirDaño(ataque);
-        System.out.println("Le ha provocado " + ataque + " de daño. " + defensor.getApodo() +
+        ManejoLogs.recibirLogPartida("Le ha provocado " + ataque + " de daño. " + defensor.getApodo() +
                 " queda con " + defensor.getSalud() + " de salud.");
-        System.out.println("-----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("-----------------------------------------------------------------");
 
         verificarEnfurecimientoOrco(defensor); // Habilidad del orco
 
@@ -153,9 +153,9 @@ public class Partida {
             if (orco.getAtaquesRecibidos() >= 2) {
                 orco.activarFerocidad();
                 orco.resetearAtaquesRecibidos();
-                System.out.println("----------------------------------------------------------------");
-                System.out.println("¡El Orco '" + orco.getApodo() + "' se ha enfurecido y hará más daño\nen el próximo ataque!");
-                System.out.println("----------------------------------------------------------------");
+                ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+                ManejoLogs.recibirLogPartida("¡El Orco '" + orco.getApodo() + "' se ha enfurecido y hará más daño\nen el próximo ataque!");
+                ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
             }
         }
     }
@@ -166,13 +166,13 @@ public class Partida {
     private byte sortearJugador() {
         byte num = NumeroAleatorio.generarNumeroAleatorio(2);
         // Se le proporciona 1 o 2, que será el jugador que comienza
-        System.out.println("----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
         if (num == 1) {
-            System.out.println("El sistema sorteó al Jugador 1 para iniciar la ronda");
+            ManejoLogs.recibirLogPartida("El sistema sorteó al Jugador 1 para iniciar la ronda");
         } else {
-            System.out.println("El sistema sorteó al Jugador 2 para iniciar la ronda");
+            ManejoLogs.recibirLogPartida("El sistema sorteó al Jugador 2 para iniciar la ronda");
         }
-        System.out.println("----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
         return num;
     }
     private Personaje sortearPersonaje(Personaje[] personajes) {
@@ -215,36 +215,36 @@ public class Partida {
         }
     }
     private void imprimirRonda(String nombrePJ1, String nombrePJ2) {
-        System.out.println("\n=====================================================");
-        System.out.println("                      RONDA " + rondaActual);
-        System.out.println("=====================================================");
+        ManejoLogs.recibirLogPartida("\n=====================================================");
+        ManejoLogs.recibirLogPartida("                      RONDA " + rondaActual);
+        ManejoLogs.recibirLogPartida("=====================================================");
 
-        System.out.println("\n----------------------------------------------------------------");
-        System.out.println("El sistema eligió al personaje " + nombrePJ1 + " para el jugador 1");
-        System.out.println("El sistema eligió al personaje " + nombrePJ2 + " para el jugador 2");
-        System.out.println("----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("\n----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("El sistema eligió al personaje " + nombrePJ1 + " para el jugador 1");
+        ManejoLogs.recibirLogPartida("El sistema eligió al personaje " + nombrePJ2 + " para el jugador 2");
+        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
     }
     private void imprimirJugadorQueInicia(String jugador) {
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("El " + jugador + " iniciará la ronda debido a haber perdido la anterior");
-        System.out.println("----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("El " + jugador + " iniciará la ronda debido a haber perdido la anterior");
+        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
     }
     private void imprimirGanador(String ganador, Personaje[] jugador) {
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("================================================================");
-        System.out.println("           ¡FELICIDADES " + ganador + " POR TU VICTORIA!");
-        System.out.println("================================================================");
-        System.out.println("   HAS DEMOSTRADO TU ENORME VALOR Y TE CORONASTE COMO CAMPEÓN.");
-        System.out.println("    TU IMPRESIONANTE VICTORIA MARAVILLÓ A LOS PUEBLERINOS");
-        System.out.println("            AHORA ELLOS TE VEN COMO EL NUEVO REY.");
-        System.out.println(" DESPUÉS DE MUCHO TIEMPO, EL TRONO DE HIERRO TIENE NUEVO DUEÑO");
-        System.out.println("             QUE TU GLORIA RESUENE EN LOS CIELOS,");
-        System.out.println("              Y TU LEYENDA PERDURE EN EL TIEMPO!");
-        System.out.println("================================================================");
+        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("================================================================");
+        ManejoLogs.recibirLogPartida("           ¡FELICIDADES " + ganador + " POR TU VICTORIA!");
+        ManejoLogs.recibirLogPartida("================================================================");
+        ManejoLogs.recibirLogPartida("   HAS DEMOSTRADO TU ENORME VALOR Y TE CORONASTE COMO CAMPEÓN.");
+        ManejoLogs.recibirLogPartida("    TU IMPRESIONANTE VICTORIA MARAVILLÓ A LOS PUEBLERINOS");
+        ManejoLogs.recibirLogPartida("            AHORA ELLOS TE VEN COMO EL NUEVO REY.");
+        ManejoLogs.recibirLogPartida(" DESPUÉS DE MUCHO TIEMPO, EL TRONO DE HIERRO TIENE NUEVO DUEÑO");
+        ManejoLogs.recibirLogPartida("             QUE TU GLORIA RESUENE EN LOS CIELOS,");
+        ManejoLogs.recibirLogPartida("              Y TU LEYENDA PERDURE EN EL TIEMPO!");
+        ManejoLogs.recibirLogPartida("================================================================");
         continuar("\nPulse enter para ver el cuadro de honor de los guerreros: ");
 
         for (int i = 0; i < NUM_PERSONAJES; i++) {
-            System.out.println(jugador[i].imprimirEnVictoria(i));
+            ManejoLogs.recibirLogPartida(jugador[i].imprimirEnVictoria(i));
         }
     }
     // ------------------------------------------------------------------------
