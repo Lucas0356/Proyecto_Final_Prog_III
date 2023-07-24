@@ -42,6 +42,12 @@ public class Partida {
         }
         continuar("Pulse enter para volver al menú principal: ");
     }
+    public Personaje[] getJugador1() {
+        return jugador1;
+    }
+    public Personaje[] getJugador2() {
+        return jugador2;
+    }
 
     // ------------------------------------------------------------------------
 
@@ -78,17 +84,17 @@ public class Partida {
                     && personajeJ1.estaVivo() && personajeJ2.estaVivo()) {
                 if (num == 1) {
                     // Comienza jugador 1
-                    comprobarAtaque(personajeJ1, personajeJ2);
+                    realizarAtaque(personajeJ1, personajeJ2);
                     ataquesRealizadosJugador1++;
 
-                    comprobarAtaque(personajeJ2, personajeJ1);
+                    realizarAtaque(personajeJ2, personajeJ1);
                     ataquesRealizadosJugador2++;
                 } else {
                     // Comienza jugador 2
-                    comprobarAtaque(personajeJ2, personajeJ1);
+                    realizarAtaque(personajeJ2, personajeJ1);
                     ataquesRealizadosJugador2++;
 
-                    comprobarAtaque(personajeJ1, personajeJ2);
+                    realizarAtaque(personajeJ1, personajeJ2);
                     ataquesRealizadosJugador1++;
                 }
             }
@@ -117,34 +123,18 @@ public class Partida {
         }
         return true; // Si no encontró personajes vivos, retorna true
     }
-    private void comprobarAtaque(Personaje atacante, Personaje defensor) {
-        if (atacante.estaVivo()) {
-            if (atacante.getRaza() == Raza.Golem) {
-                Golem golem = (Golem) atacante; // Convertir atacante a tipo Golem para acceder a su método
-                if (golem.golemEstaCargandoAtaque()) {
-                    ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
-                    ManejoLogs.recibirLogPartida("El Golem '" + atacante.getApodo() + "' esta cargando su ataque...");
-                    ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
-                    continuar("\nPulse enter para continuar: ");
-                } else {
-                    realizarAtaque(atacante, defensor);
-                }
-            } else {
-                realizarAtaque(atacante, defensor);
-            }
-        }
-    }
     private void realizarAtaque(Personaje atacante, Personaje defensor) {
-        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
-        ManejoLogs.recibirLogPartida(atacante.getRaza() + " '" + atacante.getApodo() + "' ataca a " +
-                defensor.getRaza() + " '" + defensor.getApodo() + "'");
         byte ataque = atacante.realizarAtaque(defensor);
-        defensor.recibirDanio(ataque, true);
-        ManejoLogs.recibirLogPartida("Le ha provocado " + ataque + " de daño. " + defensor.getApodo() +
-                " queda con " + defensor.getSalud() + " de salud.");
-        ManejoLogs.recibirLogPartida("-----------------------------------------------------------------");
-        
-        continuar("\nPulse enter para continuar: ");
+        if (ataque != 0){ // Verificamos que no este muerto o que sea un golem cargando su ataque
+            ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+            ManejoLogs.recibirLogPartida(atacante.getRaza() + " '" + atacante.getApodo() + "' ataca a " +
+                    defensor.getRaza() + " '" + defensor.getApodo() + "'");
+            defensor.recibirDanio(ataque);
+            ManejoLogs.recibirLogPartida("Le ha provocado " + ataque + " de daño. " + defensor.getApodo() +
+                    " queda con " + defensor.getSalud() + " de salud.");
+            ManejoLogs.recibirLogPartida("-----------------------------------------------------------------");
+            continuar("\nPulse enter para continuar: ");
+        }
     }
     // ------------------------------------------------------------------------
 
@@ -177,7 +167,7 @@ public class Partida {
         personaje.aumentarNivel();
         ManejoLogs.recibirLogPartida("por derrotar a su oponente, ahora es nivel " + personaje.getNivel());
     }
-    private void continuar(String texto) {
+    public static void continuar(String texto) {
         // Imprime un mensaje en la consola y espera a que el usuario presione la tecla Enter para continuar
         Scanner scanner = new Scanner(System.in);
         System.out.println(texto);

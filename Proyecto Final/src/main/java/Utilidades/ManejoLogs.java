@@ -8,6 +8,7 @@ public class ManejoLogs {
 
     // Atributos --------------------------------------------------------------
     private static final String logs = "logs.txt";
+    private static boolean guardar = true; // Para que al hacer tests no se escriban en el archivo logs.txt
     // ------------------------------------------------------------------------
 
     // Métodos públicos para interactuar con la clase -------------------------
@@ -33,8 +34,10 @@ public class ManejoLogs {
         }
     }
     public static void recibirLogPartida(String log) {
+        if (guardar){
+            escribirLog(log);
+        }
         System.out.println(log); // Mostramos por consola el log de la partida antes de guardarlo
-        escribirLog(log);
     }
     public static void nuevaPartidaFecha(){
         // Obtener la fecha y hora actual
@@ -98,10 +101,15 @@ public class ManejoLogs {
             System.out.println("Ha ocurrido un error al intentar borrar el archivo 'logs.txt': " + e.getMessage());
         }
     }
+    public static void setGuardarFalse() {
+        guardar = false; // Para que al hacer tests no se escriban en el archivo logs.txt
+    }
+    public static boolean getGuardar() {
+        return guardar;
+    }
     // ------------------------------------------------------------------------
 
     // Métodos privados complementarios----------------------------------------
-
     private static void escribirLog(String log){
         try {
             // Abrimos el archivo "logs.txt" para escritura

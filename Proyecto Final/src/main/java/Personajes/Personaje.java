@@ -1,6 +1,5 @@
 package Personajes;
 
-import Utilidades.ManejoLogs;
 import Utilidades.NumeroAleatorio;
 
 import java.time.LocalDate;
@@ -46,12 +45,15 @@ public abstract class Personaje {
     }
     // ------------------------------------------------------------------------
 
-    // Sección de Getters -----------------------------------------------------
+    // Sección de Getters y Setters -------------------------------------------
     public Raza getRaza() {
         return raza;
     }
     public byte getSalud() {
         return salud;
+    }
+    public void setSalud(byte salud) {
+        this.salud = salud;
     }
     public String getRazaYapodo() {
         return raza + " '" + apodo + "'";
@@ -69,7 +71,15 @@ public abstract class Personaje {
     // ------------------------------------------------------------------------
 
     // Sección de lógica de los ataques ---------------------------------------
-    public byte realizarAtaque(Personaje defensor) {
+    public byte realizarAtaque(Personaje defensor){
+        if (estaVivo()){
+            byte danio = calcularDanioAtaque(defensor);
+            defensor.recibirDanio(danio);
+            return danio;
+        }
+        return 0; // Al estar muerto, no ataca
+    }
+    protected byte calcularDanioAtaque(Personaje defensor) {
         // Calcular el valor de ataque del atacante
         byte poderDeDisparo = calcularPoderDeDisparo();
         byte efectividadDeDisparo = generarEfectividadDeDisparo();
@@ -84,7 +94,10 @@ public abstract class Personaje {
         }
 
         // Calcular el valor final del ataque
-        return calcularDanio(valorDeAtaque, PDEF);
+        // Convertir en double para evitar divisiones enteras
+        double danio = (valorDeAtaque - (valorDeAtaque * ((double) PDEF / 100)));
+        // Redondear el valor y convertirlo a byte para retornarlo
+        return (byte) Math.round(danio);
     }
     protected abstract byte calcularPoderDeDisparo();
     protected byte generarEfectividadDeDisparo() {
@@ -109,16 +122,10 @@ public abstract class Personaje {
         // Retorna el poder de resistencia mágica
         return (byte) (resistenciaMagica * velocidad);
     }
-    protected byte calcularDanio(double VA, double PDEF){
-        double danio = (VA - (VA * (PDEF / 100))); // Convertir en double para evitar divisiones enteras
-        return (byte) Math.round(danio); // Redondear el valor y convertirlo a byte
-    }
-    public void recibirDanio(byte cantidad,boolean guardar) {
+    public void recibirDanio(byte cantidad) {
         salud -= cantidad;
         if (salud < 0) {
             salud = 0;
-        } else if (raza.equals(Raza.Orco)){
-            manejarFerocidadOrco(guardar);
         }
     }
 
@@ -166,19 +173,6 @@ public abstract class Personaje {
                 "\n[" + (num + 1) + "] " + getRazaYapodo() + mensajeDedicado +
                 "\nNivel máximo alcanzado = " + getNivel() +
                 "\n================================================================";
-    }
-    private void manejarFerocidadOrco(boolean guardar) {
-        Orco orco = (Orco) this; // Convertir defensor a tipo Orco para acceder a su método
-        orco.incrementarAtaquesRecibidos();
-        if (orco.getAtaquesRecibidos() >= 2) {
-            orco.activarFerocidad();
-            orco.resetearAtaquesRecibidos();
-            if (guardar){ // Para que al hacer tests no se escriban en el archivo logs.txt
-                ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
-                ManejoLogs.recibirLogPartida("¡El Orco '" + orco.getApodo() + "' se ha enfurecido y hará más daño\nen el próximo ataque!");
-                ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
-            }
-        }
     }
     // ------------------------------------------------------------------------
 }

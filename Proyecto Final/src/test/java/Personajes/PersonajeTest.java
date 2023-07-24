@@ -7,12 +7,27 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PersonajeTest {
 
     @Test
+    @DisplayName("Probar que no se pueda atacar con un personaje muerto")
+    public void verificarSiAtacaMuerto() {
+        Personaje atacante = new Humano("Carlos", "Carlitos", "01-01-2000");
+        Personaje defensor = new Elfo("Legolas", "Elfo de los Bosques", "01-01-2000");
+
+        // Matamos al personaje
+        atacante.recibirDanio((byte) 100);
+
+        // Intentamos realizar el ataque
+        byte danio = atacante.realizarAtaque(defensor);
+
+        // Si el daño retornado del ataque es 0, significa que no pudo atacar
+        assertEquals(0, danio);
+    }
+    @Test
     @DisplayName("Prueba recibir daño y limitar salud a mínimo cero")
     public void recibirDanioLimitarSaludAMinimoCero() {
         Personaje personaje = new Elfo("Legolas", "Link", "01-01-2000");
         System.out.println("Daño a recibir: " + 120);
         System.out.println("Salud del elfo: " + personaje.getSalud());
-        personaje.recibirDanio((byte) 120, false);
+        personaje.recibirDanio((byte) 120);
         System.out.println("Salud despues de recibir el daño: " + personaje.getSalud());
         assertEquals(0, personaje.getSalud());
     }
@@ -38,7 +53,6 @@ public class PersonajeTest {
         assertEquals(poderDeDefensaEsperado, personaje.calcularPoderDeDefensa());
 
         // Humano:
-
         personaje = new Humano("Lucas", "Lukitas", "06-05-2003");
         poderDeDefensaEsperado = (byte) (4 * 6); // Armadura * Velocidad
         assertEquals(poderDeDefensaEsperado, personaje.calcularPoderDeDefensa());
@@ -86,7 +100,7 @@ public class PersonajeTest {
         assertTrue(personaje.estaVivo());
 
         // Recibir daño suficiente para que la salud sea 0
-        personaje.recibirDanio((byte) 100, false);
+        personaje.recibirDanio((byte) 100);
         assertFalse(personaje.estaVivo());
     }
     @Test
@@ -95,8 +109,8 @@ public class PersonajeTest {
         Personaje atacante = new Humano("Carlos", "Carlitos", "01-01-2000");
         Personaje defensor = new Elfo("Legolas", "Elfo de los Bosques", "01-01-2000");
 
-        byte danio = atacante.realizarAtaque(defensor);
-        defensor.recibirDanio(danio, false);
+        byte danio = atacante.calcularDanioAtaque(defensor);
+        defensor.recibirDanio(danio);
 
         assertEquals(100 - danio, defensor.getSalud());
     }

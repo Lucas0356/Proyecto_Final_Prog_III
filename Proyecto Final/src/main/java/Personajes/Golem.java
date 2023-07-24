@@ -1,5 +1,8 @@
 package Personajes;
 
+import Utilidades.ManejoLogs;
+import static Partida.Partida.continuar;
+
 public class Golem extends Personaje{
 
     // Atributos --------------------------------------------------------------
@@ -19,6 +22,12 @@ public class Golem extends Personaje{
     }
     // ------------------------------------------------------------------------
 
+    // Getters ----------------------------------------------------------------
+    public byte getCargaAtaque() {
+        return cargaAtaque;
+    }
+    // ------------------------------------------------------------------------
+
     // Método de cálculo de poder de disparo ----------------------------------
     @Override
     public byte calcularPoderDeDisparo() {
@@ -28,6 +37,25 @@ public class Golem extends Personaje{
     // ------------------------------------------------------------------------
 
     // Métodos para manejar el estado de la carga de ataque -------------------
+    @Override
+    public byte realizarAtaque(Personaje defensor) {
+        if (estaVivo()){
+            // Verificamos que el golem no esté cargando su ataque
+            if (golemEstaCargandoAtaque()) {
+                ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+                ManejoLogs.recibirLogPartida("El Golem '" + getApodo() + "' esta cargando su ataque...");
+                ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+                if (ManejoLogs.getGuardar()){
+                    continuar("\nPulse enter para continuar: ");
+                }
+            } else{
+                byte danio = calcularDanioAtaque(defensor);
+                defensor.recibirDanio(danio);
+                return danio;
+            }
+        }
+        return 0; // Al estar muerto, no ataca
+    }
     public boolean golemEstaCargandoAtaque(){
         if (cargaAtaque >= 3) {
             cargaAtaque = 0; // Reiniciar la cuenta de turnos

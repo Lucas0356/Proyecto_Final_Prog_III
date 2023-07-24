@@ -1,5 +1,7 @@
 package Personajes;
 
+import Utilidades.ManejoLogs;
+
 public class Orco extends Personaje{
 
     // Atributos --------------------------------------------------------------
@@ -28,41 +30,49 @@ public class Orco extends Personaje{
 
     // Métodos de cálculos y ataques ------------------------------------------
     @Override
+    public byte realizarAtaque(Personaje defensor) {
+        if (estaVivo()){
+            byte danio = calcularDanioAtaque(defensor);
+            defensor.recibirDanio(danio);
+
+            if (ferocidad) {
+                danio *= 1.5; // Aumentar el daño en un 50%
+                desactivarFerocidad();
+            }
+            return danio;
+        }
+        return 0; // Al estar muerto, no ataca
+    }
+    @Override
     public byte calcularPoderDeDisparo() {
         byte fuerza = 10; // Constante con valor de fuerza igual a 10
         return (byte) (getDestreza() * fuerza * getNivel());
     }
-    @Override
-    public byte realizarAtaque(Personaje defensor) {
-        // Método para realizar un ataque al personaje defensor
-
-        // Calcular el valor de ataque del atacante
-        byte poderDeDisparo = calcularPoderDeDisparo();
-        byte efectividadDeDisparo = generarEfectividadDeDisparo();
-        byte valorDeAtaque = calcularValorDeAtaque(poderDeDisparo, efectividadDeDisparo);
-
-        // Calcular el poder de defensa del defensor
-        byte PDEF; // poder de defensa o de resistencia mágica.
-        if (this.getRaza() == Raza.Elfo){
-            PDEF = defensor.calcularPoderDeResistenciaMagica();
-        } else{
-            PDEF = defensor.calcularPoderDeDefensa();
-        }
-
-        // Calcular el valor final del ataque
-        byte danio = calcularDanio(valorDeAtaque, PDEF);
-
-        if (ferocidad) {
-            danio *= 1.5; // Aumentar el daño en un 50%
-            desactivarFerocidad();
-        }
-        return danio;
-    }
     // ------------------------------------------------------------------------
 
     // Métodos para manejar el estado de la ferocidad -------------------------
+    @Override
+    public void recibirDanio(byte cantidad) {
+        byte salud = getSalud();
+        salud -= cantidad;
+        if (salud <= 0) {
+            setSalud((byte) 0);
+        } else{
+            manejarFerocidadOrco();
+        }
+    }
+    private void manejarFerocidadOrco() {
+        incrementarAtaquesRecibidos();
+        if (getAtaquesRecibidos() >= 2) {
+            activarFerocidad();
+            resetearAtaquesRecibidos();
+            ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+            ManejoLogs.recibirLogPartida("¡El Orco '" + getApodo() + "' se ha enfurecido y hará más daño\nen el próximo ataque!");
+            ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+        }
+    }
     private void desactivarFerocidad(){
-        ferocidad = true;
+        ferocidad = false;
     }
     public void activarFerocidad(){
         ferocidad = true;

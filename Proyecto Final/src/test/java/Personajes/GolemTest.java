@@ -1,5 +1,6 @@
 package Personajes;
 
+import Utilidades.ManejoLogs;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -7,6 +8,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GolemTest {
 
+    @Test
+    @DisplayName("Probar que no se pueda atacar con un personaje muerto")
+    public void verificarSiAtacaMuerto() {
+        Personaje atacante = new Golem("Juan", "Geodude", "01-01-2000");
+        Personaje defensor = new Elfo("Legolas", "Elfo de los Bosques", "01-01-2000");
+
+        // Matamos al personaje
+        atacante.recibirDanio((byte) 100);
+
+        // Intentamos realizar el ataque
+        byte danio = atacante.realizarAtaque(defensor);
+
+        // Si el daño retornado del ataque es 0, significa que no pudo atacar
+        assertEquals(0, danio);
+    }
     @Test
     @DisplayName("Prueba para calcular el poder de disparo en todos los niveles")
     void calcularPoderDeDisparoTest() {
@@ -35,25 +51,36 @@ class GolemTest {
     @Test
     @DisplayName("Prueba para verificar si el Golem tarda 3 turnos en atacar")
     void verificarCargaAtaque() {
+        ManejoLogs.setGuardarFalse();
         Golem golem = new Golem("Juan", "Geodude", "01-01-2000");
+        Personaje defensor = new Elfo("Legolas", "Elfo de los Bosques", "01-01-2000");
         byte turno;
-        boolean estaCargando;
+        byte estadoCargando;
 
+        System.out.println("Cuando está en 0 puede atacar.");
         for (turno = 1; turno <= 3; turno++){
-            // Método en la clase partida que se utiliza antes de atacar para actualizar el estado de la carga
-            estaCargando = golem.golemEstaCargandoAtaque();
-            System.out.println("Turno " + turno + ": ¿Está cargando? " + estaCargando);
+            // Realizamos 3 turnos para que cargue el ataque
+            golem.realizarAtaque(defensor);
+            estadoCargando = golem.getCargaAtaque();
+            System.out.println("Turno " + turno + ": Estado de la carga: " + estadoCargando);
+
+            // Verificar que el golem no pueda atacar en 3 turnos
+            assertTrue(estadoCargando > 0);
         }
 
-        // Verificar que el golem pueda atacar al tercer turno
-        estaCargando = golem.golemEstaCargandoAtaque();
-        System.out.println("Turno " + turno + ": ¿Está cargando? " + estaCargando);
-        assertFalse(estaCargando);
+        // Verificar que el golem pueda atacar luego de pasar 3 turnos cargando
+        golem.realizarAtaque(defensor);
+        estadoCargando = golem.getCargaAtaque();
+
+        System.out.println("Turno " + turno + ": Estado de la carga: " + estadoCargando);
+        assertEquals(0,estadoCargando);
 
         // Verificar que el golem no pueda atacar en el cuarto turno
-        estaCargando = golem.golemEstaCargandoAtaque();
+        golem.realizarAtaque(defensor);
+        estadoCargando = golem.getCargaAtaque();
         turno++;
-        System.out.println("Turno " + turno + ": ¿Está cargando? " + estaCargando);
-        assertTrue(estaCargando);
+
+        System.out.println("Turno " + turno + ": Estado de la carga: " + estadoCargando);
+        assertTrue(estadoCargando > 0);
     }
 }
