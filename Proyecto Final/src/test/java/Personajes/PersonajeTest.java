@@ -9,7 +9,7 @@ public class PersonajeTest {
     @Test
     @DisplayName("Prueba recibir daño y limitar salud a mínimo cero")
     public void recibirDanioLimitarSaludAMinimoCero() {
-        Personaje personaje = new Elfo("Legolas", "Link", "01/01/2000");
+        Personaje personaje = new Elfo("Legolas", "Link", "01-01-2000");
         System.out.println("Daño a recibir: " + 120);
         System.out.println("Salud del elfo: " + personaje.getSalud());
         personaje.recibirDanio((byte) 120, false);
@@ -23,17 +23,17 @@ public class PersonajeTest {
         byte poderDeDefensaEsperado;
 
         // Centauro:
-        personaje = new Centauro("Pedro", "Pepito", "01/01/2000");
+        personaje = new Centauro("Pedro", "Pepito", "01-01-2000");
         poderDeDefensaEsperado = (byte) (5 * 8); // Armadura * Velocidad
         assertEquals(poderDeDefensaEsperado, personaje.calcularPoderDeDefensa());
 
         // Elfo:
-        personaje = new Elfo("Legolas", "Link", "01/01/2000");
+        personaje = new Elfo("Legolas", "Link", "01-01-2000");
         poderDeDefensaEsperado = (byte) (4 * 7); // Armadura * Velocidad
         assertEquals(poderDeDefensaEsperado, personaje.calcularPoderDeDefensa());
 
         // Golem:
-        personaje = new Golem("Juan", "Geodude", "01/01/2000");
+        personaje = new Golem("Juan", "Geodude", "01-01-2000");
         poderDeDefensaEsperado = (byte) (10 * 2); // Armadura * Velocidad
         assertEquals(poderDeDefensaEsperado, personaje.calcularPoderDeDefensa());
 
@@ -55,22 +55,22 @@ public class PersonajeTest {
         byte poderDeResistenciaMagicaEsperado;
 
         // Centauro:
-        personaje = new Centauro("Pedro", "Pepito", "01/01/2000");
+        personaje = new Centauro("Pedro", "Pepito", "01-01-2000");
         poderDeResistenciaMagicaEsperado = (byte) (4 * 8); // Resistencia mágica * Velocidad
         assertEquals(poderDeResistenciaMagicaEsperado, personaje.calcularPoderDeResistenciaMagica());
 
         // Elfo:
-        personaje = new Elfo("Legolas", "Link", "01/01/2000");
+        personaje = new Elfo("Legolas", "Link", "01-01-2000");
         poderDeResistenciaMagicaEsperado = (byte) (7 * 7); // Resistencia mágica * Velocidad
         assertEquals(poderDeResistenciaMagicaEsperado, personaje.calcularPoderDeResistenciaMagica());
 
         // Golem:
-        personaje = new Golem("Juan", "Geodude", "01/01/2000");
+        personaje = new Golem("Juan", "Geodude", "01-01-2000");
         poderDeResistenciaMagicaEsperado = (byte) (6 * 2); // Resistencia mágica * Velocidad
         assertEquals(poderDeResistenciaMagicaEsperado, personaje.calcularPoderDeResistenciaMagica());
 
         // Humano:
-        personaje = new Humano("Lucas", "Lukitas", "06-05-2003");
+        personaje = new Humano("Lucas", "Lukitas", "01-01-2000");
         poderDeResistenciaMagicaEsperado = (byte) (4 * 6); // Resistencia mágica * Velocidad
         assertEquals(poderDeResistenciaMagicaEsperado, personaje.calcularPoderDeResistenciaMagica());
 
@@ -82,7 +82,7 @@ public class PersonajeTest {
     @Test
     @DisplayName("Prueba recibir daño y verificar si el personaje está vivo")
     public void recibirDanioVerificarSiEstaVivo() {
-        Personaje personaje = new Humano("Carlos", "Carlitos", "01/01/2000");
+        Personaje personaje = new Humano("Carlos", "Carlitos", "01-01-2000");
         assertTrue(personaje.estaVivo());
 
         // Recibir daño suficiente para que la salud sea 0
@@ -92,8 +92,8 @@ public class PersonajeTest {
     @Test
     @DisplayName("Prueba atacar y verificar que hizo daño")
     public void realizarAtaqueVerificarElDanio(){
-        Personaje atacante = new Humano("Carlos", "Carlitos", "01/01/2000");
-        Personaje defensor = new Elfo("Legolas", "Elfo de los Bosques", "01/01/2000");
+        Personaje atacante = new Humano("Carlos", "Carlitos", "01-01-2000");
+        Personaje defensor = new Elfo("Legolas", "Elfo de los Bosques", "01-01-2000");
 
         byte danio = atacante.realizarAtaque(defensor);
         defensor.recibirDanio(danio, false);

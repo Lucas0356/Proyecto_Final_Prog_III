@@ -8,8 +8,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class OrcoTest {
 
     @Test
+    @DisplayName("Prueba para calcular el poder de disparo en todos los niveles")
     void calcularPoderDeDisparoTest() {
         Orco orco = new Orco("Grom", "Destructor", "10-07-2000");
+
         // Siendo nivel 1
         byte poderDeDisparoEsperado = (byte) (2 * 10); // Destreza * fuerza * nivel (1)
         assertEquals(poderDeDisparoEsperado, orco.calcularPoderDeDisparo());
@@ -30,7 +32,6 @@ class OrcoTest {
         assertEquals(poderDeDisparoEsperado, orco.calcularPoderDeDisparo());
 
     }
-
     @Test
     @DisplayName("Prueba activar ferocidad después de recibir dos ataques")
     public void activarFerocidadDespuesDeRecibirDosAtaques() {
