@@ -11,57 +11,43 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        boolean reiniciar = true;
-        Scanner scanner = new Scanner(System.in);
         // Verificar si el archivo de la partida existe, y si no, crearlo
         ManejoLogs.verificarArchivo();
 
+        boolean reiniciar = true;
+
         while (reiniciar) {
             Partida partidaJuego = new Partida();
-            System.out.println("==========================================");
-            System.out.println("---------------- RPG GAME ----------------");
-            System.out.println("     [1] Iniciar partida manual");
-            System.out.println("     [2] Iniciar partida rápida");
-            System.out.println("     [3] Leer partidas anteriores");
-            System.out.println("     [4] Borrar partidas anteriores");
-            System.out.println("     [0] Salir");
-            System.out.println("==========================================");
-
-            System.out.print("\nIngrese una opción: ");
-
-            try {
-                int opcion = scanner.nextInt();
-                switch (opcion) {
-                    case 1:
-                        partidaManual(partidaJuego);
-                        break;
-                    case 2:
-                        partidaRapida(partidaJuego);
-                        break;
-                    case 3:
-                        leerLogs();
-                        break;
-                    case 4:
-                        borrarLogs();
-                        break;
-                    case 0:
-                        borrarConsola();
-                        System.out.println("\n¡Gracias por jugar!");
-                        reiniciar = false;
-                        break;
-                    default:
-                        System.out.println("\nNo ingresó una opción válida.\n");
-                        break;
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("\nNo ingresó una opción válida.\n");
-                scanner.nextLine();
+            int opcion = mostrarMenu();
+            switch (opcion) {
+                case 1:
+                    partidaManual(partidaJuego);
+                    break;
+                case 2:
+                    partidaRapida(partidaJuego);
+                    break;
+                case 3:
+                    leerLogs();
+                    break;
+                case 4:
+                    borrarLogs();
+                    break;
+                case 5:
+                    mostrarInformacionJuego();
+                    break;
+                case 0:
+                    borrarConsola();
+                    System.out.println("\n¡Gracias por jugar!");
+                    reiniciar = false;
+                    break;
+                default:
+                    System.out.println("\nNo ingresó una opción válida.\n");
+                    break;
             }
         }
     }
-
     // ------------------------------------------------------------------------
-    static void partidaManual(Partida partida) {
+    private static void partidaManual(Partida partida) {
         System.out.println("\nUsted eligió partida manual.");
         final int NUM_PERSONAJES_POR_JUGADOR = 3;
 
@@ -78,7 +64,7 @@ public class Main {
 
         partida.iniciarPartida();
     }
-    static void partidaRapida(Partida partida) {
+    private static void partidaRapida(Partida partida) {
         System.out.println("\nUsted eligió partida rápida.");
         System.out.println("Por favor espere mientras se crean los personajes...");
         final int NUM_PERSONAJES_POR_JUGADOR = 3;
@@ -93,20 +79,57 @@ public class Main {
         }
         partida.iniciarPartida();
     }
-    static void leerLogs() {
+    private static void leerLogs() {
         System.out.println("\nUsted eligió leer partidas anteriores.");
         seleccionarPartidaParaLectura();
     }
-    static void borrarLogs() {
+    private static void borrarLogs() {
         System.out.println("\nUsted eligió borrar partidas anteriores.");
         if (preguntarSiBorrar()){
             ManejoLogs.borrarLogs();
         }
     }
+    private static void mostrarInformacionJuego() {
+        System.out.println("================================================================================");
+        System.out.println("              LA CONQUISTA DEL TRONO DE HIERRO - JUEGO DE ROL");
+        System.out.println("================================================================================");
+        System.out.println("¡Bienvenido a La Conquista del Trono de Hierro, un emocionante juego de rol para");
+        System.out.println("2 jugadores! Cada jugador dispondrá de 3 valientes personajes para la batalla, cada");
+        System.out.println("uno con habilidades únicas y estadísticas especiales.");
+
+        // Información sobre los personajes disponibles
+        System.out.println("Los personajes disponibles son:");
+        System.out.println(" - Los valientes humanos y los poderosos centauros, quienes son los más equilibrados,");
+        System.out.println("   poseen estadísticas balanceadas que los hacen versátiles en el combate.");
+        System.out.println(" - Los feroces orcos, que pueden enfurecerse después de recibir 2 ataques,");
+        System.out.println("   infligiendo 50% más de daño en el siguiente turno.");
+        System.out.println(" - Los ágiles elfos, expertos en el poder mágico, capaces de derrotar a personajes");
+        System.out.println("   altamente defensivos con facilidad, debido a que no usan la fuerza física.");
+        System.out.println(" - Los imponentes golems, quienes deben prepararse durante 3 turnos para realizar un");
+        System.out.println("   ataque devastador.");
+
+        System.out.println("Cada vez que un personaje derrote a un oponente en combate, recibirá un nivel extra,");
+        System.out.println("haciendo que sus ataques sean aún más poderosos.");
+        System.out.println("Tu misión en este fascinante mundo de fantasía es enfrentarte a otro jugador y");
+        System.out.println("decidir quién será el digno heredero del Trono de Hierro, convirtiéndose en el");
+        System.out.println("monarca del reino.");
+        System.out.println("El destino de esta tierra está en tus manos. ¡Buena suerte en tu aventura épica!");
+        System.out.println("================================================================================");
+
+        // Mostrar links de las cartas de los personajes
+        Partida.continuar("\nPulse enter para ver las cartas de los personajes: ");
+        System.out.println("Carta Humano: https://i.ibb.co/HP77GtJ/humano.png");
+        System.out.println("Carta Centauro: https://i.ibb.co/yW0bY2L/centauro.png");
+        System.out.println("Carta Elfo: https://i.ibb.co/kcKBrdx/elfo.png");
+        System.out.println("Carta Golem: https://i.ibb.co/28q4Qz3/golem.png");
+        System.out.println("Carta Orco: https://i.ibb.co/8YMm8xS/orco.png");
+
+        Partida.continuar("\nPulse enter para volver al menú principal: ");
+    }
     // ------------------------------------------------------------------------
 
     // Creación de personaje --------------------------------------------------
-    static Personaje crearPersonaje() {
+    private static Personaje crearPersonaje() {
         Raza raza = seleccionarRaza();
         String nombre = ingresarNombre();
         String apodo = ingresarApodo();
@@ -125,7 +148,7 @@ public class Main {
         }
         return null;
     }
-    static Raza seleccionarRaza() {
+    private static Raza seleccionarRaza() {
         Scanner scanner = new Scanner(System.in);
         String opcion = "";
         Raza raza = null;
@@ -159,7 +182,7 @@ public class Main {
         }
         return raza;
     }
-    static String ingresarNombre() {
+    private static String ingresarNombre() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el nombre del personaje: ");
         String nombre = scanner.nextLine();
@@ -170,7 +193,7 @@ public class Main {
         }
         return nombre;
     }
-    static String ingresarApodo() {
+    private static String ingresarApodo() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el apodo del personaje: ");
         String apodo = scanner.nextLine();
@@ -181,27 +204,30 @@ public class Main {
         }
         return apodo;
     }
-    public static String ingresarFechaNacimiento() {
+    private static String ingresarFechaNacimiento() {
         Scanner scanner = new Scanner(System.in);
         String fechaString;
+
         do {
             System.out.println("Ingrese su fecha de nacimiento (formato: DD-MM-YYYY): ");
             fechaString = scanner.nextLine();
-            LocalDate fechaDeNacimiento = LocalDate.parse(fechaString, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-            if (fechaDeNacimiento != null) {
+
+            try {
                 int edad = Personaje.calcularEdad(fechaString);
                 if (edad > 300) {
                     System.out.println("La edad ingresada supera el límite máximo de 300 años. Por favor, ingrésela nuevamente.");
                 } else {
                     return fechaString;
                 }
+            } catch (Exception e) {
+                System.out.println("Formato de fecha incorrecto. Por favor, ingrésela nuevamente.");
             }
         } while (true);
     }
     // ------------------------------------------------------------------------
 
     // Creación de personaje aleatoria  ---------------------------------------
-    static Personaje crearPersonajeAleatorio() {
+    private static Personaje crearPersonajeAleatorio() {
         Raza raza = razaAleatoria();
         String[] datosPersonajeAleatorio = API.obtenerDatosPersonajeAleatorio();
         String nombre = datosPersonajeAleatorio[0];
@@ -222,7 +248,7 @@ public class Main {
         }
         return null;
     }
-    static Raza razaAleatoria() {
+    private static Raza razaAleatoria() {
         Raza raza = null;
         byte numeroAleatorio = NumeroAleatorio.generarNumeroAleatorio(5);
         switch (numeroAleatorio) {
@@ -247,13 +273,38 @@ public class Main {
     // ------------------------------------------------------------------------
 
     // Otros métodos auxiliares, utilidades, impresiones, etc. ----------------
-    static void borrarConsola() {
+    private static int mostrarMenu() {
+        System.out.println("================================================");
+        System.out.println("------- LA CONQUISTA DEL TRONO DE HIERRO -------");
+        System.out.println("      [1] Iniciar partida manual");
+        System.out.println("      [2] Iniciar partida rápida");
+        System.out.println("      [3] Leer partidas anteriores");
+        System.out.println("      [4] Borrar partidas anteriores");
+        System.out.println("      [5] Mostrar información del juego");
+        System.out.println("      [0] Salir");
+        System.out.println("================================================");
+
+        System.out.print("\nIngrese una opción: ");
+
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            int opcion = scanner.nextInt();
+            scanner.nextLine(); // Consumir el salto de línea después de leer el número
+            return opcion;
+        } catch (InputMismatchException e) {
+            System.out.println("\nNo ingresó una opción válida.\n");
+            scanner.nextLine();
+            return -1; // Retorna -1 para indicar que hubo un error en la selección
+        }
+    }
+    private static void borrarConsola() {
         // Simula el borrado de la consola imprimiendo una serie de líneas en blanco
         for (int i = 0; i < 50; i++) {
             System.out.println();
         }
     }
-    static boolean preguntarSiBorrar() {
+    private static boolean preguntarSiBorrar() {
         Scanner scanner = new Scanner(System.in);
         String opcion = "";
 
@@ -266,19 +317,24 @@ public class Main {
         }
         return opcion.equals("1"); // Si es 1 devolverá true
     }
-    static void seleccionarPartidaParaLectura() {
+    private static void seleccionarPartidaParaLectura() {
         byte numeroPartida;
         // Mostrar lista de partidas disponibles y retornar la cantidad de las mismas
+
         byte cantidadDePartidas = ManejoLogs.mostrarListaPartidas();
         if (cantidadDePartidas != 0) { // Verificamos que existan partidas
+            System.out.println("0. [Para salir]");
             try {
                 Scanner scanner = new Scanner(System.in);
                 do {
                     // Preguntar al usuario qué partida desea leer
                     System.out.print("\nIngrese el número de partida que desea leer: ");
                     numeroPartida = scanner.nextByte();
-                } while (numeroPartida > cantidadDePartidas || numeroPartida < 1); // Verificar que esté en el rango
+                } while (numeroPartida > cantidadDePartidas || numeroPartida < 0); // Verificar que esté en el rango
                 // Leer la partida seleccionada
+                if (numeroPartida == 0){
+                    return;
+                }
                 ManejoLogs.leerPartida(numeroPartida);
             } catch (InputMismatchException e) {
                 System.out.println("\nDato ingresado inválido. Por favor, vuelva a intentarlo.\n");

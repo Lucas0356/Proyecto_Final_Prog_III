@@ -1,5 +1,6 @@
 package Personajes;
 
+import Partida.Partida;
 import Utilidades.ManejoLogs;
 import static Partida.Partida.continuar;
 
@@ -38,23 +39,38 @@ public class Golem extends Personaje{
 
     // Métodos para manejar el estado de la carga de ataque -------------------
     @Override
-    public byte realizarAtaque(Personaje defensor) {
-        if (estaVivo()){
+    public void realizarAtaque(Personaje defensor) {
+        if (estaVivo()) {
             // Verificamos que el golem no esté cargando su ataque
             if (golemEstaCargandoAtaque()) {
                 ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
                 ManejoLogs.recibirLogPartida("El Golem '" + getApodo() + "' esta cargando su ataque...");
                 ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
-                if (ManejoLogs.getGuardar()){
+                if (ManejoLogs.getGuardar()) {
                     continuar("\nPulse enter para continuar: ");
                 }
-            } else{
+            } else {
                 byte danio = calcularDanioAtaque(defensor);
-                defensor.recibirDanio(danio);
-                return danio;
+
+                // Verificamos si el defensor es un orco y si se enfureció luego de recibir el ataque
+                boolean esUnOrcoEnfurecido = defensor.recibirDanio(danio);
+
+                // Imprimimos el ataque
+                ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+                ManejoLogs.recibirLogPartida(getRaza() + " '" + getApodo() + "' ataca a " +
+                        defensor.getRaza() + " '" + defensor.getApodo() + "'");
+                ManejoLogs.recibirLogPartida("Le ha provocado " + danio + " de daño. " + defensor.getApodo() +
+                        " queda con " + defensor.getSalud() + " de salud.");
+                ManejoLogs.recibirLogPartida("-----------------------------------------------------------------");
+
+                // Si el defensor es un orco y se enfureció, se imprime por pantalla
+                if (esUnOrcoEnfurecido){
+                    imprimirEnfurecimientoOrco(defensor);
+                }
+
+                Partida.continuar("\nPulse enter para continuar: ");
             }
         }
-        return 0; // Al estar muerto, no ataca
     }
     public boolean golemEstaCargandoAtaque(){
         if (cargaAtaque >= 3) {

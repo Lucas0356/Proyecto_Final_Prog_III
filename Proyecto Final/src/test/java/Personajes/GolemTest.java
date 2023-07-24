@@ -18,10 +18,10 @@ class GolemTest {
         atacante.recibirDanio((byte) 100);
 
         // Intentamos realizar el ataque
-        byte danio = atacante.realizarAtaque(defensor);
+        atacante.realizarAtaque(defensor);
 
-        // Si el daño retornado del ataque es 0, significa que no pudo atacar
-        assertEquals(0, danio);
+        // Si la vida del defensor es 100, significa que el atacante no pudo atacar
+        assertEquals(100, defensor.getSalud());
     }
     @Test
     @DisplayName("Prueba para calcular el poder de disparo en todos los niveles")

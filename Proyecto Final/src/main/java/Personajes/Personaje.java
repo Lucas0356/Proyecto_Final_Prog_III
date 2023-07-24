@@ -1,5 +1,7 @@
 package Personajes;
 
+import Partida.Partida;
+import Utilidades.ManejoLogs;
 import Utilidades.NumeroAleatorio;
 
 import java.time.LocalDate;
@@ -71,13 +73,28 @@ public abstract class Personaje {
     // ------------------------------------------------------------------------
 
     // Sección de lógica de los ataques ---------------------------------------
-    public byte realizarAtaque(Personaje defensor){
+    public void realizarAtaque(Personaje defensor){
         if (estaVivo()){
             byte danio = calcularDanioAtaque(defensor);
-            defensor.recibirDanio(danio);
-            return danio;
+
+            // Verificamos si el defensor es un orco y si se enfureció luego de recibir el ataque
+            boolean esUnOrcoEnfurecido = defensor.recibirDanio(danio);
+
+            // Imprimimos el ataque
+            ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+            ManejoLogs.recibirLogPartida(getRaza() + " '" + getApodo() + "' ataca a " +
+                    defensor.getRaza() + " '" + defensor.getApodo() + "'");
+            ManejoLogs.recibirLogPartida("Le ha provocado " + danio + " de daño. " + defensor.getApodo() +
+                    " queda con " + defensor.getSalud() + " de salud.");
+            ManejoLogs.recibirLogPartida("-----------------------------------------------------------------");
+
+            // Si el defensor es un orco y se enfureció, se imprime por pantalla
+            if (esUnOrcoEnfurecido){
+                imprimirEnfurecimientoOrco(defensor);
+            }
+
+            Partida.continuar("\nPulse enter para continuar: ");
         }
-        return 0; // Al estar muerto, no ataca
     }
     protected byte calcularDanioAtaque(Personaje defensor) {
         // Calcular el valor de ataque del atacante
@@ -122,16 +139,22 @@ public abstract class Personaje {
         // Retorna el poder de resistencia mágica
         return (byte) (resistenciaMagica * velocidad);
     }
-    public void recibirDanio(byte cantidad) {
+    public boolean recibirDanio(byte cantidad) {
         salud -= cantidad;
         if (salud < 0) {
             salud = 0;
         }
+        return false;
     }
 
     // ------------------------------------------------------------------------
 
     // Otros métodos auxiliares, utilidades, impresiones, etc. ----------------
+    protected void imprimirEnfurecimientoOrco(Personaje defensor){
+        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("¡El Orco '" + defensor.getApodo() + "' se ha enfurecido y hará más daño\nen el próximo ataque!");
+        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+    }
     public void aumentarNivel() {
         nivel++;
     }

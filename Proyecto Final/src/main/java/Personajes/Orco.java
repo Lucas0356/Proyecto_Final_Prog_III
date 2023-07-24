@@ -1,5 +1,6 @@
 package Personajes;
 
+import Partida.Partida;
 import Utilidades.ManejoLogs;
 
 public class Orco extends Personaje{
@@ -30,18 +31,33 @@ public class Orco extends Personaje{
 
     // Métodos de cálculos y ataques ------------------------------------------
     @Override
-    public byte realizarAtaque(Personaje defensor) {
+    public void realizarAtaque(Personaje defensor){
         if (estaVivo()){
             byte danio = calcularDanioAtaque(defensor);
-            defensor.recibirDanio(danio);
 
             if (ferocidad) {
-                danio *= 1.5; // Aumentar el daño en un 50%
+                danio *= 1.5; // Aumentar el daño en un 50% si está enfurecido
                 desactivarFerocidad();
             }
-            return danio;
+
+            // Verificamos si el defensor es un orco y si se enfureció luego de recibir el ataque
+            boolean esUnOrcoEnfurecido = defensor.recibirDanio(danio);
+
+            // Imprimimos el ataque
+            ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+            ManejoLogs.recibirLogPartida(getRaza() + " '" + getApodo() + "' ataca a " +
+                    defensor.getRaza() + " '" + defensor.getApodo() + "'");
+            ManejoLogs.recibirLogPartida("Le ha provocado " + danio + " de daño. " + defensor.getApodo() +
+                    " queda con " + defensor.getSalud() + " de salud.");
+            ManejoLogs.recibirLogPartida("-----------------------------------------------------------------");
+
+            // Si el defensor es un orco y se enfureció, se imprime por pantalla
+            if (esUnOrcoEnfurecido){
+                imprimirEnfurecimientoOrco(defensor);
+            }
+
+            Partida.continuar("\nPulse enter para continuar: ");
         }
-        return 0; // Al estar muerto, no ataca
     }
     @Override
     public byte calcularPoderDeDisparo() {
@@ -52,7 +68,7 @@ public class Orco extends Personaje{
 
     // Métodos para manejar el estado de la ferocidad -------------------------
     @Override
-    public void recibirDanio(byte cantidad) {
+    public boolean recibirDanio(byte cantidad) {
         byte salud = getSalud();
         salud -= cantidad;
         if (salud <= 0) {
@@ -61,15 +77,13 @@ public class Orco extends Personaje{
             setSalud(salud);
             manejarFerocidadOrco();
         }
+        return getEstadoFerocidad();
     }
     private void manejarFerocidadOrco() {
         incrementarAtaquesRecibidos();
         if (getAtaquesRecibidos() >= 2) {
             activarFerocidad();
             resetearAtaquesRecibidos();
-            ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
-            ManejoLogs.recibirLogPartida("¡El Orco '" + getApodo() + "' se ha enfurecido y hará más daño\nen el próximo ataque!");
-            ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
         }
     }
     private void desactivarFerocidad(){

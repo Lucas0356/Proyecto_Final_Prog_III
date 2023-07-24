@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class OrcoTest {
 
     @Test
-    @DisplayName("Probar que no se pueda atacar con un personaje muerto")
+    @DisplayName("Probar que no se pueda atacar con el orco muerto")
     public void verificarSiAtacaMuerto() {
         Personaje atacante = new Orco("Grom", "Destructor", "10-07-2000");
         Personaje defensor = new Elfo("Legolas", "Elfo de los Bosques", "01-01-2000");
@@ -18,10 +18,10 @@ class OrcoTest {
         atacante.recibirDanio((byte) 100);
 
         // Intentamos realizar el ataque
-        byte danio = atacante.realizarAtaque(defensor);
+        atacante.realizarAtaque(defensor);
 
-        // Si el daño retornado del ataque es 0, significa que no pudo atacar
-        assertEquals(0, danio);
+        // Si la vida del defensor es 100, significa que el atacante no pudo atacar
+        assertEquals(100, defensor.getSalud());
     }
     @Test
     @DisplayName("Prueba para calcular el poder de disparo en todos los niveles")
@@ -79,5 +79,18 @@ class OrcoTest {
         orco.realizarAtaque(atacante); // Orco ataca
         assertFalse(orco.getEstadoFerocidad());
         System.out.println("Estado de su ferocidad luego de atacar con la misma activada: " + orco.getEstadoFerocidad());
+    }
+    @Test
+    @DisplayName("Probar si se actualiza la salud en todos los casos")
+    public void recibirDanioTest() {
+        Orco orco = new Orco("Grom", "Destructor", "10-07-2000");
+        orco.recibirDanio((byte) 25); // Cuando queda vivo
+        assertEquals(75,orco.getSalud());
+
+        orco.recibirDanio((byte) 75); // Cuando queda con exactamente 0
+        assertEquals(0,orco.getSalud());
+
+        orco.recibirDanio((byte) 101); // Cuando recibe más daño que la vida que tiene
+        assertEquals(0,orco.getSalud());
     }
 }

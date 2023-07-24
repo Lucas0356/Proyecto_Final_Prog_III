@@ -35,20 +35,22 @@ public class ManejoLogs {
     }
     public static void recibirLogPartida(String log) {
         if (guardar){
+            System.out.println(log);
             escribirLog(log);
         }
-        System.out.println(log); // Mostramos por consola el log de la partida antes de guardarlo
     }
     public static void nuevaPartidaFecha(){
-        // Obtener la fecha y hora actual
-        LocalDateTime fechaHoraActual = LocalDateTime.now();
-        DateTimeFormatter formatoFechaHora = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        if (guardar){
+            // Obtener la fecha y hora actual
+            LocalDateTime fechaHoraActual = LocalDateTime.now();
+            DateTimeFormatter formatoFechaHora = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
 
-        // log con la fecha y hora para mostrar de cuando es la partida
-        String logFecha = "\n[Partida iniciada el " + fechaHoraActual.format(formatoFechaHora) + "]\n";
+            // log con la fecha y hora para mostrar de cuando es la partida
+            String logFecha = "\n[Partida iniciada el " + fechaHoraActual.format(formatoFechaHora) + "]\n";
 
-        // Escribir el log formateado en el archivo
-        escribirLog(logFecha);
+            // Escribir el log formateado en el archivo
+            escribirLog(logFecha);
+        }
     }
     public static byte mostrarListaPartidas() {
         byte partidasEncontradas = 0;

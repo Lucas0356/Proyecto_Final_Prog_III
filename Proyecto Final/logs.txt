@@ -4,3 +4,78 @@ El Golem 'Geodude' esta cargando su ataque...
 ----------------------------------------------------------------
 El Golem 'Geodude' esta cargando su ataque...
 ----------------------------------------------------------------
+----------------------------------------------------------------
+¡El Orco 'Destructor' se ha enfurecido y hará más daño
+en el próximo ataque!
+----------------------------------------------------------------
+----------------------------------------------------------------
+¡El Orco 'Destructor' se ha enfurecido y hará más daño
+en el próximo ataque!
+----------------------------------------------------------------
+----------------------------------------------------------------
+¡El Orco 'Destructor' se ha enfurecido y hará más daño
+en el próximo ataque!
+----------------------------------------------------------------
+
+[Partida iniciada el 24-07-2023 13:45]
+
+
+========================================
+         Personaje 1 [jugador 1]
+========================================
+Raza: Elfo
+Nombre: Legolas
+Apodo: Elfo de los Bosques
+Fecha de nacimiento: 01-01-2000
+Edad: 23
+Salud: 100
+Link de imagen: https://i.ibb.co/kcKBrdx/elfo.png
+Velocidad: 7
+Destreza: 5
+Nivel: 1
+Armadura: 4
+Resistencia mágica: 7
+========================================
+
+
+[Partida iniciada el 24-07-2023 13:46]
+
+
+========================================
+         Personaje 1 [jugador 1]
+========================================
+Raza: Elfo
+Nombre: Legolas
+Apodo: Elfo de los Bosques
+Fecha de nacimiento: 01-01-2000
+Edad: 23
+Salud: 100
+Link de imagen: https://i.ibb.co/kcKBrdx/elfo.png
+Velocidad: 7
+Destreza: 5
+Nivel: 1
+Armadura: 4
+Resistencia mágica: 7
+========================================
+
+
+[Partida iniciada el 24-07-2023 13:47]
+
+
+========================================
+         Personaje 1 [jugador 1]
+========================================
+Raza: Elfo
+Nombre: Legolas
+Apodo: Elfo de los Bosques
+Fecha de nacimiento: 01-01-2000
+Edad: 23
+Salud: 100
+Link de imagen: https://i.ibb.co/kcKBrdx/elfo.png
+Velocidad: 7
+Destreza: 5
+Nivel: 1
+Armadura: 4
+Resistencia mágica: 7
+========================================
+
