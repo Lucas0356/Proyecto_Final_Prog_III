@@ -266,16 +266,23 @@ public class Main {
         }
         return opcion.equals("1"); // Si es 1 devolverá true
     }
-    static void seleccionarPartidaParaLectura(){
-        // Mostrar lista de partidas disponibles
-        if (ManejoLogs.mostrarListaPartidas()){
-            // Preguntar al usuario qué partida desea leer
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("\nIngrese el número de partida que desea leer: ");
-            int numeroPartida = scanner.nextInt();
-
-            // Leer la partida seleccionada
-            ManejoLogs.leerPartida(numeroPartida);
+    static void seleccionarPartidaParaLectura() {
+        byte numeroPartida;
+        // Mostrar lista de partidas disponibles y retornar la cantidad de las mismas
+        byte cantidadDePartidas = ManejoLogs.mostrarListaPartidas();
+        if (cantidadDePartidas != 0) { // Verificamos que existan partidas
+            try {
+                Scanner scanner = new Scanner(System.in);
+                do {
+                    // Preguntar al usuario qué partida desea leer
+                    System.out.print("\nIngrese el número de partida que desea leer: ");
+                    numeroPartida = scanner.nextByte();
+                } while (numeroPartida > cantidadDePartidas || numeroPartida < 1); // Verificar que esté en el rango
+                // Leer la partida seleccionada
+                ManejoLogs.leerPartida(numeroPartida);
+            } catch (InputMismatchException e) {
+                System.out.println("\nDato ingresado inválido. Por favor, vuelva a intentarlo.\n");
+            }
         }
     }
     // ------------------------------------------------------------------------

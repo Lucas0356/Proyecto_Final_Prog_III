@@ -50,33 +50,52 @@ public class ManejoLogs {
         // Escribir el log formateado en el archivo
         escribirLog(logFecha);
     }
-    public static boolean mostrarListaPartidas() {
-        boolean partidasEncontradas = false;
+    public static byte mostrarListaPartidas() {
+        byte partidasEncontradas = 0;
         try {
             FileReader fileReader = new FileReader(logs);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             String linea;
-            int numeroPartida = 1;
+            byte numeroPartida = 1;
 
             System.out.println("Lista de partidas disponibles:\n");
             while ((linea = bufferedReader.readLine()) != null) {
                 if (linea.startsWith("[Partida iniciada el ")) {
                     System.out.println(numeroPartida + ". " + linea);
                     numeroPartida++;
-                    partidasEncontradas = true;
+                    partidasEncontradas++;
                 }
             }
             bufferedReader.close();
 
-            if (!partidasEncontradas) {
+            if (partidasEncontradas == 0) {
                 System.out.println("No se encontraron partidas registradas.\n");
             }
         } catch (IOException e) {
             // Manejo de la excepción si ocurre un error durante la lectura del archivo
             System.out.println("Ha ocurrido un error al intentar leer el archivo 'logs.txt': " + e.getMessage());
         }
-        return partidasEncontradas;
+        return partidasEncontradas; // Nos devuelve la cantidad de partidas
+    }
+    public static void leerPartida(int numeroPartida) {
+        try {
+            // Abrimos el archivo "logs.txt" para lectura
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(logs));
+
+            // Buscamos y mostramos el contenido de la partida solicitada
+            boolean encontrada = mostrarContenidoPartida(bufferedReader, numeroPartida);
+
+            bufferedReader.close();
+
+            // Si no se encontró la partida, mostramos un mensaje informativo
+            if (!encontrada) {
+                System.out.println("\nLa partida con el número " + numeroPartida + " no fue encontrada.\n");
+            }
+        } catch (IOException e) {
+            // Manejo de la excepción si ocurre un error durante la lectura del archivo
+            System.out.println("Ha ocurrido un error al intentar leer el archivo 'logs.txt': " + e.getMessage());
+        }
     }
     public static void borrarLogs(){
         try {
@@ -128,25 +147,6 @@ public class ManejoLogs {
         } catch (IOException e) {
             // Manejo de la excepción si ocurre un error durante la escritura del archivo
             System.out.println("Ha ocurrido un error al intentar la escritura en el archivo: " + e.getMessage());
-        }
-    }
-    public static void leerPartida(int numeroPartida) {
-        try {
-            // Abrimos el archivo "logs.txt" para lectura
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(logs));
-
-            // Buscamos y mostramos el contenido de la partida solicitada
-            boolean encontrada = mostrarContenidoPartida(bufferedReader, numeroPartida);
-
-            bufferedReader.close();
-
-            // Si no se encontró la partida, mostramos un mensaje informativo
-            if (!encontrada) {
-                System.out.println("\nLa partida con el número " + numeroPartida + " no fue encontrada.\n");
-            }
-        } catch (IOException e) {
-            // Manejo de la excepción si ocurre un error durante la lectura del archivo
-            System.out.println("Ha ocurrido un error al intentar leer el archivo 'logs.txt': " + e.getMessage());
         }
     }
     private static boolean mostrarContenidoPartida(BufferedReader bufferedReader, int numeroPartida) throws IOException {
