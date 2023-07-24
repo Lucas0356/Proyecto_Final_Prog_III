@@ -13,7 +13,7 @@ public class Orco extends Personaje{
     public Orco(String nombre, String apodo, String fechaNacimiento) {
         super(Raza.Orco, nombre, apodo, fechaNacimiento,
                 (byte) 100, // salud
-                ".img",    // Imagen
+                "https://i.ibb.co/8YMm8xS/orco.png",// Imagen
                 (byte) 4, // Velocidad
                 (byte) 2, // Destreza
                 (byte) 1, // Nivel
@@ -58,6 +58,7 @@ public class Orco extends Personaje{
         if (salud <= 0) {
             setSalud((byte) 0);
         } else{
+            setSalud(salud);
             manejarFerocidadOrco();
         }
     }

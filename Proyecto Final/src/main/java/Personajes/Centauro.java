@@ -6,7 +6,7 @@ public class Centauro extends Personaje{
     public Centauro(String nombre, String apodo, String fechaNacimiento) {
         super(Raza.Centauro, nombre, apodo, fechaNacimiento,
                 (byte) 100, // salud
-                ".img",    // Imagen
+                "https://i.ibb.co/yW0bY2L/centauro.png",    // Imagen
                 (byte) 8, // Velocidad
                 (byte) 3, // Destreza
                 (byte) 1, // Nivel

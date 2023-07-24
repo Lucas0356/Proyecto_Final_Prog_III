@@ -6,7 +6,7 @@ public class Elfo extends Personaje{
     public Elfo(String nombre, String apodo, String fechaNacimiento) {
         super(Raza.Elfo, nombre, apodo, fechaNacimiento,
                 (byte) 100, // salud
-                ".img",    // Imagen
+                "https://i.ibb.co/kcKBrdx/elfo.png",    // Imagen
                 (byte) 7, // Velocidad
                 (byte) 5, // Destreza
                 (byte) 1, // Nivel

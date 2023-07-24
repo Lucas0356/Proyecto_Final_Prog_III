@@ -13,7 +13,7 @@ public class Golem extends Personaje{
     public Golem(String nombre, String apodo, String fechaNacimiento) {
         super(Raza.Golem, nombre, apodo, fechaNacimiento,
                 (byte) 100, // salud
-                ".img",    // Imagen
+                "https://i.ibb.co/28q4Qz3/golem.png",    // Imagen
                 (byte) 2, // Velocidad
                 (byte) 4, // Destreza
                 (byte) 1, // Nivel

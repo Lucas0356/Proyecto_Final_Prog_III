@@ -6,7 +6,7 @@ public class Humano extends Personaje{
     public Humano(String nombre, String apodo, String fechaNacimiento) {
         super(Raza.Humano, nombre, apodo, fechaNacimiento,
                 (byte) 100, // salud
-                ".img",    // Imagen
+                "https://i.ibb.co/HP77GtJ/humano.png",    // Imagen
                 (byte) 6, // Velocidad
                 (byte) 5, // Destreza
                 (byte) 1, // Nivel

@@ -222,6 +222,7 @@ public class Partida {
         ManejoLogs.recibirLogPartida("             QUE TU GLORIA RESUENE EN LOS CIELOS,");
         ManejoLogs.recibirLogPartida("              Y TU LEYENDA PERDURE EN EL TIEMPO!");
         ManejoLogs.recibirLogPartida("================================================================");
+        ManejoLogs.recibirLogPartida("Imagen del trono de hierro: https://i.ibb.co/RC9vTJj/tronodehierro.jpg");
         continuar("\nPulse enter para ver el cuadro de honor de los guerreros: ");
 
         for (int i = 0; i < NUM_PERSONAJES; i++) {
