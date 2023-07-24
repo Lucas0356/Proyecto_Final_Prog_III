@@ -129,13 +129,13 @@ public class Partida {
     private byte sortearJugador() {
         byte num = NumeroAleatorio.generarNumeroAleatorio(2);
         // Se le proporciona 1 o 2, que será el jugador que comienza
-        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("-----------------------------------------------------------------------------");
         if (num == 1) {
             ManejoLogs.recibirLogPartida("El sistema sorteó al Jugador 1 para iniciar la ronda");
         } else {
             ManejoLogs.recibirLogPartida("El sistema sorteó al Jugador 2 para iniciar la ronda");
         }
-        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("-----------------------------------------------------------------------------");
         return num;
     }
     private Personaje sortearPersonaje(Personaje[] personajes) {
@@ -150,9 +150,11 @@ public class Partida {
 
     // Otros métodos auxiliares, utilidades, impresiones, etc. ----------------
     private void bonificacionNivel(Personaje personaje){
+        ManejoLogs.recibirLogPartida("------------------------------------------------------------------------------");
         ManejoLogs.recibirLogPartida("El " + personaje.getRazaYapodo() + " ha recibido una bonificación");
         personaje.aumentarNivel();
         ManejoLogs.recibirLogPartida("por derrotar a su oponente, ahora es nivel " + personaje.getNivel());
+        ManejoLogs.recibirLogPartida("------------------------------------------------------------------------------");
     }
     public static void continuar(String texto) {
         if (ManejoLogs.getGuardar()){
@@ -163,54 +165,55 @@ public class Partida {
         }
     }
     private void imprimirPersonajes() {
-        for (int i = 0; i < NUM_PERSONAJES; i++) {
-            if (jugador1[i] != null) {
+        for (int contador = 0; contador < NUM_PERSONAJES; contador++) {
+            if (jugador1[contador] != null) {
                 ManejoLogs.recibirLogPartida("\n========================================");
-                ManejoLogs.recibirLogPartida("         Personaje " + (i + 1) + " [jugador 1]");
+                ManejoLogs.recibirLogPartida("         Personaje " + (contador + 1) + " [jugador 1]");
                 ManejoLogs.recibirLogPartida("========================================");
-                ManejoLogs.recibirLogPartida(String.valueOf(jugador1[i]));
+                ManejoLogs.recibirLogPartida(String.valueOf(jugador1[contador]));
                 ManejoLogs.recibirLogPartida("========================================\n");
                 continuar("Pulse enter para continuar: ");
             }
-            if (jugador2[i] != null) {
+            if (jugador2[contador] != null) {
                 ManejoLogs.recibirLogPartida("========================================");
-                ManejoLogs.recibirLogPartida("         Personaje " + (i + 1) + " [jugador 2]");
+                ManejoLogs.recibirLogPartida("         Personaje " + (contador + 1) + " [jugador 2]");
                 ManejoLogs.recibirLogPartida("========================================");
-                ManejoLogs.recibirLogPartida(String.valueOf(jugador2[i]));
+                ManejoLogs.recibirLogPartida(String.valueOf(jugador2[contador]));
                 ManejoLogs.recibirLogPartida("========================================");
-                if (i + 1 != 3) { //Para que no aparezca con el último personaje, puesto que ahí ponemos otro texto.
+                if (contador + 1 != 3) {
+                    //Para que no aparezca con el último personaje, puesto que ahí ponemos otro texto.
                     continuar("Pulse enter para continuar: ");
                 }
             }
         }
     }
     private void imprimirRonda(String nombrePJ1, String nombrePJ2) {
-        ManejoLogs.recibirLogPartida("\n=====================================================");
-        ManejoLogs.recibirLogPartida("                      RONDA " + rondaActual);
-        ManejoLogs.recibirLogPartida("=====================================================");
+        ManejoLogs.recibirLogPartida("\n=============================================================================");
+        ManejoLogs.recibirLogPartida("                                    RONDA " + rondaActual);
+        ManejoLogs.recibirLogPartida("=============================================================================");
 
-        ManejoLogs.recibirLogPartida("\n----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("\n-----------------------------------------------------------------------------");
         ManejoLogs.recibirLogPartida("El sistema eligió al personaje " + nombrePJ1 + " para el jugador 1");
         ManejoLogs.recibirLogPartida("El sistema eligió al personaje " + nombrePJ2 + " para el jugador 2");
-        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("-----------------------------------------------------------------------------");
     }
     private void imprimirJugadorQueInicia(String jugador) {
-        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("-----------------------------------------------------------------------------");
         ManejoLogs.recibirLogPartida("El " + jugador + " iniciará la ronda debido a haber perdido la anterior");
-        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("-----------------------------------------------------------------------------");
     }
     private void imprimirGanador(String ganador, Personaje[] jugador) {
-        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
-        ManejoLogs.recibirLogPartida("================================================================");
-        ManejoLogs.recibirLogPartida("           ¡FELICIDADES " + ganador + " POR TU VICTORIA!");
-        ManejoLogs.recibirLogPartida("================================================================");
-        ManejoLogs.recibirLogPartida("   HAS DEMOSTRADO TU ENORME VALOR Y TE CORONASTE COMO CAMPEÓN.");
-        ManejoLogs.recibirLogPartida("    TU IMPRESIONANTE VICTORIA MARAVILLÓ A LOS PUEBLERINOS");
-        ManejoLogs.recibirLogPartida("            AHORA ELLOS TE VEN COMO EL NUEVO REY.");
-        ManejoLogs.recibirLogPartida(" DESPUÉS DE MUCHO TIEMPO, EL TRONO DE HIERRO TIENE NUEVO DUEÑO");
-        ManejoLogs.recibirLogPartida("             QUE TU GLORIA RESUENE EN LOS CIELOS,");
-        ManejoLogs.recibirLogPartida("              Y TU LEYENDA PERDURE EN EL TIEMPO!");
-        ManejoLogs.recibirLogPartida("================================================================");
+        ManejoLogs.recibirLogPartida("\n------------------------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("==============================================================================");
+        ManejoLogs.recibirLogPartida("                 ¡FELICIDADES " + ganador + " POR TU VICTORIA!");
+        ManejoLogs.recibirLogPartida("==============================================================================");
+        ManejoLogs.recibirLogPartida("          HAS DEMOSTRADO TU ENORME VALOR Y TE CORONASTE COMO CAMPEÓN.");
+        ManejoLogs.recibirLogPartida("             TU IMPRESIONANTE VICTORIA MARAVILLÓ A LOS PUEBLERINOS");
+        ManejoLogs.recibirLogPartida("                     AHORA ELLOS TE VEN COMO EL NUEVO REY.");
+        ManejoLogs.recibirLogPartida("        DESPUÉS DE MUCHO TIEMPO, EL TRONO DE HIERRO TIENE NUEVO DUEÑO");
+        ManejoLogs.recibirLogPartida("                      QUE TU GLORIA RESUENE EN LOS CIELOS,");
+        ManejoLogs.recibirLogPartida("                       Y TU LEYENDA PERDURE EN EL TIEMPO!");
+        ManejoLogs.recibirLogPartida("==============================================================================");
         ManejoLogs.recibirLogPartida("Imagen del trono de hierro: https://i.ibb.co/RC9vTJj/tronodehierro.jpg");
         continuar("\nPulse enter para ver el cuadro de honor de los guerreros: ");
 

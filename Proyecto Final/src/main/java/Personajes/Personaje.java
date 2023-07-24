@@ -81,12 +81,12 @@ public abstract class Personaje {
             boolean esUnOrcoEnfurecido = defensor.recibirDanio(danio);
 
             // Imprimimos el ataque
-            ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+            ManejoLogs.recibirLogPartida("-----------------------------------------------------------------------------");
             ManejoLogs.recibirLogPartida(getRaza() + " '" + getApodo() + "' ataca a " +
                     defensor.getRaza() + " '" + defensor.getApodo() + "'");
             ManejoLogs.recibirLogPartida("Le ha provocado " + danio + " de daño. " + defensor.getApodo() +
                     " queda con " + defensor.getSalud() + " de salud.");
-            ManejoLogs.recibirLogPartida("-----------------------------------------------------------------");
+            ManejoLogs.recibirLogPartida("-----------------------------------------------------------------------------");
 
             // Si el defensor es un orco y se enfureció, se imprime por pantalla
             if (esUnOrcoEnfurecido){
@@ -151,9 +151,9 @@ public abstract class Personaje {
 
     // Otros métodos auxiliares, utilidades, impresiones, etc. ----------------
     protected void imprimirEnfurecimientoOrco(Personaje defensor){
-        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("-----------------------------------------------------------------------------");
         ManejoLogs.recibirLogPartida("¡El Orco '" + defensor.getApodo() + "' se ha enfurecido y hará más daño\nen el próximo ataque!");
-        ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+        ManejoLogs.recibirLogPartida("-----------------------------------------------------------------------------");
     }
     public void aumentarNivel() {
         nivel++;

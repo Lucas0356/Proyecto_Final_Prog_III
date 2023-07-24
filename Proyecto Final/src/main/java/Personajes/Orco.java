@@ -23,9 +23,12 @@ public class Orco extends Personaje{
     }
     // ------------------------------------------------------------------------
 
-    // Get estado de ferocidad ------------------------------------------------
+    // Getters ------------------------------------------------
     public boolean getEstadoFerocidad() {
         return ferocidad;
+    }
+    public int getAtaquesRecibidos() {
+        return ataquesRecibidos;
     }
     // ------------------------------------------------------------------------
 
@@ -44,12 +47,12 @@ public class Orco extends Personaje{
             boolean esUnOrcoEnfurecido = defensor.recibirDanio(danio);
 
             // Imprimimos el ataque
-            ManejoLogs.recibirLogPartida("----------------------------------------------------------------");
+            ManejoLogs.recibirLogPartida("-----------------------------------------------------------------------------");
             ManejoLogs.recibirLogPartida(getRaza() + " '" + getApodo() + "' ataca a " +
                     defensor.getRaza() + " '" + defensor.getApodo() + "'");
             ManejoLogs.recibirLogPartida("Le ha provocado " + danio + " de daño. " + defensor.getApodo() +
                     " queda con " + defensor.getSalud() + " de salud.");
-            ManejoLogs.recibirLogPartida("-----------------------------------------------------------------");
+            ManejoLogs.recibirLogPartida("-----------------------------------------------------------------------------");
 
             // Si el defensor es un orco y se enfureció, se imprime por pantalla
             if (esUnOrcoEnfurecido){
@@ -100,9 +103,6 @@ public class Orco extends Personaje{
     }
     public void resetearAtaquesRecibidos() {
         ataquesRecibidos = 0;
-    }
-    public int getAtaquesRecibidos() {
-        return ataquesRecibidos;
     }
     // ------------------------------------------------------------------------
 }
