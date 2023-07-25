@@ -152,7 +152,7 @@ public abstract class Personaje {
     // Otros métodos auxiliares, utilidades, impresiones, etc. ----------------
     protected void imprimirEnfurecimientoOrco(Personaje defensor){
         ManejoLogs.recibirLogPartida("-----------------------------------------------------------------------------");
-        ManejoLogs.recibirLogPartida("¡El Orco '" + defensor.getApodo() + "' se ha enfurecido y hará más daño\nen el próximo ataque!");
+        ManejoLogs.recibirLogPartida("¡El Orco '" + defensor.getApodo() + "' se ha enfurecido y hará más daño \nen el próximo ataque!");
         ManejoLogs.recibirLogPartida("-----------------------------------------------------------------------------");
     }
     public void aumentarNivel() {

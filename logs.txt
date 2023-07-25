@@ -1,0 +1,1214 @@
+
+[Partida iniciada el 24-07-2023 20:04]
+
+
+========================================
+         Personaje 1 [jugador 1]
+========================================
+Raza: Golem
+Nombre: Mackenzie
+Apodo: violettekeeling
+Fecha de nacimiento: 24-11-1969
+Edad: 53
+Salud: 100
+Link de imagen: https://i.ibb.co/28q4Qz3/golem.png
+Velocidad: 2
+Destreza: 4
+Nivel: 1
+Armadura: 10
+Resistencia mágica: 6
+========================================
+
+========================================
+         Personaje 1 [jugador 2]
+========================================
+Raza: Humano
+Nombre: Lysanne
+Apodo: mabellangosh
+Fecha de nacimiento: 04-10-1983
+Edad: 39
+Salud: 100
+Link de imagen: https://i.ibb.co/HP77GtJ/humano.png
+Velocidad: 6
+Destreza: 5
+Nivel: 1
+Armadura: 4
+Resistencia mágica: 4
+========================================
+
+========================================
+         Personaje 2 [jugador 1]
+========================================
+Raza: Orco
+Nombre: Peggie
+Apodo: rgislason
+Fecha de nacimiento: 08-08-1997
+Edad: 25
+Salud: 100
+Link de imagen: https://i.ibb.co/8YMm8xS/orco.png
+Velocidad: 4
+Destreza: 2
+Nivel: 1
+Armadura: 7
+Resistencia mágica: 2
+========================================
+
+========================================
+         Personaje 2 [jugador 2]
+========================================
+Raza: Golem
+Nombre: Chase
+Apodo: houstonsmitham
+Fecha de nacimiento: 16-03-2001
+Edad: 22
+Salud: 100
+Link de imagen: https://i.ibb.co/28q4Qz3/golem.png
+Velocidad: 2
+Destreza: 4
+Nivel: 1
+Armadura: 10
+Resistencia mágica: 6
+========================================
+
+========================================
+         Personaje 3 [jugador 1]
+========================================
+Raza: Humano
+Nombre: Cristian
+Apodo: alanweissnat
+Fecha de nacimiento: 06-06-1983
+Edad: 40
+Salud: 100
+Link de imagen: https://i.ibb.co/HP77GtJ/humano.png
+Velocidad: 6
+Destreza: 5
+Nivel: 1
+Armadura: 4
+Resistencia mágica: 4
+========================================
+
+========================================
+         Personaje 3 [jugador 2]
+========================================
+Raza: Elfo
+Nombre: Mable
+Apodo: nichole65
+Fecha de nacimiento: 16-02-1971
+Edad: 52
+Salud: 100
+Link de imagen: https://i.ibb.co/kcKBrdx/elfo.png
+Velocidad: 7
+Destreza: 5
+Nivel: 1
+Armadura: 4
+Resistencia mágica: 7
+========================================
+
+=============================================================================
+                                    RONDA 1
+=============================================================================
+
+-----------------------------------------------------------------------------
+El sistema eligió al personaje Orco 'rgislason' para el jugador 1
+El sistema eligió al personaje Humano 'mabellangosh' para el jugador 2
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El sistema sorteó al Jugador 1 para iniciar la ronda
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'rgislason' ataca a Humano 'mabellangosh'
+Le ha provocado 14 de daño. mabellangosh queda con 86 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'mabellangosh' ataca a Orco 'rgislason'
+Le ha provocado 6 de daño. rgislason queda con 94 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'rgislason' ataca a Humano 'mabellangosh'
+Le ha provocado 4 de daño. mabellangosh queda con 82 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'mabellangosh' ataca a Orco 'rgislason'
+Le ha provocado 21 de daño. rgislason queda con 73 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+¡El Orco 'rgislason' se ha enfurecido y hará más daño 
+en el próximo ataque!
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'rgislason' ataca a Humano 'mabellangosh'
+Le ha provocado 6 de daño. mabellangosh queda con 76 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'mabellangosh' ataca a Orco 'rgislason'
+Le ha provocado 12 de daño. rgislason queda con 61 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'rgislason' ataca a Humano 'mabellangosh'
+Le ha provocado 13 de daño. mabellangosh queda con 63 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'mabellangosh' ataca a Orco 'rgislason'
+Le ha provocado 13 de daño. rgislason queda con 48 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+¡El Orco 'rgislason' se ha enfurecido y hará más daño 
+en el próximo ataque!
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'rgislason' ataca a Humano 'mabellangosh'
+Le ha provocado 12 de daño. mabellangosh queda con 51 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'mabellangosh' ataca a Orco 'rgislason'
+Le ha provocado 8 de daño. rgislason queda con 40 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'rgislason' ataca a Humano 'mabellangosh'
+Le ha provocado 11 de daño. mabellangosh queda con 40 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'mabellangosh' ataca a Orco 'rgislason'
+Le ha provocado 24 de daño. rgislason queda con 16 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+¡El Orco 'rgislason' se ha enfurecido y hará más daño 
+en el próximo ataque!
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'rgislason' ataca a Humano 'mabellangosh'
+Le ha provocado 21 de daño. mabellangosh queda con 19 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'mabellangosh' ataca a Orco 'rgislason'
+Le ha provocado 22 de daño. rgislason queda con 0 de salud.
+-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+El Humano 'mabellangosh' ha recibido una bonificación
+por derrotar a su oponente, ahora es nivel 2
+------------------------------------------------------------------------------
+
+=============================================================================
+                                    RONDA 2
+=============================================================================
+
+-----------------------------------------------------------------------------
+El sistema eligió al personaje Golem 'violettekeeling' para el jugador 1
+El sistema eligió al personaje Humano 'mabellangosh' para el jugador 2
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Jugador 1 iniciará la ronda debido a haber perdido la anterior
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'violettekeeling' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'mabellangosh' ataca a Golem 'violettekeeling'
+Le ha provocado 1 de daño. violettekeeling queda con 99 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'violettekeeling' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'mabellangosh' ataca a Golem 'violettekeeling'
+Le ha provocado 22 de daño. violettekeeling queda con 77 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'violettekeeling' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'mabellangosh' ataca a Golem 'violettekeeling'
+Le ha provocado 18 de daño. violettekeeling queda con 59 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Golem 'violettekeeling' ataca a Humano 'mabellangosh'
+Le ha provocado 17 de daño. mabellangosh queda con 2 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'mabellangosh' ataca a Golem 'violettekeeling'
+Le ha provocado 50 de daño. violettekeeling queda con 9 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'violettekeeling' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'mabellangosh' ataca a Golem 'violettekeeling'
+Le ha provocado 18 de daño. violettekeeling queda con 0 de salud.
+-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+El Humano 'mabellangosh' ha recibido una bonificación
+por derrotar a su oponente, ahora es nivel 3
+------------------------------------------------------------------------------
+
+=============================================================================
+                                    RONDA 3
+=============================================================================
+
+-----------------------------------------------------------------------------
+El sistema eligió al personaje Humano 'alanweissnat' para el jugador 1
+El sistema eligió al personaje Humano 'mabellangosh' para el jugador 2
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Jugador 1 iniciará la ronda debido a haber perdido la anterior
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'alanweissnat' ataca a Humano 'mabellangosh'
+Le ha provocado 8 de daño. mabellangosh queda con 0 de salud.
+-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+El Humano 'alanweissnat' ha recibido una bonificación
+por derrotar a su oponente, ahora es nivel 2
+------------------------------------------------------------------------------
+
+=============================================================================
+                                    RONDA 4
+=============================================================================
+
+-----------------------------------------------------------------------------
+El sistema eligió al personaje Humano 'alanweissnat' para el jugador 1
+El sistema eligió al personaje Elfo 'nichole65' para el jugador 2
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Jugador 2 iniciará la ronda debido a haber perdido la anterior
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'nichole65' ataca a Humano 'alanweissnat'
+Le ha provocado 8 de daño. alanweissnat queda con 92 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'alanweissnat' ataca a Elfo 'nichole65'
+Le ha provocado 11 de daño. nichole65 queda con 89 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'nichole65' ataca a Humano 'alanweissnat'
+Le ha provocado 3 de daño. alanweissnat queda con 89 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'alanweissnat' ataca a Elfo 'nichole65'
+Le ha provocado 40 de daño. nichole65 queda con 49 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'nichole65' ataca a Humano 'alanweissnat'
+Le ha provocado 14 de daño. alanweissnat queda con 75 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'alanweissnat' ataca a Elfo 'nichole65'
+Le ha provocado 11 de daño. nichole65 queda con 38 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'nichole65' ataca a Humano 'alanweissnat'
+Le ha provocado 11 de daño. alanweissnat queda con 64 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'alanweissnat' ataca a Elfo 'nichole65'
+Le ha provocado 31 de daño. nichole65 queda con 7 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'nichole65' ataca a Humano 'alanweissnat'
+Le ha provocado 21 de daño. alanweissnat queda con 43 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'alanweissnat' ataca a Elfo 'nichole65'
+Le ha provocado 33 de daño. nichole65 queda con 0 de salud.
+-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+El Humano 'alanweissnat' ha recibido una bonificación
+por derrotar a su oponente, ahora es nivel 3
+------------------------------------------------------------------------------
+
+=============================================================================
+                                    RONDA 5
+=============================================================================
+
+-----------------------------------------------------------------------------
+El sistema eligió al personaje Humano 'alanweissnat' para el jugador 1
+El sistema eligió al personaje Golem 'houstonsmitham' para el jugador 2
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Jugador 2 iniciará la ronda debido a haber perdido la anterior
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'houstonsmitham' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'alanweissnat' ataca a Golem 'houstonsmitham'
+Le ha provocado 32 de daño. houstonsmitham queda con 68 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'houstonsmitham' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'alanweissnat' ataca a Golem 'houstonsmitham'
+Le ha provocado 54 de daño. houstonsmitham queda con 14 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'houstonsmitham' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'alanweissnat' ataca a Golem 'houstonsmitham'
+Le ha provocado 69 de daño. houstonsmitham queda con 0 de salud.
+-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+El Humano 'alanweissnat' ha recibido una bonificación
+por derrotar a su oponente, ahora es nivel 4
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+==============================================================================
+                 ¡FELICIDADES JUGADOR 1 POR TU VICTORIA!
+==============================================================================
+          HAS DEMOSTRADO TU ENORME VALOR Y TE CORONASTE COMO CAMPEÓN.
+             TU IMPRESIONANTE VICTORIA MARAVILLÓ A LOS PUEBLERINOS
+                     AHORA ELLOS TE VEN COMO EL NUEVO REY.
+        DESPUÉS DE MUCHO TIEMPO, EL TRONO DE HIERRO TIENE NUEVO DUEÑO
+                      QUE TU GLORIA RESUENE EN LOS CIELOS,
+                       Y TU LEYENDA PERDURE EN EL TIEMPO!
+==============================================================================
+Imagen del trono de hierro: https://i.ibb.co/RC9vTJj/tronodehierro.jpg
+================================================================
+[1] Golem 'violettekeeling'
+Ha muerto en el campo de batalla, pero siempre será
+recordado por todos aquellos que vieron su valentía.
+Nivel máximo alcanzado = 1
+================================================================
+================================================================
+[2] Orco 'rgislason'
+Ha muerto en el campo de batalla, pero siempre será
+recordado por todos aquellos que vieron su valentía.
+Nivel máximo alcanzado = 1
+================================================================
+================================================================
+[3] Humano 'alanweissnat'
+Ha sobrevivido con 43 de salud restante
+Nivel máximo alcanzado = 4
+================================================================
+
+[Partida iniciada el 24-07-2023 20:07]
+
+
+========================================
+         Personaje 1 [jugador 1]
+========================================
+Raza: Elfo
+Nombre: Loyce
+Apodo: alexander08
+Fecha de nacimiento: 20-06-1990
+Edad: 33
+Salud: 100
+Link de imagen: https://i.ibb.co/kcKBrdx/elfo.png
+Velocidad: 7
+Destreza: 5
+Nivel: 1
+Armadura: 4
+Resistencia mágica: 7
+========================================
+
+========================================
+         Personaje 1 [jugador 2]
+========================================
+Raza: Elfo
+Nombre: Marilyne
+Apodo: niahackett
+Fecha de nacimiento: 18-01-1983
+Edad: 40
+Salud: 100
+Link de imagen: https://i.ibb.co/kcKBrdx/elfo.png
+Velocidad: 7
+Destreza: 5
+Nivel: 1
+Armadura: 4
+Resistencia mágica: 7
+========================================
+
+========================================
+         Personaje 2 [jugador 1]
+========================================
+Raza: Centauro
+Nombre: Sarai
+Apodo: marcogleichner
+Fecha de nacimiento: 01-07-1975
+Edad: 48
+Salud: 100
+Link de imagen: https://i.ibb.co/yW0bY2L/centauro.png
+Velocidad: 8
+Destreza: 3
+Nivel: 1
+Armadura: 5
+Resistencia mágica: 4
+========================================
+
+========================================
+         Personaje 2 [jugador 2]
+========================================
+Raza: Centauro
+Nombre: Jillian
+Apodo: wilfrid70
+Fecha de nacimiento: 28-07-1975
+Edad: 47
+Salud: 100
+Link de imagen: https://i.ibb.co/yW0bY2L/centauro.png
+Velocidad: 8
+Destreza: 3
+Nivel: 1
+Armadura: 5
+Resistencia mágica: 4
+========================================
+
+========================================
+         Personaje 3 [jugador 1]
+========================================
+Raza: Golem
+Nombre: Rhianna
+Apodo: andywalker
+Fecha de nacimiento: 24-07-1969
+Edad: 54
+Salud: 100
+Link de imagen: https://i.ibb.co/28q4Qz3/golem.png
+Velocidad: 2
+Destreza: 4
+Nivel: 1
+Armadura: 10
+Resistencia mágica: 6
+========================================
+
+========================================
+         Personaje 3 [jugador 2]
+========================================
+Raza: Humano
+Nombre: Nelson
+Apodo: elidickinson
+Fecha de nacimiento: 29-01-1999
+Edad: 24
+Salud: 100
+Link de imagen: https://i.ibb.co/HP77GtJ/humano.png
+Velocidad: 6
+Destreza: 5
+Nivel: 1
+Armadura: 4
+Resistencia mágica: 4
+========================================
+
+=============================================================================
+                                    RONDA 1
+=============================================================================
+
+-----------------------------------------------------------------------------
+El sistema eligió al personaje Golem 'andywalker' para el jugador 1
+El sistema eligió al personaje Elfo 'niahackett' para el jugador 2
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El sistema sorteó al Jugador 2 para iniciar la ronda
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'niahackett' ataca a Golem 'andywalker'
+Le ha provocado 4 de daño. andywalker queda con 96 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'andywalker' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'niahackett' ataca a Golem 'andywalker'
+Le ha provocado 4 de daño. andywalker queda con 92 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'andywalker' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'niahackett' ataca a Golem 'andywalker'
+Le ha provocado 9 de daño. andywalker queda con 83 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'andywalker' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'niahackett' ataca a Golem 'andywalker'
+Le ha provocado 9 de daño. andywalker queda con 74 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Golem 'andywalker' ataca a Elfo 'niahackett'
+Le ha provocado 50 de daño. niahackett queda con 50 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'niahackett' ataca a Golem 'andywalker'
+Le ha provocado 28 de daño. andywalker queda con 46 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'andywalker' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'niahackett' ataca a Golem 'andywalker'
+Le ha provocado 22 de daño. andywalker queda con 24 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'andywalker' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'niahackett' ataca a Golem 'andywalker'
+Le ha provocado 4 de daño. andywalker queda con 20 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'andywalker' esta cargando su ataque...
+-----------------------------------------------------------------------------
+
+=============================================================================
+                                    RONDA 2
+=============================================================================
+
+-----------------------------------------------------------------------------
+El sistema eligió al personaje Elfo 'alexander08' para el jugador 1
+El sistema eligió al personaje Humano 'elidickinson' para el jugador 2
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El sistema sorteó al Jugador 2 para iniciar la ronda
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'elidickinson' ataca a Elfo 'alexander08'
+Le ha provocado 22 de daño. alexander08 queda con 78 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'alexander08' ataca a Humano 'elidickinson'
+Le ha provocado 30 de daño. elidickinson queda con 70 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'elidickinson' ataca a Elfo 'alexander08'
+Le ha provocado 4 de daño. alexander08 queda con 74 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'alexander08' ataca a Humano 'elidickinson'
+Le ha provocado 1 de daño. elidickinson queda con 69 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'elidickinson' ataca a Elfo 'alexander08'
+Le ha provocado 9 de daño. alexander08 queda con 65 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'alexander08' ataca a Humano 'elidickinson'
+Le ha provocado 16 de daño. elidickinson queda con 53 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'elidickinson' ataca a Elfo 'alexander08'
+Le ha provocado 24 de daño. alexander08 queda con 41 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'alexander08' ataca a Humano 'elidickinson'
+Le ha provocado 26 de daño. elidickinson queda con 27 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'elidickinson' ataca a Elfo 'alexander08'
+Le ha provocado 25 de daño. alexander08 queda con 16 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'alexander08' ataca a Humano 'elidickinson'
+Le ha provocado 4 de daño. elidickinson queda con 23 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'elidickinson' ataca a Elfo 'alexander08'
+Le ha provocado 9 de daño. alexander08 queda con 7 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Elfo 'alexander08' ataca a Humano 'elidickinson'
+Le ha provocado 16 de daño. elidickinson queda con 7 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'elidickinson' ataca a Elfo 'alexander08'
+Le ha provocado 8 de daño. alexander08 queda con 0 de salud.
+-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+El Humano 'elidickinson' ha recibido una bonificación
+por derrotar a su oponente, ahora es nivel 2
+------------------------------------------------------------------------------
+
+=============================================================================
+                                    RONDA 3
+=============================================================================
+
+-----------------------------------------------------------------------------
+El sistema eligió al personaje Golem 'andywalker' para el jugador 1
+El sistema eligió al personaje Elfo 'niahackett' para el jugador 2
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Jugador 1 iniciará la ronda debido a haber perdido la anterior
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Golem 'andywalker' ataca a Elfo 'niahackett'
+Le ha provocado 54 de daño. niahackett queda con 0 de salud.
+-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+El Golem 'andywalker' ha recibido una bonificación
+por derrotar a su oponente, ahora es nivel 2
+------------------------------------------------------------------------------
+
+=============================================================================
+                                    RONDA 4
+=============================================================================
+
+-----------------------------------------------------------------------------
+El sistema eligió al personaje Centauro 'marcogleichner' para el jugador 1
+El sistema eligió al personaje Humano 'elidickinson' para el jugador 2
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Jugador 2 iniciará la ronda debido a haber perdido la anterior
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'elidickinson' ataca a Centauro 'marcogleichner'
+Le ha provocado 15 de daño. marcogleichner queda con 85 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Centauro 'marcogleichner' ataca a Humano 'elidickinson'
+Le ha provocado 7 de daño. elidickinson queda con 0 de salud.
+-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+El Centauro 'marcogleichner' ha recibido una bonificación
+por derrotar a su oponente, ahora es nivel 2
+------------------------------------------------------------------------------
+
+=============================================================================
+                                    RONDA 5
+=============================================================================
+
+-----------------------------------------------------------------------------
+El sistema eligió al personaje Centauro 'marcogleichner' para el jugador 1
+El sistema eligió al personaje Centauro 'wilfrid70' para el jugador 2
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Jugador 2 iniciará la ronda debido a haber perdido la anterior
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Centauro 'wilfrid70' ataca a Centauro 'marcogleichner'
+Le ha provocado 10 de daño. marcogleichner queda con 75 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Centauro 'marcogleichner' ataca a Centauro 'wilfrid70'
+Le ha provocado 17 de daño. wilfrid70 queda con 83 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Centauro 'wilfrid70' ataca a Centauro 'marcogleichner'
+Le ha provocado 13 de daño. marcogleichner queda con 62 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Centauro 'marcogleichner' ataca a Centauro 'wilfrid70'
+Le ha provocado 1 de daño. wilfrid70 queda con 82 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Centauro 'wilfrid70' ataca a Centauro 'marcogleichner'
+Le ha provocado 1 de daño. marcogleichner queda con 61 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Centauro 'marcogleichner' ataca a Centauro 'wilfrid70'
+Le ha provocado 25 de daño. wilfrid70 queda con 57 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Centauro 'wilfrid70' ataca a Centauro 'marcogleichner'
+Le ha provocado 5 de daño. marcogleichner queda con 56 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Centauro 'marcogleichner' ataca a Centauro 'wilfrid70'
+Le ha provocado 28 de daño. wilfrid70 queda con 29 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Centauro 'wilfrid70' ataca a Centauro 'marcogleichner'
+Le ha provocado 9 de daño. marcogleichner queda con 47 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Centauro 'marcogleichner' ataca a Centauro 'wilfrid70'
+Le ha provocado 11 de daño. wilfrid70 queda con 18 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Centauro 'wilfrid70' ataca a Centauro 'marcogleichner'
+Le ha provocado 12 de daño. marcogleichner queda con 35 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Centauro 'marcogleichner' ataca a Centauro 'wilfrid70'
+Le ha provocado 22 de daño. wilfrid70 queda con 0 de salud.
+-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+El Centauro 'marcogleichner' ha recibido una bonificación
+por derrotar a su oponente, ahora es nivel 3
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+==============================================================================
+                 ¡FELICIDADES JUGADOR 1 POR TU VICTORIA!
+==============================================================================
+          HAS DEMOSTRADO TU ENORME VALOR Y TE CORONASTE COMO CAMPEÓN.
+             TU IMPRESIONANTE VICTORIA MARAVILLÓ A LOS PUEBLERINOS
+                     AHORA ELLOS TE VEN COMO EL NUEVO REY.
+        DESPUÉS DE MUCHO TIEMPO, EL TRONO DE HIERRO TIENE NUEVO DUEÑO
+                      QUE TU GLORIA RESUENE EN LOS CIELOS,
+                       Y TU LEYENDA PERDURE EN EL TIEMPO!
+==============================================================================
+Imagen del trono de hierro: https://i.ibb.co/RC9vTJj/tronodehierro.jpg
+================================================================
+[1] Elfo 'alexander08'
+Ha muerto en el campo de batalla, pero siempre será
+recordado por todos aquellos que vieron su valentía.
+Nivel máximo alcanzado = 1
+================================================================
+================================================================
+[2] Centauro 'marcogleichner'
+Ha sobrevivido con 35 de salud restante
+Nivel máximo alcanzado = 3
+================================================================
+================================================================
+[3] Golem 'andywalker'
+Ha sobrevivido con 20 de salud restante
+Nivel máximo alcanzado = 2
+================================================================
+
+[Partida iniciada el 24-07-2023 20:08]
+
+
+========================================
+         Personaje 1 [jugador 1]
+========================================
+Raza: Humano
+Nombre: Kitty
+Apodo: croninmelvina
+Fecha de nacimiento: 13-02-1967
+Edad: 56
+Salud: 100
+Link de imagen: https://i.ibb.co/HP77GtJ/humano.png
+Velocidad: 6
+Destreza: 5
+Nivel: 1
+Armadura: 4
+Resistencia mágica: 4
+========================================
+
+========================================
+         Personaje 1 [jugador 2]
+========================================
+Raza: Orco
+Nombre: Camryn
+Apodo: howellelmira
+Fecha de nacimiento: 20-09-1960
+Edad: 62
+Salud: 100
+Link de imagen: https://i.ibb.co/8YMm8xS/orco.png
+Velocidad: 4
+Destreza: 2
+Nivel: 1
+Armadura: 7
+Resistencia mágica: 2
+========================================
+
+========================================
+         Personaje 2 [jugador 1]
+========================================
+Raza: Humano
+Nombre: Baylee
+Apodo: gbednar
+Fecha de nacimiento: 27-05-1972
+Edad: 51
+Salud: 100
+Link de imagen: https://i.ibb.co/HP77GtJ/humano.png
+Velocidad: 6
+Destreza: 5
+Nivel: 1
+Armadura: 4
+Resistencia mágica: 4
+========================================
+
+========================================
+         Personaje 2 [jugador 2]
+========================================
+Raza: Orco
+Nombre: Vicente
+Apodo: millsayana
+Fecha de nacimiento: 08-04-2005
+Edad: 18
+Salud: 100
+Link de imagen: https://i.ibb.co/8YMm8xS/orco.png
+Velocidad: 4
+Destreza: 2
+Nivel: 1
+Armadura: 7
+Resistencia mágica: 2
+========================================
+
+========================================
+         Personaje 3 [jugador 1]
+========================================
+Raza: Golem
+Nombre: Sunny
+Apodo: katherine91
+Fecha de nacimiento: 14-03-1987
+Edad: 36
+Salud: 100
+Link de imagen: https://i.ibb.co/28q4Qz3/golem.png
+Velocidad: 2
+Destreza: 4
+Nivel: 1
+Armadura: 10
+Resistencia mágica: 6
+========================================
+
+========================================
+         Personaje 3 [jugador 2]
+========================================
+Raza: Golem
+Nombre: Madilyn
+Apodo: fritschalvera
+Fecha de nacimiento: 28-12-1993
+Edad: 29
+Salud: 100
+Link de imagen: https://i.ibb.co/28q4Qz3/golem.png
+Velocidad: 2
+Destreza: 4
+Nivel: 1
+Armadura: 10
+Resistencia mágica: 6
+========================================
+
+=============================================================================
+                                    RONDA 1
+=============================================================================
+
+-----------------------------------------------------------------------------
+El sistema eligió al personaje Golem 'katherine91' para el jugador 1
+El sistema eligió al personaje Orco 'howellelmira' para el jugador 2
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El sistema sorteó al Jugador 2 para iniciar la ronda
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'howellelmira' ataca a Golem 'katherine91'
+Le ha provocado 15 de daño. katherine91 queda con 85 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'katherine91' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'howellelmira' ataca a Golem 'katherine91'
+Le ha provocado 5 de daño. katherine91 queda con 80 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'katherine91' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'howellelmira' ataca a Golem 'katherine91'
+Le ha provocado 6 de daño. katherine91 queda con 74 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'katherine91' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'howellelmira' ataca a Golem 'katherine91'
+Le ha provocado 7 de daño. katherine91 queda con 67 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Golem 'katherine91' ataca a Orco 'howellelmira'
+Le ha provocado 10 de daño. howellelmira queda con 90 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'howellelmira' ataca a Golem 'katherine91'
+Le ha provocado 5 de daño. katherine91 queda con 62 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'katherine91' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'howellelmira' ataca a Golem 'katherine91'
+Le ha provocado 14 de daño. katherine91 queda con 48 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'katherine91' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'howellelmira' ataca a Golem 'katherine91'
+Le ha provocado 3 de daño. katherine91 queda con 45 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'katherine91' esta cargando su ataque...
+-----------------------------------------------------------------------------
+
+=============================================================================
+                                    RONDA 2
+=============================================================================
+
+-----------------------------------------------------------------------------
+El sistema eligió al personaje Humano 'croninmelvina' para el jugador 1
+El sistema eligió al personaje Orco 'howellelmira' para el jugador 2
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El sistema sorteó al Jugador 2 para iniciar la ronda
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'howellelmira' ataca a Humano 'croninmelvina'
+Le ha provocado 2 de daño. croninmelvina queda con 98 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'croninmelvina' ataca a Orco 'howellelmira'
+Le ha provocado 24 de daño. howellelmira queda con 66 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+¡El Orco 'howellelmira' se ha enfurecido y hará más daño 
+en el próximo ataque!
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'howellelmira' ataca a Humano 'croninmelvina'
+Le ha provocado 10 de daño. croninmelvina queda con 88 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'croninmelvina' ataca a Orco 'howellelmira'
+Le ha provocado 23 de daño. howellelmira queda con 43 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'howellelmira' ataca a Humano 'croninmelvina'
+Le ha provocado 6 de daño. croninmelvina queda con 82 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'croninmelvina' ataca a Orco 'howellelmira'
+Le ha provocado 19 de daño. howellelmira queda con 24 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+¡El Orco 'howellelmira' se ha enfurecido y hará más daño 
+en el próximo ataque!
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'howellelmira' ataca a Humano 'croninmelvina'
+Le ha provocado 18 de daño. croninmelvina queda con 64 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'croninmelvina' ataca a Orco 'howellelmira'
+Le ha provocado 11 de daño. howellelmira queda con 13 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'howellelmira' ataca a Humano 'croninmelvina'
+Le ha provocado 8 de daño. croninmelvina queda con 56 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'croninmelvina' ataca a Orco 'howellelmira'
+Le ha provocado 13 de daño. howellelmira queda con 0 de salud.
+-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+El Humano 'croninmelvina' ha recibido una bonificación
+por derrotar a su oponente, ahora es nivel 2
+------------------------------------------------------------------------------
+
+=============================================================================
+                                    RONDA 3
+=============================================================================
+
+-----------------------------------------------------------------------------
+El sistema eligió al personaje Golem 'katherine91' para el jugador 1
+El sistema eligió al personaje Golem 'fritschalvera' para el jugador 2
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Jugador 2 iniciará la ronda debido a haber perdido la anterior
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'fritschalvera' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Golem 'katherine91' ataca a Golem 'fritschalvera'
+Le ha provocado 30 de daño. fritschalvera queda con 70 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'fritschalvera' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'katherine91' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'fritschalvera' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'katherine91' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Golem 'fritschalvera' ataca a Golem 'katherine91'
+Le ha provocado 56 de daño. katherine91 queda con 0 de salud.
+-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+El Golem 'fritschalvera' ha recibido una bonificación
+por derrotar a su oponente, ahora es nivel 2
+------------------------------------------------------------------------------
+
+=============================================================================
+                                    RONDA 4
+=============================================================================
+
+-----------------------------------------------------------------------------
+El sistema eligió al personaje Humano 'gbednar' para el jugador 1
+El sistema eligió al personaje Orco 'millsayana' para el jugador 2
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Jugador 1 iniciará la ronda debido a haber perdido la anterior
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'gbednar' ataca a Orco 'millsayana'
+Le ha provocado 4 de daño. millsayana queda con 96 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'millsayana' ataca a Humano 'gbednar'
+Le ha provocado 15 de daño. gbednar queda con 85 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'gbednar' ataca a Orco 'millsayana'
+Le ha provocado 9 de daño. millsayana queda con 87 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+¡El Orco 'millsayana' se ha enfurecido y hará más daño 
+en el próximo ataque!
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'millsayana' ataca a Humano 'gbednar'
+Le ha provocado 16 de daño. gbednar queda con 69 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'gbednar' ataca a Orco 'millsayana'
+Le ha provocado 10 de daño. millsayana queda con 77 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'millsayana' ataca a Humano 'gbednar'
+Le ha provocado 6 de daño. gbednar queda con 63 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'gbednar' ataca a Orco 'millsayana'
+Le ha provocado 8 de daño. millsayana queda con 69 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+¡El Orco 'millsayana' se ha enfurecido y hará más daño 
+en el próximo ataque!
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'millsayana' ataca a Humano 'gbednar'
+Le ha provocado 19 de daño. gbednar queda con 44 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'gbednar' ataca a Orco 'millsayana'
+Le ha provocado 23 de daño. millsayana queda con 46 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'millsayana' ataca a Humano 'gbednar'
+Le ha provocado 14 de daño. gbednar queda con 30 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'gbednar' ataca a Orco 'millsayana'
+Le ha provocado 6 de daño. millsayana queda con 40 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+¡El Orco 'millsayana' se ha enfurecido y hará más daño 
+en el próximo ataque!
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'millsayana' ataca a Humano 'gbednar'
+Le ha provocado 15 de daño. gbednar queda con 15 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'gbednar' ataca a Orco 'millsayana'
+Le ha provocado 20 de daño. millsayana queda con 20 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'millsayana' ataca a Humano 'gbednar'
+Le ha provocado 5 de daño. gbednar queda con 10 de salud.
+-----------------------------------------------------------------------------
+
+=============================================================================
+                                    RONDA 5
+=============================================================================
+
+-----------------------------------------------------------------------------
+El sistema eligió al personaje Humano 'gbednar' para el jugador 1
+El sistema eligió al personaje Orco 'millsayana' para el jugador 2
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El sistema sorteó al Jugador 2 para iniciar la ronda
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'millsayana' ataca a Humano 'gbednar'
+Le ha provocado 14 de daño. gbednar queda con 0 de salud.
+-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+El Orco 'millsayana' ha recibido una bonificación
+por derrotar a su oponente, ahora es nivel 2
+------------------------------------------------------------------------------
+
+=============================================================================
+                                    RONDA 6
+=============================================================================
+
+-----------------------------------------------------------------------------
+El sistema eligió al personaje Humano 'croninmelvina' para el jugador 1
+El sistema eligió al personaje Golem 'fritschalvera' para el jugador 2
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Jugador 1 iniciará la ronda debido a haber perdido la anterior
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'croninmelvina' ataca a Golem 'fritschalvera'
+Le ha provocado 2 de daño. fritschalvera queda con 68 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'fritschalvera' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'croninmelvina' ataca a Golem 'fritschalvera'
+Le ha provocado 36 de daño. fritschalvera queda con 32 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Golem 'fritschalvera' esta cargando su ataque...
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'croninmelvina' ataca a Golem 'fritschalvera'
+Le ha provocado 34 de daño. fritschalvera queda con 0 de salud.
+-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+El Humano 'croninmelvina' ha recibido una bonificación
+por derrotar a su oponente, ahora es nivel 3
+------------------------------------------------------------------------------
+
+=============================================================================
+                                    RONDA 7
+=============================================================================
+
+-----------------------------------------------------------------------------
+El sistema eligió al personaje Humano 'croninmelvina' para el jugador 1
+El sistema eligió al personaje Orco 'millsayana' para el jugador 2
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+El Jugador 2 iniciará la ronda debido a haber perdido la anterior
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Orco 'millsayana' ataca a Humano 'croninmelvina'
+Le ha provocado 15 de daño. croninmelvina queda con 41 de salud.
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Humano 'croninmelvina' ataca a Orco 'millsayana'
+Le ha provocado 52 de daño. millsayana queda con 0 de salud.
+-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+El Humano 'croninmelvina' ha recibido una bonificación
+por derrotar a su oponente, ahora es nivel 4
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+==============================================================================
+                 ¡FELICIDADES JUGADOR 1 POR TU VICTORIA!
+==============================================================================
+          HAS DEMOSTRADO TU ENORME VALOR Y TE CORONASTE COMO CAMPEÓN.
+             TU IMPRESIONANTE VICTORIA MARAVILLÓ A LOS PUEBLERINOS
+                     AHORA ELLOS TE VEN COMO EL NUEVO REY.
+        DESPUÉS DE MUCHO TIEMPO, EL TRONO DE HIERRO TIENE NUEVO DUEÑO
+                      QUE TU GLORIA RESUENE EN LOS CIELOS,
+                       Y TU LEYENDA PERDURE EN EL TIEMPO!
+==============================================================================
+Imagen del trono de hierro: https://i.ibb.co/RC9vTJj/tronodehierro.jpg
+================================================================
+[1] Humano 'croninmelvina'
+Ha sobrevivido con 41 de salud restante
+Nivel máximo alcanzado = 4
+================================================================
+================================================================
+[2] Humano 'gbednar'
+Ha muerto en el campo de batalla, pero siempre será
+recordado por todos aquellos que vieron su valentía.
+Nivel máximo alcanzado = 1
+================================================================
+================================================================
+[3] Golem 'katherine91'
+Ha muerto en el campo de batalla, pero siempre será
+recordado por todos aquellos que vieron su valentía.
+Nivel máximo alcanzado = 1
+================================================================
